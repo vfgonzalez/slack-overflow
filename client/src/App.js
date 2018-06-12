@@ -1,18 +1,28 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import Button from '@material-ui/core/Button';
 import logo from "./logo.svg";
+import MenuAppBar from "./components/Nav/Nav";
+import Categories from "./components/Categories/Categories";
+import Jumbotron from "./components/Jumbotron/Jumbotron";
+import Post from "./components/Post/Post";
+import Results from "./components/Results/Results";
+import Footer from "./components/Footer/Footer";
 import "./App.css";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <MenuAppBar />
+        <Post />
+        <Jumbotron />
+        <Categories />
+        <Results />
+        <Footer />
+        <Button variant="contained" color="primary">
+          Hello World
+        </Button>
       </div>
     );
   }
