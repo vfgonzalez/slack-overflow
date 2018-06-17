@@ -21,6 +21,8 @@
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.15.4",
-    "if-env": "^1.0.4"
+    "if-env": "^1.0.4",
+    "material-ui-password-field": "^2.0.1",
+    "react-materialize": "^2.3.0"
   }
 }
