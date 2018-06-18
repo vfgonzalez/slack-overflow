@@ -1,14 +1,25 @@
 import React, {Component} from 'react'
-
-
+import {Navbar, NavItem} from 'react-materialize'
+import Login from '../Login/Login'
+import NewPost from '../NewPost/NewPost'
 
 class Nav extends Component {
   render() {
     return (
-  <h1>This will be the Nav
-    Style with react-materialize as necessary
+      <Navbar brand='Slack Overflow' right
+      className="grey darken-2"
+      >
+      {/* <NavItem onClick={() => console.log('test click')}>Getting started</NavItem> */}
+      <NavItem>
+        <NewPost/>
+        </NavItem>
+      <NavItem >
+        
+        <Login/>
+      </NavItem>
 
-  </h1>
+      
+    </Navbar>
     );
   }
 }

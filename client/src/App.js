@@ -10,12 +10,12 @@ import Results from "./components/Results/Results";
 import Footer from "./components/Footer/Footer";
 import "./App.css";
 
+
 class App extends Component {
   render() {
     return (
       <div className="App">
         <MenuAppBar />
-        <Post />
         <Jumbotron />
         <Categories />
         <Results />
@@ -23,6 +23,8 @@ class App extends Component {
         <Button variant="contained" color="primary">
           Hello World
         </Button>
+        <Post />
+        
       </div>
     );
   }
