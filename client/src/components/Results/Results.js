@@ -17,8 +17,8 @@ const Results = props => (
           consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 
           dolore eu fugiat nulla pariatur.</p>}>
         <p><a href="#">External link</a></p>
-        <p><Button waves='light'>Upvote<Icon left>arrow_upward</Icon></Button>
-        <Button waves='light'>Downvote<Icon right>arrow_downward</Icon></Button></p>
+        <Button waves='light'>Upvote<Icon left>arrow_upward</Icon></Button>
+        <Button className="btn-right-align" waves='light'>Downvote<Icon right>arrow_downward</Icon></Button>
       </Card>
     </Col>
   </Row>
