@@ -1,6 +1,7 @@
 import React from "react";
 import "./Results.css";
-
+import { Button } from "react-materialize";
+import { Icon } from "react-materialize";
 const Results = props => (
   <div className="row">
     <div className="col s12 m3">
@@ -16,10 +17,10 @@ const Results = props => (
           Resource summary
           </div> 
           <div>
-            <button waves="light">Upvote</button>
+            <Button waves='light'>Upvote<Icon left>arrow_upward</Icon></Button>
           </div>
           <div>
-            <button waves="light">Downvote</button>
+            <Button waves='light'>Downvote<Icon right>arrow_downward</Icon></Button>
           </div>
         </div>
       </div>
