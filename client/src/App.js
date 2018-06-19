@@ -17,13 +17,17 @@ class App extends Component {
     return (
       <div className="App">
         <MenuAppBar />
+        <div className="center-align">
+        <h1>Jumbotron Here</h1>
         <Jumbotron />
+       
+        <h1>Categories Here</h1>
         <Categories />
+        <h1>Results Here</h1>
         <Results />
+        </div>
         <Foot />
-        <Button variant="contained" color="primary">
-          Hello World
-        </Button>
+        
         <Post />
         
       </div>
