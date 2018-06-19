@@ -1,29 +1,22 @@
 import React from "react";
 import "./Results.css";
-
+import { Button } from "react-materialize";
+import { Icon } from "react-materialize";
+import { Card } from "react-materialize";
+import { CardTitle } from "react-materialize";
 const Results = props => (
-  <div className="row">
-    <div className="col s12 m3">
-      <div className="card-panel teal">
-        <div className="card-content">
-          <div className="card-title">
-          Resource title
-          </div>
-          <div className="card-image">
-          Category image
-          </div>
-          <div className="card-content">
-          Resource summary
-          </div> 
-          <div>
-            <button waves="light">Upvote</button>
-          </div>
-          <div>
-            <button waves="light">Downvote</button>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div className="container">
+    <Card header={<CardTitle reveal image={"http://via.placeholder.com/350x150"} waves='light' />}
+      title="Card Title"
+      reveal={<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
+        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim 
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo 
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 
+        dolore eu fugiat nulla pariatur.</p>}>
+      <p><a href="#">External link</a></p>
+      <p><Button waves='light'>Upvote<Icon left>arrow_upward</Icon></Button>
+        <Button waves='light'>Downvote<Icon right>arrow_downward</Icon></Button></p>
+    </Card>
   </div>
 );
 
