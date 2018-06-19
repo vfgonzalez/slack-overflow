@@ -3,14 +3,14 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Main from '../routes/Main'
-import Login from '../routes/Login'
+import Admin from '../routes/Admin'
 
 export default () => (
     <BrowserRouter>
         <Switch>
             <Route path='/' exact component ={Main} />
             <Route path='/main' exact component ={Main} />
-            <Route path='/login' exact component ={Login} />
+            <Route path='/admin' exact component ={Admin} />
         </Switch>
     </BrowserRouter>
 )

@@ -1,6 +1,6 @@
 // ---------- This file holds the jsx for the main page ----------
-
 //  -----------------------------------------------------------------------
+
 import React, { Component } from 'react';
 //import ReactDOM from 'react-dom';
 import Button from '@material-ui/core/Button';
@@ -13,7 +13,7 @@ import Results from "../components/Results/Results";
 import Footer from "../components/Footer/Footer";
 // import "./App.css";
 
-class App extends Component {
+class Main extends Component {
   render() {
     return (
       <div className="App">
@@ -31,4 +31,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Main;
