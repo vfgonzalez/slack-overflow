@@ -17,7 +17,7 @@ const Foot = props => (
     >
       <h5 className="white-text">Slack Overflow</h5>
       <Tabs className='tab-demo z-depth-1'>
-        <Tab title="Contributors">
+        <Tab  title="Contributors" active>
           <li><Icon tiny>insert_chart</Icon>  <a className="grey-text text-lighten-3" href="https://github.com/vfgonzalez">vfgonzalez</a></li>
           <li><Icon tiny>insert_chart</Icon>  <a className="grey-text text-lighten-3" href="https://github.com/gavinquirk">gavinquirk</a></li>
           <li><Icon tiny>insert_chart</Icon>  <a className="grey-text text-lighten-3" href="https://github.com/CLopes1">clopes1</a></li>

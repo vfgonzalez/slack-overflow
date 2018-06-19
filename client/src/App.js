@@ -8,6 +8,7 @@ import Jumbotron from "./components/Jumbotron/Jumbotron";
 import Post from "./components/Post/Post";
 import Results from "./components/Results/Results";
 import Foot from "./components/Footer/Footer";
+
 import "./App.css";
 
 
