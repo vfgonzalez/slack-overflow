@@ -7,7 +7,7 @@ import Categories from "./components/Categories/Categories";
 import Jumbotron from "./components/Jumbotron/Jumbotron";
 import Post from "./components/Post/Post";
 import Results from "./components/Results/Results";
-import Footer from "./components/Footer/Footer";
+import Foot from "./components/Footer/Footer";
 import "./App.css";
 
 
@@ -19,7 +19,7 @@ class App extends Component {
         <Jumbotron />
         <Categories />
         <Results />
-        <Footer />
+        <Foot />
         <Button variant="contained" color="primary">
           Hello World
         </Button>
