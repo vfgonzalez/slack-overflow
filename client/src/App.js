@@ -5,7 +5,6 @@ import Jumbotron from "./components/Jumbotron/Jumbotron";
 import Post from "./components/Post/Post";
 import Results from "./components/Results/Results";
 import Footer from "./components/Footer/Footer";
-// import cards from "./cards.json";
 import Categories from "./components/Categories/Categories";
 
 

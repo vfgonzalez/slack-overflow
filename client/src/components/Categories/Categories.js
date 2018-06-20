@@ -1,9 +1,9 @@
 import React from "react";
 import "./Categories.css";
 import { Carousel } from "react-materialize";
-// import cards from "../cards.json";
+// import catArr from "./catArray.json";
 
-let catArr = [
+let catArray = [
 
     {
         "id": 1,
@@ -106,9 +106,9 @@ let catArr = [
 const Categories = props => (
 
     <div>
-        <Carousel options={{ dist: -60, shift: 60, indicators: true}} images={[
+        <Carousel options={{ dist: -60, shift: 60, indicators: true }} images={[
 
-            catArr.map((cat) => {
+            catArray.map((cat) => {
                 return (
                     <a href="">
                         <img src={cat.image} />
