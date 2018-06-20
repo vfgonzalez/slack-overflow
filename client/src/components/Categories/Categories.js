@@ -106,46 +106,16 @@ let catArr = [
 const Categories = props => (
 
     <div>
-
-        <Carousel images={[
+        <Carousel options={{ dist: -60, shift: 60, indicators: true}} images={[
 
             catArr.map((cat) => {
-
                 return (
-
                     <a href="">
                         <img src={cat.image} />
                     </a>
                 );
-
             })
-
-            // <a href="">
-            //     <img src="./images/teachingresources.png" />
-            // </a>,
-
-            // <a href="">
-            //     <img src="./images/css.png" />
-            // </a>,
-
-            // <a href="">
-            //     <img src="./images/testing.png" />
-            // </a>,
-
-            // <a href="">
-            //     <img src="./images/javascript.png" />
-            // </a>,
-
-            // <a href="">
-            //     <img src="./images/api.png" />
-            // </a>,
-
-            // <a href="">
-            //     <img src="./images/databases.png" />
-            // </a>
-
         ]} />
-
     </div>
 );
 
