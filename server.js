@@ -1,6 +1,9 @@
 const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
+const routes = require("./routes");
+const mongoose = require("mongoose");
+
 const PORT = process.env.PORT || 3001;
 const app = express();
 
@@ -13,14 +16,21 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Define API routes here
+app.use(routes);
 
-require("./routes/slack-routes.js")(app);
+// require("./routes/slack-routes.js")(app);
 
 // Send every other request to the React app
 // Define any API routes before this runs
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 })
+
+// Connect to the Mongo DB
+mongoose.connect(
+  process.env.MONGODB_URI || "mongodb://localhost/reactreadinglist"
+);
+
 
 app.listen(PORT, () => {
   console.log(`🌎 ==> Server now on port ${PORT}!`);
