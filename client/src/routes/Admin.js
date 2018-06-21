@@ -21,13 +21,8 @@ import EjectIcon from '@material-ui/icons/Eject';
 import PermIdentityIcon from '@material-ui/icons/PermIdentity';
 import ReorderIcon from '@material-ui/icons/Reorder';
 
-
-
-
-
-
-import DraftsIcon from '@material-ui/icons/Drafts';
-import Nav from '../components/Nav/Nav'
+// import DraftsIcon from '@material-ui/icons/Drafts';
+// import Nav from '../components/Nav/Nav'
 
 
 const drawerWidth = 240;
