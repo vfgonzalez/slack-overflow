@@ -1,4 +1,6 @@
+
 import React, { Component } from 'react';
+//import Routes from './routes'
 //import ReactDOM from 'react-dom';
 import Button from '@material-ui/core/Button';
 // import logo from "./logo.svg";
@@ -10,6 +12,12 @@ import Results from "./components/Results/Results";
 import Foot from "./components/Footer/Footer";
 
 import "./App.css";
+
+//routes redirect from gavin:
+
+// export default () => (
+//   <Routes />
+// )
 
 
 class App extends Component {
@@ -36,3 +44,4 @@ class App extends Component {
 }
 
 export default App;
+
