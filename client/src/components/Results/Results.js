@@ -10,7 +10,7 @@ const Results = props => (
   <div className="container">
     <Row>
       <Col s={4}>
-        <Card className="sticky-action" header={<CardTitle reveal image={"http://via.placeholder.com/350x150"} waves='light' />}
+        <Card className="sticky-action card" header={<CardTitle reveal image={"http://via.placeholder.com/350x150"} waves='light' />}
           title="Impressive Resource Title"
           reveal={<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim 
@@ -36,7 +36,7 @@ const Results = props => (
         </Card>
       </Col>
       <Col s={4}>
-        <Card className="sticky-action" header={<CardTitle reveal image={"http://via.placeholder.com/350x150"} waves='light' />}
+        <Card className="sticky-action card" header={<CardTitle reveal image={"http://via.placeholder.com/350x150"} waves='light' />}
           title="Impressive Resource Title"
           reveal={<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
