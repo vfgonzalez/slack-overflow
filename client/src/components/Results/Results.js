@@ -7,6 +7,7 @@ import { CardTitle } from "react-materialize";
 import { Row } from "react-materialize";
 import { Col } from "react-materialize";
 const Results = props => (
+
   <div className="container">
     <Row>
       <Col s={4}>
@@ -50,6 +51,7 @@ const Results = props => (
       </Col>
     </Row>
   </div>
+
 );
 
 export default Results;
