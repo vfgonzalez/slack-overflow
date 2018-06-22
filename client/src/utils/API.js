@@ -1,3 +1,9 @@
+// ---------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------
+// Book API Front-End
+// ---------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------
+
 import axios from "axios";
 
 export default {
@@ -19,3 +25,31 @@ export default {
     return axios.post("/api/books", bookData);
   }
 };
+
+// ---------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------
+// Resource API Front-End
+// ---------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------
+
+// import axios from "axios";
+
+// export default {
+//   // Gets all books
+//   getBooks: function() {
+//     return axios.get("/api/books")
+//     // .then(console.log(axios.get("/api/books")))
+//   },
+//   // Gets the book with the given id
+//   getBook: function(id) {
+//     return axios.get("/api/books/" + id);
+//   },
+//   // Deletes the book with the given id
+//   deleteBook: function(id) {
+//     return axios.delete("/api/books/" + id);
+//   },
+//   // Saves a book to the database
+//   saveBook: function(bookData) {
+//     return axios.post("/api/books", bookData);
+//   }
+// };
