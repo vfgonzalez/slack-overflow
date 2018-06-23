@@ -3,6 +3,7 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const PORT = process.env.PORT || 3001;
 const app = express();
+const mongoose = require('mongoose')
 
 // Define middleware here
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -13,6 +14,8 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Define API routes here
+
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/slackoverflowdb");
 
 // require("./routes/slack-routes.js")(app);
 require("./routes/slackroutes.js")(app);
