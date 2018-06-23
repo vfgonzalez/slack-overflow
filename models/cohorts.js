@@ -1,10 +1,10 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const cohortSchema = new Schema({
-  cohort: { type: String, required: true }
+const cohortsSchema = new Schema({
+  cohortname: { type: String, required: true }
 });
 
-const Cohort = mongoose.model("Cohort", cohortSchema);
+const Cohorts = mongoose.model("Cohort", cohortsSchema);
 
-module.exports = Cohort;
+module.exports = Cohorts;

@@ -8,10 +8,10 @@ const resourcesSchema = new Schema({
   category: { type: String, required: true },
   createdAt: { type: Date, default: Date.now },
   author: { type: String, required: false },
-  voteCount: {numberInt: 0, required: true}
+  voteCount: {type: Number, default:0, required: false}
 });
 
-const Resources = mongoose.model("Resources", resourcesSchema);
+const Resources = mongoose.model("Resource", resourcesSchema);
 
 module.exports = Resources;
 

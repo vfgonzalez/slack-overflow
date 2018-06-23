@@ -68,7 +68,7 @@ const resourcesSeed = [
 
 const cohortSeed = [
   {
-    cohort: "UCIRV201801FSF2"
+    cohortname: "UCIRV201801FSF2"
   }
 ]
 
@@ -94,9 +94,9 @@ db.Resources
     process.exit(1);
   });
 
-db.Cohort
+db.Cohorts
   .remove({})
-  .then(() => db.Cohort.collection.insertMany(cohortSeed))
+  .then(() => db.Cohorts.collection.insertMany(cohortSeed))
   .then(data => {
     console.log(data.insertedIds.length + " cohort inserted!");
     process.exit(0);

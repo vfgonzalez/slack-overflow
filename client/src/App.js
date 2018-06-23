@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 //import Routes from './routes'
 //import ReactDOM from 'react-dom';
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 // import logo from "./logo.svg";
 import MenuAppBar from "./components/Nav/Nav";
 import Categories from "./components/Categories/Categories";
@@ -45,7 +45,7 @@ class App extends Component {
       <div className="App">
 
         <MenuAppBar />
-      <div className="center-align"
+      <div className="center-align">
         <Post />
         <Jumbotron />
         <Categories
@@ -57,7 +57,7 @@ class App extends Component {
         <Results
           results={this.state.results}
         />
-        </div>
+       </div>
         <Foot />
         
 
