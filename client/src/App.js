@@ -48,23 +48,23 @@ class App extends Component {
     description:""
   };
 
-  componentDidMount() {
-    this.loadResults();
-  }
+  // componentDidMount() {
+  //   this.loadResults();
+  // }
 
-  loadResults = () => {
-    API.getResults()
-      .then(res =>
-        this.setState({ resources: res.data, title: "", link: "", description: "" })
-      )
-      .catch(err => console.log(err));
-  };
+  // loadResults = () => {
+  //   API.getResults()
+  //     .then(res =>
+  //       this.setState({ resources: res.data, title: "", link: "", description: "" })
+  //     )
+  //     .catch(err => console.log(err));
+  // };
 
   handleImageClick = (category) => {
     // event.preventDefault();
     console.log('category', category);
     this.setState({ categoryName: category.name })
-    .then(res => this.loadResults())
+    // .then(res => this.loadResults())
 
     // TODO: use category.id to make an api call & get results
     // axios.get('/api/things/' + category.id, (results) => {
@@ -89,8 +89,8 @@ class App extends Component {
         <Categories
           onImageClick={this.handleImageClick}
         />
-        <CategoryTitle/>
-        {/* <div className="border row">
+        {/* <CategoryTitle/> */}
+        <div className="border row">
           <div className="category col s12">{this.state.categoryName}</div>
 
         </div>
@@ -98,32 +98,32 @@ class App extends Component {
           results={this.state.results}
         />
 
-        </div>
-        <Foot />
+      {/* </div> */}
+      {/* //   <Foot /> */}
         
 
 
-        </div> */}
-        <ResultsList>
-        <div>
+      {/* //   </div>
+      //   <ResultsList>
+      //   <div> */}
 
-          {this.state.resources.map(resource => {
-            return (
-              <Results
-              results={this.state.results}
-              description = {resource.description}
-              key={resource.title}
-              title={resource.title}
-              link={resource.link}
+      {/* //     {this.state.resources.map(resource => { */}
+      //       return (
+      {/* //         <Results */}
+      {/* //         results={this.state.results}
+      //         description = {resource.description}
+      //         key={resource.title}
+      //         title={resource.title}
+      //         link={resource.link}
               
-              />
-            );
-          })}
-          </div>
-          </ResultsList>
+      //         />
+      //       );
+      //     })}
+      //     </div>
+      //     </ResultsList> */}
           
-       </div>
-        <Foot />
+      //  </div>
+      //   <Foot />
 
       </div>
     );
