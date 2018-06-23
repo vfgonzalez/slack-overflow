@@ -1,15 +1,26 @@
+
 import React, { Component } from 'react';
-// import ReactDOM from 'react-dom';
-import Nav from "./components/Nav/Nav";
+
+//import Routes from './routes'
+//import ReactDOM from 'react-dom';
+import Button from '@material-ui/core/Button';
+// import logo from "./logo.svg";
+import MenuAppBar from "./components/Nav/Nav";
+import Categories from "./components/Categories/Categories";
 import Jumbotron from "./components/Jumbotron/Jumbotron";
 import Post from "./components/Post/Post";
 import Results from "./components/Results/Results";
-import Footer from "./components/Footer/Footer";
-import Categories from "./components/Categories/Categories";
-
+import Foot from "./components/Footer/Footer";
 
 
 import "./App.css";
+
+//routes redirect from gavin:
+
+// export default () => (
+//   <Routes />
+// )
+
 
 class App extends Component {
 
@@ -32,7 +43,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Nav />
+
+        <MenuAppBar />
+      <div className="center-align"
         <Post />
         <Jumbotron />
         <Categories
@@ -44,10 +57,14 @@ class App extends Component {
         <Results
           results={this.state.results}
         />
-        <Footer />
+        </div>
+        <Foot />
+        
+
       </div>
     );
   }
 }
 
 export default App;
+
