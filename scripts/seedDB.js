@@ -2,8 +2,6 @@ const mongoose = require("mongoose");
 const db = require("../models");
 mongoose.Promise = global.Promise;
 
-// This file empties the Books collection and inserts the books below
-
 mongoose.connect(
   process.env.MONGODB_URI || "mongodb://localhost/resources",
   {
@@ -67,13 +65,52 @@ const resourcesSeed = [
     voteCount: 0
   }
 ]
-  
+
+const cohortSeed = [
+  {
+    cohort: "UCIRV201801FSF2"
+  }
+]
+
+const usersSeed = [
+  {
+    username: "Thomas Seaman",
+    accountLevel: "Admin",
+    password: "1234",
+    cohort: "UCIRV201801FSF2"
+  }
+]
+
 
 db.Resources
   .remove({})
   .then(() => db.Resources.collection.insertMany(resourcesSeed))
   .then(data => {
-    console.log(data.insertedIds.length + " records inserted!");
+    console.log(data.insertedIds.length + " resources inserted!");
+    process.exit(0);
+  })
+  .catch(err => {
+    console.error(err);
+    process.exit(1);
+  });
+
+db.Cohort
+  .remove({})
+  .then(() => db.Cohort.collection.insertMany(cohortSeed))
+  .then(data => {
+    console.log(data.insertedIds.length + " cohort inserted!");
+    process.exit(0);
+  })
+  .catch(err => {
+    console.error(err);
+    process.exit(1);
+  });
+
+db.Users
+  .remove({})
+  .then(() => db.Users.collection.insertMany(usersSeed))
+  .then(data => {
+    console.log(data.insertedIds.length + " users inserted!");
     process.exit(0);
   })
   .catch(err => {

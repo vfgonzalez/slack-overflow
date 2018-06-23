@@ -1,3 +1,5 @@
 module.exports = {
-  Resoucres: require("./resources")
+  Resources: require("./resources"),
+  Users: require("./users"),
+  Cohorts: require("./cohorts")
 };
