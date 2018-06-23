@@ -19,6 +19,8 @@
     "nodemon": "^1.11.0"
   },
   "dependencies": {
+    "@aoberoi/passport-slack": "^1.0.5",
+    "@slack/client": "^4.3.1",
     "@slack/events-api": "^1.0.1",
     "body-parser": "^1.18.2",
     "dotenv": "^6.0.0",
@@ -26,6 +28,9 @@
     "if-env": "^1.0.4",
     "jquery": "^3.3.1",
     "material-ui-password-field": "^2.0.1",
+    "moment": "^2.22.2",
+    "passport": "^0.4.0",
+    "passport-slack": "0.0.7",
     "react-materialize": "^2.3.0"
   }
 }
