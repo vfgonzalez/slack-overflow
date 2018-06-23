@@ -1,5 +1,6 @@
 
 import React, { Component } from 'react';
+
 //import Routes from './routes'
 //import ReactDOM from 'react-dom';
 import Button from '@material-ui/core/Button';
@@ -11,6 +12,7 @@ import Post from "./components/Post/Post";
 import Results from "./components/Results/Results";
 import Foot from "./components/Footer/Footer";
 
+
 import "./App.css";
 
 //routes redirect from gavin:
@@ -21,23 +23,44 @@ import "./App.css";
 
 
 class App extends Component {
+
+  state = {
+    categoryName: '',
+    results: [],
+  };
+
+  handleImageClick = (category) => {
+    console.log('category', category);
+    this.setState({ categoryName: category.name });
+
+    // TODO: use category.id to make an api call & get results
+    // axios.get('/api/things/' + category.id, (results) => {
+    //   console.log('results', results);
+    //   this.setState({ results });
+    // });
+  }
+
   render() {
     return (
       <div className="App">
+
         <MenuAppBar />
-        <div className="center-align">
-        <h1>Jumbotron Here</h1>
+      <div className="center-align"
+        <Post />
         <Jumbotron />
-       
-        <h1>Categories Here</h1>
-        <Categories />
-        <h1>Results Here</h1>
-        <Results />
+        <Categories
+          onImageClick={this.handleImageClick}
+        />
+        <div className="border row">
+          <div className="category col s12">{this.state.categoryName}</div>
+        </div>
+        <Results
+          results={this.state.results}
+        />
         </div>
         <Foot />
-       
-        <Post />
         
+
       </div>
     );
   }
