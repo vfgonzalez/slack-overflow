@@ -1,24 +1,34 @@
-import React from "react";
+import React, {Component} from "react";
 import "./Categories.css";
 import { Carousel } from "react-materialize";
 import catArray from "../../catArray.json";
 
-const Categories = props => (
+let $ = window.$
 
-    <div>
+class Categories extends Component {
+    componentDidMount () {
 
-        <div>
+        $('.carousel').carousel('next', 16)
+      }
+      
+    render () {
+        return (
+            <div>
+
+        <div id="Carousel">
+            
             <Carousel
                 options={{
                     dist: -60,
                     shift: 60,
-                    indicators: true
+                    numVisible:16,
                 }}
                 children={catArray.map((cat) => {
+                    
                     return (
                         <img
                             key={cat.id}
-                            onClick={() => { props.onImageClick(cat) }}
+                            onClick={() => { this.props.onImageClick(cat) }}
                             src={cat.image}
                         />
                     );
@@ -28,7 +38,8 @@ const Categories = props => (
         </div>
 
     </div>
-
-);
+        )
+    }
+}
 
 export default Categories;

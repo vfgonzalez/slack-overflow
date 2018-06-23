@@ -1,6 +1,7 @@
 
 import React, { Component } from 'react';
 
+
 //import Routes from './routes'
 //import ReactDOM from 'react-dom';
 // import Button from '@material-ui/core/Button';
@@ -12,12 +13,15 @@ import Post from "./components/Post/Post";
 import Results from "./components/Results/Results";
 import ResultsList from "./components/Results/ResultsList";
 import Foot from "./components/Footer/Footer";
+
 import API from "./utils/API";
 import CategoryTitle from './components/Categories/CategoryTitle'
 
 
+
 import "./App.css";
 
+const $ = window.$
 //routes redirect from gavin:
 
 // export default () => (
@@ -74,8 +78,12 @@ class App extends Component {
     return (
       <div className="App">
 
+
         <MenuAppBar />
+
+
       <div className="center-align">
+
         <Post />
         <Jumbotron />
         <Categories
@@ -84,6 +92,17 @@ class App extends Component {
         <CategoryTitle/>
         {/* <div className="border row">
           <div className="category col s12">{this.state.categoryName}</div>
+
+        </div>
+        <Results
+          results={this.state.results}
+        />
+
+        </div>
+        <Foot />
+        
+
+
         </div> */}
         <ResultsList>
         <div>
@@ -105,6 +124,7 @@ class App extends Component {
           
        </div>
         <Foot />
+
       </div>
     );
   }
