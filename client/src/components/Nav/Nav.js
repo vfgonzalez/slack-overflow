@@ -1,18 +1,18 @@
+
+
 import React, {Component} from 'react'
 import {Navbar, NavItem} from 'react-materialize'
 import Login from '../Login/Login'
-import NewPost from '../NewPost/NewPost'
+// import NewPost from '../NewPost/NewPost'
+import Sidebar from '../Sidebar/Sidebar'
 
 class Nav extends Component {
   render() {
     return (
-      <Navbar brand='Slack Overflow' right
-      className="grey darken-2"
+      <Navbar brand={<Sidebar/>} right
+      className="grey darken-2 left-align"
       >
-      {/* <NavItem onClick={() => console.log('test click')}>Getting started</NavItem> */}
-      <NavItem>
-        <NewPost/>
-        </NavItem>
+     
       <NavItem >
         
         <Login/>
@@ -24,3 +24,4 @@ class Nav extends Component {
   }
 }
 export default Nav
+
