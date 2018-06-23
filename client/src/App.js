@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 // import ReactDOM from 'react-dom';
 import Nav from "./components/Nav/Nav";
@@ -8,8 +9,15 @@ import Footer from "./components/Footer/Footer";
 import Categories from "./components/Categories/Categories";
 
 
-
 import "./App.css";
+
+const $ = window.$
+//routes redirect from gavin:
+
+// export default () => (
+//   <Routes />
+// )
+
 
 class App extends Component {
 
@@ -51,3 +59,4 @@ class App extends Component {
 }
 
 export default App;
+
