@@ -20,12 +20,19 @@
   },
   "dependencies": {
 <<<<<<< HEAD
+<<<<<<< HEAD
     "@material-ui/icons": "^1.1.0",
 =======
     "@aoberoi/passport-slack": "^1.0.5",
     "@slack/client": "^4.3.1",
     "@slack/events-api": "^1.0.1",
 >>>>>>> 6091176579f9c421510cd54f73dcc74af32da15a
+=======
+
+    "@aoberoi/passport-slack": "^1.0.5",
+    "@slack/client": "^4.3.1",
+    "@slack/events-api": "^1.0.1",
+>>>>>>> df99ab71f979de011c8530972b4787f358a99db4
     "body-parser": "^1.18.2",
     "dotenv": "^6.0.0",
     "express": "^4.15.4",
