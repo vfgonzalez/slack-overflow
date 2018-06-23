@@ -19,8 +19,8 @@ const Results = props => (
             consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 
             dolore eu fugiat nulla pariatur.</p>}>
           <p><a href="#">http://www.linkgoeshere.com/</a></p>
-          <Button className="btn-left green" waves='light'><Icon center>arrow_upward</Icon></Button>
-          <Button className="btn-right red" waves='light'><Icon center>arrow_downward</Icon></Button>
+          <Button id="upvote" className="btn-left green" waves='light'><Icon center>arrow_upward</Icon></Button>
+          <Button id="downvote" className="btn-right red" waves='light'><Icon center>arrow_downward</Icon></Button>
         </Card>
       </Col>
       <Col s={4}>
@@ -32,8 +32,8 @@ const Results = props => (
             consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
               dolore eu fugiat nulla pariatur.</p>}>
           <p><a href="#">http://www.linkgoeshere.com/</a></p>
-          <Button className="btn-left green" waves='light'><Icon center>arrow_upward</Icon></Button>
-          <Button className="btn-right red" waves='light'><Icon center>arrow_downward</Icon></Button>
+          <Button id="upvote" className="btn-left green" waves='light'><Icon center>arrow_upward</Icon></Button>
+          <Button id="downvote" className="btn-right red" waves='light'><Icon center>arrow_downward</Icon></Button>
         </Card>
       </Col>
       <Col s={4}>
@@ -45,8 +45,8 @@ const Results = props => (
             consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
               dolore eu fugiat nulla pariatur.</p>}>
           <p><a href="#">http://www.linkgoeshere.com/</a></p>
-          <Button className="btn-left green" waves='light'><Icon center>arrow_upward</Icon></Button>
-          <Button className="btn-right red" waves='light'><Icon center>arrow_downward</Icon></Button>
+          <Button id="upvote" className="btn-left green" waves='light'><Icon center>arrow_upward</Icon></Button>
+          <Button id="downvote" className="btn-right red" waves='light'><Icon center>arrow_downward</Icon></Button>
         </Card>
       </Col>
     </Row>
