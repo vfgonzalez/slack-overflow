@@ -29,6 +29,9 @@ const Foot = props => (
       </Tabs>
     </Footer>
   </div>
+
+
+
 );
 
 export default Foot;
