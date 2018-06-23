@@ -30,12 +30,6 @@ passport.use(new SlackStrategy({
   }
 ));
 
-// passport.use(new SlackStrategy({
-// 	clientID: process.env.SLACK_CLIENT_ID,
-// 	clientSecret: process.env.SLACK_CLIENT_SECRET,
-// 	scope: ['links:read'],
-// 	skipUserProfile: true
-// }, () => { }));
 
 
 
@@ -45,12 +39,12 @@ app.get('/slack/authorization', (req, res) => {
   res.send('<a href="/auth/slack"><img alt="Add to Slack" height="40" width="139" src="https://platform.slack-edge.com/img/add_to_slack.png" srcset="https://platform.slack-edge.com/img/add_to_slack.png 1x, https://platform.slack-edge.com/img/add_to_slack@2x.png 2x" /></a>');
 });
 app.get('/auth/slack', passport.authenticate('slack', {
-  scope: ['links:read', "links:write"]
+  scope: ['links:read', 'links:write', 'bot']
 }));
 app.get('/auth/slack/callback',
   passport.authenticate('slack', { session: false }),
   (req, res) => {
-    // res.send('<p>Slack Overflow was successfully installed on your team.</p>');
+    
     res.redirect("http://localhost:3000/")
   },
   (err, req, res, next) => {
@@ -58,8 +52,10 @@ app.get('/auth/slack/callback',
   }
 );
  
+// *** Plug the event adapter into the express app as middleware ***
+app.use('/slack/events', slackEvents.expressMiddleware());
 
-// *** Greeting any user that says "hi" ***
+
 slackEvents.on('link_shared', (message, body) => {
     // Only deal with messages that have no subtype (plain messages) and contain 'hi'
     if (!message.subtype && message.text.indexOf("") >= 0) {
@@ -101,8 +97,20 @@ slackEvents.on('link_shared', (message, body) => {
     return message
     
     
-  });
+  
+  
+  slackEvents.on('error', (error) => {
+    if (error.code === slackEventsApi.errorCodes.TOKEN_VERIFICATION_FAILURE) {
+      // This error type also has a `body` propery containing the request body which failed verification.
+      console.error(`An unverified request was sent to the Slack events Request URL. Request body: \
+      ${JSON.stringify(error.body)}`);
+    } else {
+      console.error(`An error occurred while handling a Slack event: ${error.message}`);
+    }
+    
 
-
+  }
+)
+});
 
 }

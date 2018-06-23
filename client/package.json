@@ -1,7 +1,7 @@
 {
-  "name": "mern",
+  "name": "slackoverflow",
   "version": "0.1.0",
-  "description": "Mern Demo",
+  "description": "Slack Overflow",
   "private": true,
   "proxy": "http://localhost:3001/",
   "dependencies": {
