@@ -20,9 +20,7 @@ class App extends Component {
         <Categories />
         <Results />
         <Foot />
-        <Button variant="contained" color="primary">
-          Hello World
-        </Button>
+       
         <Post />
         
       </div>
