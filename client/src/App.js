@@ -108,7 +108,7 @@ class App extends Component {
       //   <div> */}
 
       {/* //     {this.state.resources.map(resource => { */}
-      //       return (
+      {/* //       return ( */}
       {/* //         <Results */}
       {/* //         results={this.state.results}
       //         description = {resource.description}
@@ -122,8 +122,8 @@ class App extends Component {
       //     </div>
       //     </ResultsList> */}
           
-      //  </div>
-      //   <Foot />
+       </div>
+      <Foot />
 
       </div>
     );
