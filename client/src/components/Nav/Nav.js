@@ -1,5 +1,4 @@
 
-
 import React, {Component} from 'react'
 import {Navbar, NavItem} from 'react-materialize'
 import Login from '../Login/Login'
@@ -16,9 +15,10 @@ class Nav extends Component {
       <NavItem >
         
         <Login/>
+
       </NavItem>
 
-      
+  
     </Navbar>
     );
   }

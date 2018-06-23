@@ -5,9 +5,9 @@ const usersSchema = new Schema({
   username: { type: String, required: true },
   accountLevel: { type: String, required: true },
   password: { type: String, required: true },
-  cohort: "UCIRV201801FSF2"
+  cohortname: {type: String, default: "UCIRV201801FSF2", required:true}
 });
 
-const Users = mongoose.model("Users", usersSchema);
+const Users = mongoose.model("User", usersSchema);
 
 module.exports = Users;
