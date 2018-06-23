@@ -8,15 +8,8 @@
     "body-parser": "^1.18.3",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
-<<<<<<< HEAD
     "react-materialize": "^2.3.1",
-=======
-
-    "react-materialize": "^2.3.1",
-
     "react-router-dom": "^4.3.1",
-
->>>>>>> df99ab71f979de011c8530972b4787f358a99db4
     "react-scripts": "1.0.14"
   },
   "scripts": {

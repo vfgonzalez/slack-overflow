@@ -1,14 +1,5 @@
 
 import React, { Component } from 'react';
-<<<<<<< HEAD
-// import ReactDOM from 'react-dom';
-import Nav from "./components/Nav/Nav";
-import Jumbotron from "./components/Jumbotron/Jumbotron";
-import Post from "./components/Post/Post";
-import Results from "./components/Results/Results";
-import Footer from "./components/Footer/Footer";
-import Categories from "./components/Categories/Categories";
-=======
 
 //import Routes from './routes'
 //import ReactDOM from 'react-dom';
@@ -20,7 +11,6 @@ import Jumbotron from "./components/Jumbotron/Jumbotron";
 import Post from "./components/Post/Post";
 import Results from "./components/Results/Results";
 import Foot from "./components/Footer/Footer";
->>>>>>> df99ab71f979de011c8530972b4787f358a99db4
 
 
 import "./App.css";
@@ -54,13 +44,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-<<<<<<< HEAD
-        <Nav />
-=======
 
         <MenuAppBar />
-      <div className="center-align"
->>>>>>> df99ab71f979de011c8530972b4787f358a99db4
+      <div className="center-align">
         <Post />
         <Jumbotron />
         <Categories
@@ -72,14 +58,10 @@ class App extends Component {
         <Results
           results={this.state.results}
         />
-<<<<<<< HEAD
-        <Footer />
-=======
         </div>
         <Foot />
         
 
->>>>>>> df99ab71f979de011c8530972b4787f358a99db4
       </div>
     );
   }
