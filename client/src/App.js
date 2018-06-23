@@ -105,8 +105,6 @@ class App extends Component {
           
        </div>
         <Foot />
-        
-
       </div>
     );
   }

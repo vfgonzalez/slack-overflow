@@ -12,11 +12,13 @@ const Results = props => (
     <Row>
       <Col s={4}>
         <Card className="sticky-action card" header={<CardTitle reveal image={"http://via.placeholder.com/350x150"} waves='light' />}
+
           title={props.title}
           reveal={<p>{props.description}</p>}>
           <p><a rel="noreferrer noopener" target="_blank" href={props.link}>{props.link}</a></p>
-          <Button id="upvote" className="btn-left green" waves='light'><Icon center>arrow_upward</Icon></Button>
-          <Button id="downvote" className="btn-right red" waves='light'><Icon center>arrow_downward</Icon></Button>
+          <Button id="upvote" className="btn-left green" waves='light'><Icon center>thumb_up</Icon></Button>
+          <Button id="downvote" className="btn-right red" waves='light'><Icon center>thumb_down</Icon></Button>
+
         </Card>
       </Col>
       {/* <Col s={4}>
@@ -28,8 +30,8 @@ const Results = props => (
             consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
               dolore eu fugiat nulla pariatur.</p>}>
           <p><a href="#">http://www.linkgoeshere.com/</a></p>
-          <Button id="upvote" className="btn-left green" waves='light'><Icon center>arrow_upward</Icon></Button>
-          <Button id="downvote" className="btn-right red" waves='light'><Icon center>arrow_downward</Icon></Button>
+          <Button id="upvote" className="btn-left green" waves='light'><Icon center>thumb_up</Icon></Button>
+          <Button id="downvote" className="btn-right red" waves='light'><Icon center>thumb_down</Icon></Button>
         </Card>
       </Col>
       <Col s={4}>
@@ -41,8 +43,8 @@ const Results = props => (
             consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
               dolore eu fugiat nulla pariatur.</p>}>
           <p><a href="#">http://www.linkgoeshere.com/</a></p>
-          <Button id="upvote" className="btn-left green" waves='light'><Icon center>arrow_upward</Icon></Button>
-          <Button id="downvote" className="btn-right red" waves='light'><Icon center>arrow_downward</Icon></Button>
+          <Button id="upvote" className="btn-left green" waves='light'><Icon center>thumb_up</Icon></Button>
+          <Button id="downvote" className="btn-right red" waves='light'><Icon center>thumb_down</Icon></Button>
         </Card>
       </Col> */}
     </Row>
