@@ -35,7 +35,7 @@ class App extends Component {
         <Results />
         </div>
         <Foot />
-        
+       
         <Post />
         
       </div>
