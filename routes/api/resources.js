@@ -1,13 +1,21 @@
 // ---------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------
-// API index
+// Resource API Router
 // ---------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------
 
 const router = require("express").Router();
-const resourceRoutes = require("./resources");
+const resourcesController = require("../../controllers/resourcesController");
 
-// Resource routes
-router.use("/resources", resourceRoutes);
+// Matches with "/api/resources"
+router.route("/")
+  .get(resourcesController.findAll)
+  .post(resourcesController.create);
+
+// Matches with "/api/resources/:id"
+router.route("/:id")
+  .get(resourcesController.findById)
+  .put(resourcesController.update)
+  .delete(resourcesController.remove);
 
 module.exports = router;

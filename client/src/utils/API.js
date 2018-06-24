@@ -1,55 +1,26 @@
 // ---------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------
-// Book API Front-End
+// API Front-End
 // ---------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------
 
 import axios from "axios";
 
 export default {
-  // Gets all books
-  getBooks: function() {
-    return axios.get("/api/books")
-    // .then(console.log(axios.get("/api/books")))
+  // Gets all resources
+  getResources: function() {
+    return axios.get("/api/resources")
   },
-  // Gets the book with the given id
-  getBook: function(id) {
-    return axios.get("/api/books/" + id);
+  // Gets the resource with the given id
+  getResource: function(id) {
+    return axios.get("/api/resources/" + id);
   },
-  // Deletes the book with the given id
-  deleteBook: function(id) {
-    return axios.delete("/api/books/" + id);
+  // Deletes the resource with the given id
+  deleteResource: function(id) {
+    return axios.delete("/api/resources/" + id);
   },
-  // Saves a book to the database
-  saveBook: function(bookData) {
-    return axios.post("/api/books", bookData);
+  // Saves a resource to the database
+  saveResource: function(resourceData) {
+    return axios.post("/api/resources", resourceData);
   }
 };
-
-// ---------------------------------------------------------------------------------
-// ---------------------------------------------------------------------------------
-// Resource API Front-End
-// ---------------------------------------------------------------------------------
-// ---------------------------------------------------------------------------------
-
-// import axios from "axios";
-
-// export default {
-//   // Gets all books
-//   getBooks: function() {
-//     return axios.get("/api/books")
-//     // .then(console.log(axios.get("/api/books")))
-//   },
-//   // Gets the book with the given id
-//   getBook: function(id) {
-//     return axios.get("/api/books/" + id);
-//   },
-//   // Deletes the book with the given id
-//   deleteBook: function(id) {
-//     return axios.delete("/api/books/" + id);
-//   },
-//   // Saves a book to the database
-//   saveBook: function(bookData) {
-//     return axios.post("/api/books", bookData);
-//   }
-// };

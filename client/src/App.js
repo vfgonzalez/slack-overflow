@@ -24,39 +24,30 @@ import "./App.css";
 
 class App extends Component {
 
-// Test for api routes using book DB
-
   // Setting our component's initial state
   state = {
-    books: [],
-    title: "",
-    author: "",
-    synopsis: ""
+    resources: []
   };
 
-  // When the component mounts, load all books and save them to this.state.books
+  // run loadResources after component mounts
   componentDidMount() {
-    this.loadBooks();
+    this.loadResources();
   }
 
-  loadBooks = () => {
-    API.getBooks()
+  // query DB for all resources, and send them to state
+  loadResources = () => {
+    API.getResources()
       .then(res =>
-        this.setState({ books: res.data, title: "", author: "test", synopsis: "" })
+        this.setState({ resources: res.data })
       )
       .catch(err => console.log(err));
   };
 
-  logBooks = (data) => {
-    console.log(data)
-  }
-
+  // Test Button
   handleTestButton = () => {
     console.log('button pressed')
     console.log(this.state)
   }
-
-
 
 // Beginning of render function
   render() {
@@ -66,6 +57,7 @@ class App extends Component {
         <MenuAppBar />
         <div className="center-align">
         <h1>Jumbotron Here</h1>
+        {/* Button for testing API data on front end */}
         <input type="button" onClick={this.handleTestButton} value="Click Me!" />
         <Jumbotron />
        

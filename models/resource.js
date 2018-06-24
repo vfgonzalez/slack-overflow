@@ -1,13 +1,18 @@
 // ---------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------
-// API index
+// Resource Model
 // ---------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------
 
-const router = require("express").Router();
-const resourceRoutes = require("./resources");
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
-// Resource routes
-router.use("/resources", resourceRoutes);
+const resourceSchema = new Schema({
+  link: { type: String, required: true },
+  description: { type: String },
+  date: { type: Date, default: Date.now }
+});
 
-module.exports = router;
+const Resource = mongoose.model("Resource", resourceSchema);
+
+module.exports = Resource;
