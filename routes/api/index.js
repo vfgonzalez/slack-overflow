@@ -1,15 +1,13 @@
-module.exports = {
-  Resources: require("./resources"),
-  Users: require("./users"),
-  Cohorts: require("./cohorts")
-};
 // ---------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------
-// Model Index
+// API index
 // ---------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------
 
-module.exports = {
-  Resource: require("./resource")
-};
-  
+const router = require("express").Router();
+const resourceRoutes = require("./resources");
+
+// Resource routes
+router.use("/resources", resourceRoutes);
+
+module.exports = router;
