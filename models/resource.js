@@ -1,15 +1,18 @@
-module.exports = {
-  Resources: require("./resources"),
-  Users: require("./users"),
-  Cohorts: require("./cohorts")
-};
 // ---------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------
-// Model Index
+// Resource Model
 // ---------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------
 
-module.exports = {
-  Resource: require("./resource")
-};
-  
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
+
+const resourceSchema = new Schema({
+  link: { type: String, required: true },
+  description: { type: String },
+  date: { type: Date, default: Date.now }
+});
+
+const Resource = mongoose.model("Resource", resourceSchema);
+
+module.exports = Resource;

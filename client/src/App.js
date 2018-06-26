@@ -12,7 +12,6 @@ import Post from "./components/Post/Post";
 import Results from "./components/Results/Results";
 import ResultsList from "./components/Results/ResultsList";
 import Foot from "./components/Footer/Footer";
-
 import API from "./utils/API";
 import CategoryTitle from './components/Categories/CategoryTitle'
 
@@ -73,17 +72,45 @@ class App extends Component {
     // loadResults()
   }
 
+
+
+  // run loadResources after component mounts
+  componentDidMount() {
+    this.loadResources();
+  }
+
+  // query DB for all resources, and send them to state
+  loadResources = () => {
+    API.getResources()
+      .then(res =>
+        this.setState({ resources: res.data })
+      )
+      .catch(err => console.log(err));
+  };
+
+  // Test Button
+  handleTestButton = () => {
+    console.log('button pressed')
+    console.log(this.state)
+  }
+
+// Beginning of render function
   render() {
     return (
+      // {this.state.books.map(book => {})}
       <div className="App">
 
 
         <MenuAppBar />
 
 
-      <div className="center-align">
+      {/* <div className="center-align"> */}
 
         <Post />
+        <div className="center-align">
+        <h1>Jumbotron Here</h1>
+        {/* Button for testing API data on front end */}
+        <input type="button" onClick={this.handleTestButton} value="Click Me!" />
         <Jumbotron />
         <Categories
           onImageClick={this.handleImageClick}
