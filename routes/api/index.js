@@ -5,7 +5,7 @@
 // ---------------------------------------------------------------------------------
 
 const router = require("express").Router();
-const resourceRoutes = require("./resources");
+const resourceRoutes = require("./resourceroute");
 
 // Resource routes
 router.use("/resources", resourceRoutes);

@@ -5,17 +5,17 @@
 // ---------------------------------------------------------------------------------
 
 const router = require("express").Router();
-const resourcesController = require("../../controllers/resourcesController");
+const resourceController = require("../../controllers/resourceController");
 
-// Matches with "/api/resources"
+// Matches with "/api/resource"
 router.route("/")
-  .get(resourcesController.findAll)
-  .post(resourcesController.create);
+  .get(resourceController.findAll)
+  .post(resourceController.create);
 
-// Matches with "/api/resources/:id"
+// Matches with "/api/resource/:id"
 router.route("/:id")
-  .get(resourcesController.findById)
-  .put(resourcesController.update)
-  .delete(resourcesController.remove);
+  .get(resourceController.findById)
+  .put(resourceController.update)
+  .delete(resourceController.remove);
 
 module.exports = router;

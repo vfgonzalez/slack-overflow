@@ -7,7 +7,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const resourceSchema = new Schema({
+const resourcesSchema = new Schema({
   link: { type: String, required: true },
   title: { type: String, required: true },
   description: { type: String, required: false },
@@ -17,6 +17,6 @@ const resourceSchema = new Schema({
   voteCount: {type: Number, default:0, required: false}
 })
 
-const Resource = mongoose.model("Resource", resourceSchema);
+const Resource = mongoose.model("Resource", resourcesSchema);
 
 module.exports = Resource;
