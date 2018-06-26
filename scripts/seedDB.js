@@ -82,9 +82,9 @@ const usersSeed = [
 ]
 
 
-db.Resources
+db.Resource
   .remove({})
-  .then(() => db.Resources.collection.insertMany(resourcesSeed))
+  .then(() => db.Resource.collection.insertMany(resourcesSeed))
   .then(data => {
     console.log(data.insertedIds.length + " resources inserted!");
     process.exit(0);
@@ -94,9 +94,9 @@ db.Resources
     process.exit(1);
   });
 
-db.Cohorts
+db.Cohort
   .remove({})
-  .then(() => db.Cohorts.collection.insertMany(cohortSeed))
+  .then(() => db.Cohort.collection.insertMany(cohortSeed))
   .then(data => {
     console.log(data.insertedIds.length + " cohort inserted!");
     process.exit(0);
@@ -106,9 +106,9 @@ db.Cohorts
     process.exit(1);
   });
 
-db.Users
+db.User
   .remove({})
-  .then(() => db.Users.collection.insertMany(usersSeed))
+  .then(() => db.User.collection.insertMany(usersSeed))
   .then(data => {
     console.log(data.insertedIds.length + " users inserted!");
     process.exit(0);
