@@ -11,16 +11,16 @@ import Categories from "./components/Categories/Categories";
 import Jumbotron from "./components/Jumbotron/Jumbotron";
 import Post from "./components/Post/Post";
 import Results from "./components/Results/Results";
-import ResultsList from "./components/Results/ResultsList";
+// import ResultsList from "./components/Results/ResultsList";
 import Foot from "./components/Footer/Footer";
 import API from "./utils/API";
-import CategoryTitle from './components/Categories/CategoryTitle'
+// import CategoryTitle from './components/Categories/CategoryTitle'
 
 
 
 import "./App.css";
 
-const $ = window.$
+// const $ = window.$
 //routes redirect from gavin:
 
 // export default () => (
@@ -41,10 +41,10 @@ class App extends Component {
   state = {
     categoryName: '',
     results: [],
-    resources:[],
+    resources: [],
     title: "",
-    link : "",
-    description:""
+    link: "",
+    description: ""
   };
 
   // componentDidMount() {
@@ -61,8 +61,10 @@ class App extends Component {
 
   handleImageClick = (category) => {
     // event.preventDefault();
-    console.log('category', category);
     this.setState({ categoryName: category.name })
+    console.log('category', category)
+    this.loadResources()
+
     // .then(res => this.loadResults())
 
     // TODO: use category.id to make an api call & get results
@@ -76,30 +78,42 @@ class App extends Component {
 
     
   }
+  loadResources = (source) => {
+
+    API.getResources(source)
+      .then(res =>  {
+          this.setState({ resources: res.data })  
+          console.log(this.state.resources);
+        }
+      )
+      .catch(err => console.log(err));
+
+
+  };
 
 
 
   // run loadResources after component mounts
   componentDidMount() {
-    this.loadResources();
+
   }
 
+  // .then(
+  //   API.getResource(this.state.categoryName)
+
+  //       )
+
   // query DB for all resources, and send them to state
-  loadResources = () => {
-    API.getResources()
-      .then(res =>
-        this.setState({ resources: res.data })
-      )
-      .catch(err => console.log(err));
-  };
+
 
   // Test Button
   handleTestButton = () => {
     console.log('button pressed')
     console.log(this.state)
+
   }
 
-// Beginning of render function
+  // Beginning of render function
   render() {
     return (
       // {this.state.books.map(book => {})}
@@ -109,39 +123,39 @@ class App extends Component {
         <MenuAppBar />
 
 
-      {/* <div className="center-align"> */}
+        {/* <div className="center-align"> */}
 
         <Post />
         <div className="center-align">
-        <h1>Jumbotron Here</h1>
-        {/* Button for testing API data on front end */}
-        <input type="button" onClick={this.handleTestButton} value="Click Me!" />
-        <Jumbotron />
-        <Categories
-          onImageClick={this.handleImageClick}
-        />
-        {/* <CategoryTitle/> */}
-        <div className="border row">
-          <div className="category col s12">{this.state.categoryName}</div>
+          <h1>Jumbotron Here</h1>
+          {/* Button for testing API data on front end */}
+          <button type="button" onClick={this.handleTestButton} value="Click Me!" />
+          <Jumbotron />
+          <Categories
+            onImageClick={this.handleImageClick}
+          />
+          {/* <CategoryTitle/> */}
+          <div className="border row">
+            <div className="category col s12">{this.state.categoryName}</div>
 
-        </div>
-        <Results
-          results={this.state.results}
-        />
+          </div>
+          <Results
+            results={this.state.results}
+          />
 
-      {/* </div> */}
-      {/* //   <Foot /> */}
-        
+          {/* </div> */}
+          {/* //   <Foot /> */}
 
 
-      {/* //   </div>
+
+          {/* //   </div>
       //   <ResultsList>
       //   <div> */}
 
-      {/* //     {this.state.resources.map(resource => { */}
-      {/* //       return ( */}
-      {/* //         <Results */}
-      {/* //         results={this.state.results}
+          {/* //     {this.state.resources.map(resource => { */}
+          {/* //       return ( */}
+          {/* //         <Results */}
+          {/* //         results={this.state.results}
       //         description = {resource.description}
       //         key={resource.title}
       //         title={resource.title}
@@ -152,9 +166,9 @@ class App extends Component {
       //     })}
       //     </div>
       //     </ResultsList> */}
-          
-       </div>
-      <Foot />
+
+        </div>
+        <Foot />
 
       </div>
     );

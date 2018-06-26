@@ -2,8 +2,6 @@ const express = require("express");
 const path = require("path");
 const bodyParser = require("body-parser");
 const routes = require("./routes");
-const mongoose = require("mongoose");
-
 const PORT = process.env.PORT || 3001;
 const app = express();
 // const mongoose = require('mongoose')
@@ -24,9 +22,10 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/slackoverflowdb
 
 // require("./routes/slack-routes.js")(app);
 require("./routes/slackroutes.js")(app);
-require("../routes/api/resourceroute.js")(app);
-require("../routes/api/cohortroute.js")(app);
-require("../routes/api/userroute.js")(app);
+
+// require("../routes/api/resourceroute.js")(app);
+// require("../routes/api/cohortroute.js")(app);
+// require("../routes/api/userroute.js")(app);
 
 // Send every other request to the React app
 // Define any API routes before this runs
@@ -38,9 +37,9 @@ app.get("*", (req, res) => {
 // })
 
 // Connect to the Mongo DB
-mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/slackoverflowdb"
-);
+// mongoose.connect(
+//   process.env.MONGODB_URI || "mongodb://localhost/slackoverflow-test"
+// );
 
 
 // Connect to the Mongo DB
