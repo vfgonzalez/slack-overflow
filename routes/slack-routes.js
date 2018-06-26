@@ -1,12 +1,12 @@
 // Load environment variables from `.env` file (optional)
 require('dotenv').config();
 
-const slackEventsApi = require('@slack/events-api');
+const createSlackEventAdapter = require('@slack/events-api').createSlackEventAdapter;
 const SlackClient = require('@slack/client').WebClient;
 const passport = require('passport');
 const SlackStrategy = require('@aoberoi/passport-slack').default.Strategy;
-const https = require('https');
-var db = require("../models");
+// const https = require('https');
+// var db = require("../models");
 const moment = require("moment");
 const express = require('express');
 // var https = require("https")
@@ -19,7 +19,7 @@ var postingStamp = moment().format("ddd, MMM Do YYYY");
 
 
 // *** Initialize event adapter using verification token from environment variables ***
-const slackEvents = slackEventsApi.createSlackEventAdapter(process.env.SLACK_VERIFICATION_TOKEN, {
+const slackEvents = createSlackEventAdapter(process.env.SLACK_VERIFICATION_TOKEN, {
   includeBody: true
 });
 
@@ -45,6 +45,7 @@ function getClientByTeamId(teamId) {
 passport.use(new SlackStrategy({
   clientID: process.env.SLACK_CLIENT_ID,
   clientSecret: process.env.SLACK_CLIENT_SECRET,
+  accessToken : process.env.OAUTH_ACCESS_TOKEN,
   skipUserProfile: true,
 }, (accessToken, scopes, team, extra, profiles, done) => {
   botAuthorizations[team.id] = extra.bot.accessToken;
@@ -58,7 +59,17 @@ app.use(bodyParser.json());
 
 var linkObj = {}
 
+// const test = new SlackStrategy({
+//   clientID: process.env.SLACK_CLIENT_ID,
+//   clientSecret: process.env.SLACK_CLIENT_SECRET,
+//   accessToken : process.env.OAUTH_ACCESS_TOKEN,
+//   skipUserProfile: true,
+// }, (accessToken, scopes, team, extra, profiles, done) => {
+//   botAuthorizations[team.id] = extra.bot.accessToken;
+//   done(null, {});
+// })
 
+// console.log(test)
 
 module.exports = function(app){
 
@@ -74,7 +85,7 @@ app.get('/auth/slack/callback',
   passport.authenticate('slack', { session: false }),
   (req, res) => {
     // res.send('<p>Slack Overflow was successfully installed on your team.</p>');
-    res.redirect("/")
+    res.redirect("http://localhost:3000/")
   },
   (err, req, res, next) => {
     res.status(500).send(`<p>Greet and React failed to install</p> <pre>${err}</pre>`);
@@ -87,7 +98,7 @@ app.use('/slack/events', slackEvents.expressMiddleware());
 // *** Attach listeners to the event adapter ***
 
 // *** Greeting any user that says "hi" ***
-slackEvents.on('app_mention', (message, body) => {
+slackEvents.on('link_shared', (message, body) => {
   // Only deal with messages that have no subtype (plain messages) and contain 'hi'
   if (!message.subtype && message.text.indexOf("") >= 0) {
     // Initialize a client
@@ -119,7 +130,7 @@ slackEvents.on('app_mention', (message, body) => {
 
     
     // Respond to the message back in the same channel
-    slack.chat.postMessage({ channel: message.channel, text: `:tada: Hooray! Thanks <@${message.user}>, your post has been added to https://slackerflow.herokuapp.com !  ` })
+    slack.chat.postMessage({ channel: message.channel, text: `:tada: Hooray! Thanks, your post has been added to https://slackerflow.herokuapp.com !  ` })
       .catch(console.error);
     // // Respond to the message back in the same channel
     // slack.chat.postMessage(message.channel, text:`I Received your message`)

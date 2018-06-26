@@ -23,7 +23,7 @@ const NewPost = () =>
 {/* <Button className="red" >Cancel</Button> */}
 
 
-<Button classname="green"> Submit</Button>
+<Button className="green"> Submit</Button>
 </Modal>
 </div>;
 
