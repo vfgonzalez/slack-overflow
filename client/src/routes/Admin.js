@@ -20,6 +20,11 @@ import InboxIcon from '@material-ui/icons/Inbox';
 import EjectIcon from '@material-ui/icons/Eject';
 import PermIdentityIcon from '@material-ui/icons/PermIdentity';
 import ReorderIcon from '@material-ui/icons/Reorder';
+<<<<<<< HEAD
+=======
+
+// import DraftsIcon from '@material-ui/icons/Drafts';
+>>>>>>> cb07ad449f14f7d6fb9ca922aec9187cd239896c
 // import Nav from '../components/Nav/Nav'
 
 
@@ -123,4 +128,4 @@ Admin.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Admin);
+export default withStyles(styles)(Admin)
