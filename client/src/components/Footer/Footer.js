@@ -1,5 +1,5 @@
 import React from "react";
-import { Footer, Icon, Button, Tabs, Tab } from 'react-materialize'
+import { Footer, Icon, Tabs, Tab } from 'react-materialize'
 import "./Footer.css";
 
 const Foot = props => (
