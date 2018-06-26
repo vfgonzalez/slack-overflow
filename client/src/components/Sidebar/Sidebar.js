@@ -1,5 +1,5 @@
 import React from 'react'
-import { SideNav, SideNavItem, Button, Icon, Collapsible, CollapsibleItem } from 'react-materialize'
+import { SideNav, SideNavItem, Button} from 'react-materialize'
 
 
 const Sidebar = () =>

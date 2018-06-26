@@ -2,7 +2,8 @@ const router = require("express").Router();
 const resourceController = require("../../controllers/resourceController");
 
 // Matches with "/api/books"
-router.route("/")
+router
+  .route("/")
   .get(resourceController.findAll)
   .post(resourceController.create);
 
@@ -12,5 +13,9 @@ router
   .get(resourceController.findById)
   .put(resourceController.update)
   .delete(resourceController.remove);
+
+  router
+  .route("/:category")
+  .get(resourceController.findByCategory)
 
 module.exports = router;
