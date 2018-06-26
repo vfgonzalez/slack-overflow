@@ -87,7 +87,6 @@ db.Resource
   .then(() => db.Resource.collection.insertMany(resourcesSeed))
   .then(data => {
     console.log(data.insertedIds.length + " resources inserted!");
-    process.exit(0);
   })
   .catch(err => {
     console.error(err);
@@ -99,7 +98,6 @@ db.Cohort
   .then(() => db.Cohort.collection.insertMany(cohortSeed))
   .then(data => {
     console.log(data.insertedIds.length + " cohort inserted!");
-    process.exit(0);
   })
   .catch(err => {
     console.error(err);

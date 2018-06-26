@@ -1,131 +1,86 @@
-// ---------- This file holds the jsx for the admin page ----------
-//  -----------------------------------------------------------------------
 
-import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
-import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import BackspaceIcon from '@material-ui/icons/Backspace';
-import FaceIcon from '@material-ui/icons/Face';
-import ReportProblemIcon from '@material-ui/icons/ReportProblem';
-import InboxIcon from '@material-ui/icons/Inbox';
-import EjectIcon from '@material-ui/icons/Eject';
-import PermIdentityIcon from '@material-ui/icons/PermIdentity';
-import ReorderIcon from '@material-ui/icons/Reorder';
-<<<<<<< HEAD
-=======
-
-// import DraftsIcon from '@material-ui/icons/Drafts';
->>>>>>> cb07ad449f14f7d6fb9ca922aec9187cd239896c
-// import Nav from '../components/Nav/Nav'
+import React, { Component } from 'react';
 
 
-const drawerWidth = 240;
+//import Routes from './routes'
+//import ReactDOM from 'react-dom';
+// import Button from '@material-ui/core/Button';
+// import logo from "./logo.svg";
+// import MenuAppBar from "../components/Nav/Nav";
+// import Categories from "../components/Categories/Categories";
+// import Jumbotron from "../components/Jumbotron/Jumbotron";
+// import Post from "../components/Post/Post";
+// import Results from "../components/Results/Results";
+// import ResultsList from "./components/Results/ResultsList";
+// import Foot from "../components/Footer/Footer";
+import API from "../utils/API";
+// import CategoryTitle from './components/Categories/CategoryTitle'
+import SignUpForm from '../components/SignUpForm/SignUpForm'
 
-const styles = theme => ({
-    root: {
-        flexGrow: 1,
-        height: 430,
-        zIndex: 1,
-        overflow: 'hidden',
-        position: 'relative',
-        display: 'flex',
-    },
-    appBar: {
-        zIndex: theme.zIndex.drawer + 1,
-    },
-    drawerPaper: {
-        position: 'relative',
-        width: drawerWidth,
-    },
-    content: {
-        flexGrow: 1,
-        backgroundColor: theme.palette.background.default,
-        padding: theme.spacing.unit * 3,
-        minWidth: 0, // So the Typography noWrap works
-    },
-    toolbar: theme.mixins.toolbar,
-});
+class Admin extends Component {
 
-function Admin(props) {
-    const { classes } = props;
+    state = {
+        categoryName: '',
+        results: [],
+        resources: [],
+        title: "",
+        link: "",
+        description: "",
+        users: []
+    };
 
-    return (
-        <div className={classes.root}>
-            <AppBar position="absolute" className={classes.appBar}>
-                <Toolbar>
-                    <Typography variant="title" color="inherit" noWrap>Admin Page</Typography>
-                </Toolbar>
-            </AppBar>
-            {/* <Nav position="absolute"/> */}
-            <Drawer
-                variant="permanent"
-                classes={{
-                    paper: classes.drawerPaper,
-                }}
-            >
-                <div className={classes.toolbar} />
+    // loadResources = () => {
+    //     API.getResources()
+    //         .then(res => {
+    //             this.setState({ resources: res.data })
+    //             console.log("loading resources...");
+    //             console.log(this.state.resources);
+    //         }
+    //         )
+    //         .catch(err => console.log(err));
+    // };
+
+    loadUsers = () => {
+        API.getUsers()
+            .then(res => {
+                this.setState({ users: res.data })
+                console.log("loading users...");
+                console.log(this.state.users);
+            }
+            )
+            .catch(err => console.log(err));
+    };
+
+    // run loadResources after component mounts
+    componentDidMount() {
+
+    }
+
+    // Test Button
+    handleTestButton = () => {
+        // this.loadResources()
+        this.loadUsers()
+        console.log('button pressed')
+        console.log(this.state)
+
+    }
+
+    // Beginning of render function
+    render() {
+        return (
+            <div><p>Admin Page</p>
+                {/* <button type="button" onClick={this.handleTestButton} value="Click Me!" /> */}
+                <SignUpForm/>
+
+            </div>
 
 
-                <List component="a">
-                    <ListItem button>
-                        <ListItemIcon><FaceIcon /></ListItemIcon>
-                        <ListItemText primary="Admin Help" />
-                    </ListItem>
-                </List>
-                <Divider />
-                <List component="a">
-                    <ListItem button>
-                        <ListItemIcon><InboxIcon /></ListItemIcon>
-                        <ListItemText primary="Messages" />
-                    </ListItem>
-                    <ListItem button>
-                        <ListItemIcon><ReportProblemIcon /></ListItemIcon>
-                        <ListItemText primary="Flagged Posts" />
-                    </ListItem>
-                </List>
-                <Divider />
-                <List component="a">
-                    <ListItem button>
-                        <ListItemIcon><BackspaceIcon /></ListItemIcon>
-                        <ListItemText primary="Remove Post" />
-                    </ListItem>
-                    <ListItem button>
-                    <ListItemIcon><PermIdentityIcon /></ListItemIcon>
-                        <ListItemText primary="Add New User" />
-                    </ListItem>
-                    <ListItem button>
-                    <ListItemIcon><EjectIcon /></ListItemIcon>
-                        <ListItemText primary="Remove User" />
-                    </ListItem>
-                    <ListItem button>
-                    <ListItemIcon><ReorderIcon /></ListItemIcon>
-                        <ListItemText primary="Add Category" />
-                    </ListItem>
-                    <ListItem button>
-                        <ListItemText primary="Remove Category" />
-                    </ListItem>
-                </List>
 
-            </Drawer>
-            <main className={classes.content}>
-                <div className={classes.toolbar} />
-                <Typography noWrap>{'Here is where selected actions will be displayed'}</Typography>
-            </main>
-        </div>
-    );
+
+
+        );
+    }
 }
 
-Admin.propTypes = {
-    classes: PropTypes.object.isRequired,
-};
+export default Admin;
 
-export default withStyles(styles)(Admin)
