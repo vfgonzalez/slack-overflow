@@ -39,7 +39,7 @@ app.get("*", (req, res) => {
 
 // Connect to the Mongo DB
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/slackoverflow-test"
+  process.env.MONGODB_URI || "mongodb://localhost/slackoverflowdb"
 );
 
 
