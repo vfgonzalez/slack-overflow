@@ -6,6 +6,7 @@ import { Card } from "react-materialize";
 import { CardTitle } from "react-materialize";
 import { Row } from "react-materialize";
 import { Col } from "react-materialize";
+import API from "../../utils/API";
 const Results = props => (
 
   <div className="container">
