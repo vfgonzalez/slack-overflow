@@ -24,7 +24,7 @@ class Results extends React.Component {
               <p><a rel="noreferrer noopener" target="_blank" href={this.state.link}>{this.state.link}</a></p>
               <Button id="upvote" className="btn-upvote green" waves='light'><Icon center>thumb_up</Icon></Button>
               <Button id="downvote" className="btn-downvote red" waves='light'><Icon center>thumb_down</Icon></Button>
-              <div id="voteCount"><p></p></div>
+              <div id="voteCount"><p>{this.state.voteCount}</p></div>
               <div id="author"><p>{this.state.author}</p></div>
               <div id="dateCreated"><p>{this.state.createAd}</p></div>
             </Card>
