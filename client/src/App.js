@@ -59,6 +59,7 @@ class App extends Component {
   //     .catch(err => console.log(err));
   // };
 
+
   handleImageClick = (category) => {
     // event.preventDefault();
     this.setState({ categoryName: category.name })
@@ -78,9 +79,9 @@ class App extends Component {
 
     
   }
-  loadResources = (source) => {
+  loadResources = () => {
 
-    API.getResources(source)
+    API.getResources()
       .then(res =>  {
           this.setState({ resources: res.data })  
           console.log(this.state.resources);
@@ -108,6 +109,7 @@ class App extends Component {
 
   // Test Button
   handleTestButton = () => {
+    this.loadResources()
     console.log('button pressed')
     console.log(this.state)
 

@@ -17,6 +17,6 @@ const resourcesSchema = new Schema({
   voteCount: {type: Number, default:0, required: false}
 })
 
-const Resource = mongoose.model("Resource", resourcesSchema);
+const Resources = mongoose.model("Resource", resourcesSchema);
 
-module.exports = Resource;
+module.exports = Resources;
