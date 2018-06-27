@@ -77,7 +77,7 @@ class App extends Component {
 
     API.getResources(source)
       .then(res =>  {
-          this.setState({ resources: res.data })  
+          this.setState({ resources : res.data })  
           console.log(this.state.resources);
         }
       )
