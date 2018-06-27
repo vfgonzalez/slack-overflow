@@ -44,7 +44,8 @@ class App extends Component {
     resources: [],
     title: "",
     link: "",
-    description: ""
+    description: "",
+    users: []
   };
 
   // componentDidMount() {
@@ -80,7 +81,6 @@ class App extends Component {
     
   }
   loadResources = () => {
-
     API.getResources()
       .then(res =>  {
           this.setState({ resources: res.data })  
@@ -88,8 +88,16 @@ class App extends Component {
         }
       )
       .catch(err => console.log(err));
+  };
 
-
+  loadUsers = () => {
+    API.getUsers()
+      .then(res =>  {
+          this.setState({ users: res.data })  
+          console.log(this.state.users);
+        }
+      )
+      .catch(err => console.log(err));
   };
 
 
@@ -110,8 +118,9 @@ class App extends Component {
   // Test Button
   handleTestButton = () => {
     this.loadResources()
+    this.loadUsers()
     console.log('button pressed')
-    console.log(this.state)
+    // console.log(this.state.users)
 
   }
 

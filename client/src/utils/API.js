@@ -33,6 +33,10 @@ export default {
   },
   getCategory : function(categoryName){
     return axios.post("/api/resources/"+ categoryName)
+  },
+  getUsers : function() {
+    return axios.get("/api/users")
+
   }
 }
 
