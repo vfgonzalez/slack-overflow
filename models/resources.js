@@ -1,3 +1,9 @@
+// ---------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------
+// Resource Model
+// ---------------------------------------------------------------------------------
+// ---------------------------------------------------------------------------------
+
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
@@ -9,10 +15,8 @@ const resourcesSchema = new Schema({
   createdAt: { type: Date, default: Date.now },
   author: { type: String, required: false },
   voteCount: {type: Number, default:0, required: false}
-});
+})
 
 const Resources = mongoose.model("Resource", resourcesSchema);
 
 module.exports = Resources;
-
-

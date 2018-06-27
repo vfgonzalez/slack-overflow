@@ -4,7 +4,8 @@ const bodyParser = require("body-parser");
 const routes = require("./routes");
 const PORT = process.env.PORT || 3001;
 const app = express();
-const mongoose = require('mongoose')
+const mongoose = require("mongoose")
+// const mongoose = require('mongoose')
 const axios = require('axios')
 
 // Define middleware here
@@ -35,6 +36,12 @@ app.get("*", (req, res) => {
 // app.get("/", (req, res) => {
 //   res.sendFile(path.join(__dirname, "./client/build/index.html"));
 // })
+
+// Connect to the Mongo DB
+// mongoose.connect(
+//   process.env.MONGODB_URI || "mongodb://localhost/slackoverflow-test"
+// );
+
 
 // Connect to the Mongo DB
 // mongoose.connect(
