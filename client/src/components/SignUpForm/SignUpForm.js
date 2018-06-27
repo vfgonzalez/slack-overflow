@@ -7,7 +7,6 @@ class SignUpForm extends Component {
 
     state = {
         categoryName: '',
-        results: [],
         resources: [],
         title: "",
         link: "",
