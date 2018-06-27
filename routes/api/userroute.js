@@ -13,4 +13,13 @@ router
   .put(userController.update)
   .delete(userController.remove);
 
+// Matches with "/api/users/:username"
+router
+  .route("/:username")
+  .get(userController.findByUsername)
+  // .put(userController.update)
+  // .delete(userController.remove);
+
+
+
 module.exports = router;

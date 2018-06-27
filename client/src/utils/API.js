@@ -34,9 +34,14 @@ export default {
   getCategory : function(categoryName){
     return axios.post("/api/resources/"+ categoryName)
   },
-  getUsers : function() {
+  getUsers: function() {
     return axios.get("/api/users")
-
-  }
+  },
+  getUser: function(username) {
+    return axios.get("/api/users/" + username);
+  },
+  saveUser: function(userData) {
+    return axios.post("/api/users", userData);
+  },
 }
 
