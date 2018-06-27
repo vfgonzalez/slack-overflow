@@ -56,7 +56,7 @@ class Login extends Component {
 
         <Modal
           header='Welcome Admin, Please login'
-          trigger={<Button id="admin-btn" className="transparent"><Icon large>settings</Icon></Button>}>
+          trigger={<Button floating large id="admin-btn" className="transparent"><Icon large>settings</Icon></Button>}>
           <form>
             {/* <Row> */}
             {/* <Input s={12} label="Email" validate><Icon>account_circle</Icon></Input> */}
@@ -99,11 +99,10 @@ class Login extends Component {
               placeholder="Password (required)"
             />
             <FormBtn
+            className="left"
               // disabled={!(this.state.author && this.state.title)}
               onClick={this.handleFormSubmit}
-            >
-              Login
-                      </FormBtn>
+            >Login</FormBtn>
 
 
 
