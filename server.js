@@ -21,8 +21,8 @@ app.use(routes);
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/slackoverflowdb");
 
 // require("./routes/slack-routes.js")(app);
-require("./routes/slackroutes.js")(app);
-// require("./routes/rtmslack.js")(app);
+// require("./routes/slackroutes.js")(app);
+require("./routes/rtmslack.js")(app);
 // require("./routes/eventsslack.js")(app);
 
 // require("../routes/api/resourceroute.js")(app);
