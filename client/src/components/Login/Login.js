@@ -17,13 +17,16 @@ class Login extends Component {
     password: "",
     value: "",
     user: [],
+    // redirect: false
   };
 
 
 
   validateUser = user => {
     if (user.password === this.state.password && user.accountLevel === 'Admin') {
-          this.setState({ redirect: true })
+      console.log('Valid Login Information')
+      
+          // this.setState({ redirect: true })
     } else {
       console.log('Wrong Password')
     }

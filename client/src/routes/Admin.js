@@ -20,18 +20,16 @@ import InboxIcon from '@material-ui/icons/Inbox';
 import EjectIcon from '@material-ui/icons/Eject';
 import PermIdentityIcon from '@material-ui/icons/PermIdentity';
 import ReorderIcon from '@material-ui/icons/Reorder';
-import SignUpForm from '../components/SignUpForm/SignUpForm'
-
-// import DraftsIcon from '@material-ui/icons/Drafts';
-// import Nav from '../components/Nav/Nav'
-
+import NewUser from '../components/SignUpForm/SignUpForm'
+import AdminHelp from '../components/AdminHelp/AdminHelp'
+import AdminRemovePost from '../components/AdminRemovePost/AdminRemovePost';
 
 const drawerWidth = 240;
 
 const styles = theme => ({
     root: {
         flexGrow: 1,
-        height: 430,
+        height: 1000,
         zIndex: 1,
         overflow: 'hidden',
         position: 'relative',
@@ -60,9 +58,6 @@ const  classes = {
     toolbar: "Admin-toolbar-5"
 }
 
-// function Admin(props) {
-    // console.log(props)
-    // const { classes } = props;
     class Admin extends Component {
 
         state = {
@@ -73,35 +68,22 @@ const  classes = {
             description: "",
             username: "",
             password: "",
-            value: "",
-            user: [],
+            active: 'newUser'
           };
 
-        // const { classes } = props;
-
-        handleButtonClick = () => {
+        handleButtonClick = (component) => {
             console.log('Button Clicked')
+            console.log(component)
+            this.setState({ active: component})
           };
-        
-        handleNewUserButton = () => {
-            console.log('New User Button Clicked')
-            this.setState({ useNewUser: true })
-
-        }
-
-
 
         render() {
 
-            const { useNewUser } = this.state;
-            if (useNewUser) {
-              return <SignUpForm/>
-            }
+            var active = this.state.active;
 
             return (
 
                 <div className={classes.root}>
-                    {/* Admin-appBar-2 */}
                     <AppBar position="absolute" className={classes.appBar}>
                         <Toolbar>
                             <Typography variant="title" color="inherit" noWrap>Admin Page</Typography>
@@ -118,7 +100,7 @@ const  classes = {
 
 
                         <List component="a">
-                            <ListItem button onClick={this.handleButtonClick}>
+                            <ListItem button onClick={() => this.handleButtonClick("adminHelp")}>
                                 <ListItemIcon><FaceIcon /></ListItemIcon>
                                 <ListItemText primary="Admin Help" />
                             </ListItem>
@@ -136,11 +118,11 @@ const  classes = {
                         </List>
                         <Divider />
                         <List component="a">
-                            <ListItem button>
+                            <ListItem button onClick={(() => this.handleButtonClick("removePost"))}>
                                 <ListItemIcon><BackspaceIcon /></ListItemIcon>
                                 <ListItemText primary="Remove Post" />
                             </ListItem>
-                            <ListItem button onClick={this.handleNewUserButton}>
+                            <ListItem button onClick={() => this.handleButtonClick("addNewUser")}>
                                 <ListItemIcon><PermIdentityIcon /></ListItemIcon>
                                 <ListItemText primary="Add New User" />
                             </ListItem>
@@ -160,11 +142,10 @@ const  classes = {
                     </Drawer>
                     <main className={classes.content}>
                         <div className={classes.toolbar} />
-                        {/* <Typography noWrap>{'Here is where selected actions will be displayed'}</Typography> */}
                         <div className='content'>
-                            <p>This is content</p>
-                            {/* <SignUpForm /> */}
-
+                            {(active === 'addNewUser') && <NewUser /> }
+                            {(active === 'adminHelp') && <AdminHelp /> }
+                            {(active === 'removePost') && <AdminRemovePost /> }
                         </div>
                     </main>
                 </div>
@@ -172,10 +153,8 @@ const  classes = {
         }
     }
 
-
     Admin.propTypes = {
         classes: PropTypes.object.isRequired,
     }
-
 
     export default withStyles(styles)(Admin)
