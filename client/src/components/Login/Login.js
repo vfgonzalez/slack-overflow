@@ -3,6 +3,7 @@ import { Modal, Button, Row, Icon } from 'react-materialize';
 import { Input, FormBtn } from "../Form";
 import API from '../../utils/API'
 import './Login.css';
+import { Redirect } from 'react-router'
 
 
 
@@ -18,11 +19,13 @@ class Login extends Component {
     description: "",
     username: "",
     password: "",
-    value: ""
+    value: "",
+    user: [],
   };
 
 
 
+<<<<<<< HEAD
   
   deleteBook = id => {
     API.deleteBook(id)
@@ -35,19 +38,44 @@ class Login extends Component {
     API.getUsername('Admin')
     .then(res => 
     console.log(res.data)
+=======
+  validateUser = user => {
+    if (user.password === this.state.password && user.accountLevel === 'Admin') {
+          this.setState({ redirect: true })
+    } else {
+      console.log('Wrong Password')
+    }
+  }
+
+  getUser = username => {
+    console.log('querying for: ' + username)
+    API.getUser(username)
+    .then(res =>
+    // console.log(res.data[0].password)
+    // let userData = res.data[0]
+    // this.setState({ user: res.data[0] }),
+    this.validateUser(res.data[0])
+    // this.validateUser()
+    
+>>>>>>> cf9af5864b2226c240c00fe18d182f281698c539
     )
     .catch(err => console.log(err))
   }
 
-
   handleFormSubmit = event => {
     event.preventDefault();
+<<<<<<< HEAD
     console.log('Login Button Pressed')
     console.log(this.state.username)
     console.log(this.state.password)
     // this.getUser(this.state.username)
     this.getUser('Admin')
 
+=======
+    this.setState({ username: this.state.username })
+    this.setState({ password: this.state.password })
+    this.getUser(this.state.username)
+>>>>>>> cf9af5864b2226c240c00fe18d182f281698c539
   };
 
   handleInputChange = event => {
@@ -59,13 +87,19 @@ class Login extends Component {
 
   render() {
 
+    const { redirect } = this.state;
+
+     if (redirect) {
+       return <Redirect to='/admin'/>;
+     }
+
     return (
 
       <div>
 
         <Modal
           header='Welcome Admin, Please login'
-          trigger={<Button id="admin-btn" className="transparent"><Icon large>settings</Icon></Button>}>
+          trigger={<Button floating large id="admin-btn" className="transparent"><Icon large>settings</Icon></Button>}>
           <form>
             {/* <Row> */}
             {/* <Input s={12} label="Email" validate><Icon>account_circle</Icon></Input> */}
@@ -108,11 +142,10 @@ class Login extends Component {
               placeholder="Password (required)"
             />
             <FormBtn
+            className="left"
               // disabled={!(this.state.author && this.state.title)}
               onClick={this.handleFormSubmit}
-            >
-              Login
-                      </FormBtn>
+            >Login</FormBtn>
 
 
 

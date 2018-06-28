@@ -1,4 +1,5 @@
 require('dotenv').config();
+
       SlackStrategy = require('passport-slack').Strategy,
       passport = require('passport'),
       express = require('express'),
@@ -22,12 +23,12 @@ module.exports = function(app){
 
 // setup the strategy using defaults 
 passport.use(new SlackStrategy({
-    clientID: process.env.SLACK_CLIENT_ID,
-    clientSecret: process.env.SLACK_CLIENT_SECRET,
-  }, (accessToken, refreshToken, profile, done) => {
-    // optionally persist profile data
-    done(null, profile);
-  }
+  clientID: process.env.SLACK_CLIENT_ID,
+  clientSecret: process.env.SLACK_CLIENT_SECRET,
+}, (accessToken, refreshToken, profile, done) => {
+  //optionally persist profile data
+  done(null, profile);
+}
 ));
 
 

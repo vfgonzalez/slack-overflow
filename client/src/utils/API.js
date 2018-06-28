@@ -37,7 +37,12 @@ export default {
   getUsers: function() {
     return axios.get("/api/users")
   },
+<<<<<<< HEAD
   getUsername: function(username) {
+=======
+  // Get user by username
+  getUser: function(username) {
+>>>>>>> cf9af5864b2226c240c00fe18d182f281698c539
     return axios.get("/api/users/" + username);
   },
   saveUser: function(userData) {
