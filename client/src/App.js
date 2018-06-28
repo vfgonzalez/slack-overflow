@@ -3,7 +3,7 @@
 import Routes from './routes'
 
 import React, { Component } from 'react';
-
+import {BrowserRouter as Router} from 'react-router-dom'
 //import Routes from './routes'
 //import ReactDOM from 'react-dom';
 // import Button from '@material-ui/core/Button';
@@ -117,9 +117,7 @@ class App extends Component {
       // {this.state.books.map(book => {})}
       <div className="App">
 
-
         <MenuAppBar />
-
 
         {/* <div className="center-align"> */}
 

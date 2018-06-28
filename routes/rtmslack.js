@@ -76,7 +76,9 @@ module.exports = function (app) {
                 // let url = str.slice(a,b)
                 // console.log("Parsed URL is: "+ url);
                 const string = getUrl(event.text)
-                console.log(string)
+                
+                
+                
                 
                 
                 // console.log(getUrl(event.text).Set);

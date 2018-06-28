@@ -18,6 +18,11 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   findByUsername: function(req, res) {
+    console.log('ping')
+    console.log(req.params)
+    console.log(req.body);
+    
+    
     db.User
       .find({ username: req.params.username })
       .then(dbModel => res.json(dbModel))

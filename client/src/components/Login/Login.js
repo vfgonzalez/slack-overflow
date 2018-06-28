@@ -4,7 +4,6 @@ import { Input, FormBtn } from "../Form";
 import API from '../../utils/API'
 import './Login.css';
 import { Redirect } from 'react-router'
-
 class Login extends Component {
 
   state = {
@@ -17,6 +16,7 @@ class Login extends Component {
     password: "",
     value: "",
     user: [],
+    redirect: false
   };
 
 
@@ -62,7 +62,8 @@ class Login extends Component {
     const { redirect } = this.state;
 
      if (redirect) {
-       return <Redirect to='/admin'/>;
+       return 
+       <Redirect to='/admin'/>
      }
 
     return (
@@ -111,6 +112,7 @@ class Login extends Component {
               value={this.state.password}
               onChange={this.handleInputChange}
               name="password"
+              type="password"
               placeholder="Password (required)"
             />
             <FormBtn
