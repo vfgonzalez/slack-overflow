@@ -62,10 +62,10 @@ module.exports = function (app) {
     rtm.on('message', (event) => {
         const conversationId = 'CAG00EFHA'
         
-        if( event.text.includes("http"|| "www." ||".com" || ".org" || ".net")){
+        if( event.text.includes("http://"||"https://"|| "www." ||".com" || ".org" || ".net")){
 
             
-            rtm.sendMessage('Thanks for the link', conversationId)
+            rtm.sendMessage('Thanks for sharing! :link:', conversationId)
             .then((res) => {
                 // `res` contains information about the posted message
                 console.log('Message reply successfully sent: ', res.ts);
@@ -77,6 +77,7 @@ module.exports = function (app) {
                 // console.log("Parsed URL is: "+ url);
                 const string = getUrl(event.text)
                 
+                console.log(string);
                 
                 
                 

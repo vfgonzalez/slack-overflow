@@ -18,7 +18,7 @@ class Login extends Component {
     password: "",
     value: "",
     user: [],
-    redirect: false
+    // redirect: false
   };
 
 
@@ -67,7 +67,7 @@ class Login extends Component {
        return (
          <BrowserRouter>
        <Redirect 
-       from="*"
+       from="/"
        to='/admin'
        />
        </BrowserRouter>
