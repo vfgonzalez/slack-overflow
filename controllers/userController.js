@@ -20,9 +20,7 @@ module.exports = {
   findByUsername: function(req, res) {
     console.log('ping')
     console.log(req.params)
-    console.log(req.body);
-    
-    
+    console.log(req.body)
     db.User
       .find({ username: req.params.username })
       .then(dbModel => res.json(dbModel))
