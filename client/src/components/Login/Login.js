@@ -4,6 +4,7 @@ import { Input, FormBtn } from "../Form";
 import API from '../../utils/API'
 import './Login.css';
 import { Redirect } from 'react-router'
+import { BrowserRouter } from 'react-router-dom';
 
 
 
@@ -21,6 +22,7 @@ class Login extends Component {
     password: "",
     value: "",
     user: [],
+    // redirect: false
   };
 
 
@@ -66,11 +68,17 @@ class Login extends Component {
     const { redirect } = this.state;
 
      if (redirect) {
-       return <Redirect to='/admin'/>;
+       return (
+         <BrowserRouter>
+       <Redirect 
+       from="/"
+       to='/admin'
+       />
+       </BrowserRouter>
+      )
      }
 
     return (
-
       <div>
 
         <Modal
@@ -115,13 +123,26 @@ class Login extends Component {
               value={this.state.password}
               onChange={this.handleInputChange}
               name="password"
+              type="password"
               placeholder="Password (required)"
             />
             <FormBtn
-            className="left"
               // disabled={!(this.state.author && this.state.title)}
               onClick={this.handleFormSubmit}
+<<<<<<< HEAD
             >Login</FormBtn>
+=======
+            >
+              Login
+                      </FormBtn>
+
+
+
+
+
+
+
+>>>>>>> 532435964327f55ae4d0dd8043f49b1d5dd8bb79
           </form>
         </Modal>
 
