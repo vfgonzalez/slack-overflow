@@ -30,6 +30,7 @@ class Categories extends Component {
                             key={cat.id}
                             onClick={() => { this.props.onImageClick(cat) }}
                             src={cat.image}
+                            alt={cat.name}
                         />
                     );
                 })}

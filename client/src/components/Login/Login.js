@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Modal, Button, Row, Icon } from 'react-materialize';
+import { Modal, Button, Icon } from 'react-materialize';
 import { Input, FormBtn } from "../Form";
 import API from '../../utils/API'
 import './Login.css';
@@ -18,7 +18,7 @@ class Login extends Component {
     password: "",
     value: "",
     user: [],
-    // redirect: false
+    redirect: false
   };
 
 
@@ -38,7 +38,7 @@ class Login extends Component {
     // console.log(res.data[0].password)
     // let userData = res.data[0]
     // this.setState({ user: res.data[0] }),
-    this.validateUser(res.data[0])
+    this.validateUser(res.data[0]),
     // this.validateUser()
     
     )
@@ -67,7 +67,7 @@ class Login extends Component {
        return (
          <BrowserRouter>
        <Redirect 
-       from="/"
+      //  from="/"
        to='/admin'
        />
        </BrowserRouter>
@@ -110,9 +110,11 @@ class Login extends Component {
 
             {/* FROM SIGNUPFORM */}
             <Input
+              active
               value={this.state.username}
               onChange={this.handleInputChange}
               name="username"
+              type="text"
               placeholder="Username (required)"
             />
             <Input
@@ -122,7 +124,9 @@ class Login extends Component {
               type="password"
               placeholder="Password (required)"
             />
+            </form>
             <FormBtn
+            className="left-align"
               // disabled={!(this.state.author && this.state.title)}
               onClick={this.handleFormSubmit}
             >
@@ -135,7 +139,6 @@ class Login extends Component {
 
 
 
-          </form>
         </Modal>
 
       </div>
