@@ -4,6 +4,10 @@ import { Input, FormBtn } from "../Form";
 import API from '../../utils/API'
 import './Login.css';
 
+
+
+
+
 class Login extends Component {
 
   state = {
@@ -17,6 +21,9 @@ class Login extends Component {
     value: ""
   };
 
+
+
+  
   deleteBook = id => {
     API.deleteBook(id)
       .then(res => this.loadBooks())
@@ -25,7 +32,7 @@ class Login extends Component {
 
   getUser = username => {
     console.log('querying for: ' + username)
-    API.getUser(username)
+    API.getUsername('Admin')
     .then(res => 
     console.log(res.data)
     )
@@ -38,7 +45,9 @@ class Login extends Component {
     console.log('Login Button Pressed')
     console.log(this.state.username)
     console.log(this.state.password)
-    this.getUser(this.state.username)
+    // this.getUser(this.state.username)
+    this.getUser('Admin')
+
   };
 
   handleInputChange = event => {
