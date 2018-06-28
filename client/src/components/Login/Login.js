@@ -3,9 +3,7 @@ import { Modal, Button, Row, Icon } from 'react-materialize';
 import { Input, FormBtn } from "../Form";
 import API from '../../utils/API'
 import './Login.css';
-import { Redirect } from 'react-router'
-import { BrowserRouter } from 'react-router-dom';
-
+import { Route, Redirect } from 'react-router'
 
 
 
@@ -22,14 +20,58 @@ class Login extends Component {
     password: "",
     value: "",
     user: [],
-    // redirect: false
+    navigate: false,
+    referrer: null,
+    redirect: false
   };
+
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//         navigate: false,
+//         referrer: null,
+//         username: '',
+//         password: ''
+//     };
+// }
+
+
+
 
 
 
   validateUser = user => {
     if (user.password === this.state.password && user.accountLevel === 'Admin') {
           this.setState({ redirect: true })
+
+          // this also works with react-router-native
+          
+          // const redirect = withRouter(({ history }) => (
+          //   <button
+          //     type='button'
+          //     onClick={() => { history.push('/new-location') }}
+          //   >
+          //     Click Me!
+          //   </button>
+          // ))
+          // this.props.history.push("/admin");
+          // this.props.history.push('/admin')
+          // this.props.router.push('/admin')
+          // browserHistory.push('/admin')
+
+          // browserHistory.push('/admin')
+          // <Route exact path="/" render={() => (
+          //   loggedIn ? (
+          //     <Redirect to="/admin"/>
+          //   ) : (
+          //     <PublicHomePage/>
+          //   )
+          // )}/>
+
+          // this.setState({referrer: '/admin'})
+          // window.location = '/admin';
+
+
     } else {
       console.log('Wrong Password')
     }
@@ -68,15 +110,8 @@ class Login extends Component {
     const { redirect } = this.state;
 
      if (redirect) {
-       return (
-         <BrowserRouter>
-       <Redirect 
-       from="/"
-       to='/admin'
-       />
-       </BrowserRouter>
-      )
-     }
+       return <Redirect to='/admin'/>
+      }
 
     return (
       <div>
@@ -129,31 +164,16 @@ class Login extends Component {
             <FormBtn
               // disabled={!(this.state.author && this.state.title)}
               onClick={this.handleFormSubmit}
-<<<<<<< HEAD
-            >Login</FormBtn>
-=======
             >
               Login
-                      </FormBtn>
+            </FormBtn>
 
-
-
-
-
-
-
->>>>>>> 532435964327f55ae4d0dd8043f49b1d5dd8bb79
           </form>
         </Modal>
 
       </div>
-
-
-
-
-
     )
   }
 }
 
-export default Login;
+export default Login
