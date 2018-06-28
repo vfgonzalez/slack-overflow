@@ -1,5 +1,5 @@
 // This file calls front end routes
-import React from 'react';
+// import React from 'react';
 import Routes from './routes'
 
 import React, { Component } from 'react';
@@ -12,7 +12,7 @@ import MenuAppBar from "./components/Nav/Nav";
 import Categories from "./components/Categories/Categories";
 import Jumbotron from "./components/Jumbotron/Jumbotron";
 import Post from "./components/Post/Post";
-import Results from "./components/Results/Results";
+// import Results from "./components/Results/Results";
 // import ResultsList from "./components/Results/ResultsList";
 import Foot from "./components/Footer/Footer";
 import API from "./utils/API";
@@ -137,9 +137,9 @@ class App extends Component {
             <div className="category col s12">{this.state.categoryName}</div>
 
           </div>
-          <Results
+          {/* <Results
             results={this.state.results}
-          />
+          /> */}
 
           {/* </div> */}
           {/* //   <Foot /> */}
