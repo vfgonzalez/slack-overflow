@@ -21,30 +21,13 @@ class Login extends Component {
     password: "",
     value: "",
     user: [],
-    // redirect: false
   };
 
 
 
-<<<<<<< HEAD
-  
-  deleteBook = id => {
-    API.deleteBook(id)
-      .then(res => this.loadBooks())
-      .catch(err => console.log(err));
-  };
-
-  getUser = username => {
-    console.log('querying for: ' + username)
-    API.getUsername('Admin')
-    .then(res => 
-    console.log(res.data)
-=======
   validateUser = user => {
     if (user.password === this.state.password && user.accountLevel === 'Admin') {
-      console.log('Valid Login Information')
-      
-          // this.setState({ redirect: true })
+          this.setState({ redirect: true })
     } else {
       console.log('Wrong Password')
     }
@@ -60,25 +43,15 @@ class Login extends Component {
     this.validateUser(res.data[0])
     // this.validateUser()
     
->>>>>>> cf9af5864b2226c240c00fe18d182f281698c539
     )
     .catch(err => console.log(err))
   }
 
   handleFormSubmit = event => {
     event.preventDefault();
-<<<<<<< HEAD
-    console.log('Login Button Pressed')
-    console.log(this.state.username)
-    console.log(this.state.password)
-    // this.getUser(this.state.username)
-    this.getUser('Admin')
-
-=======
     this.setState({ username: this.state.username })
     this.setState({ password: this.state.password })
     this.getUser(this.state.username)
->>>>>>> cf9af5864b2226c240c00fe18d182f281698c539
   };
 
   handleInputChange = event => {
@@ -149,13 +122,6 @@ class Login extends Component {
               // disabled={!(this.state.author && this.state.title)}
               onClick={this.handleFormSubmit}
             >Login</FormBtn>
-
-
-
-
-
-
-
           </form>
         </Modal>
 

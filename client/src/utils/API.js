@@ -23,12 +23,11 @@ export default {
   getResource: function(id) {
     return axios.get("/api/resources/" + id);
   },
-  
+
   // Deletes the resource with the given id
   deleteResource: function(id) {
     return axios.delete("/api/resources/" + id);
   },
-
   // Saves a resource to the database
   saveResource: function(resourceData) {
     return axios.post("/api/resources", resourceData);
@@ -39,8 +38,6 @@ export default {
   getUsers: function() {
     return axios.get("/api/users")
   },
-
-
   getUser: function(username) {
     return axios.get("/api/users/" + username);
   },
