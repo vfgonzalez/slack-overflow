@@ -3,30 +3,19 @@ import { Modal, Button, Row, Icon } from 'react-materialize';
 import { Input, FormBtn } from "../Form";
 import API from '../../utils/API'
 import './Login.css';
-import { Redirect } from 'react-router'
+import { Route, Redirect } from 'react-router'
 
 class Login extends Component {
 
   state = {
-    categoryName: '',
-    resources: [],
-    title: "",
-    link: "",
-    description: "",
     username: "",
     password: "",
-    value: "",
-    user: [],
     redirect: false
   };
 
-
-
   validateUser = user => {
     if (user.password === this.state.password && user.accountLevel === 'Admin') {
-      console.log('Valid Login Information')
-      
-          this.setState({ redirect: true })
+      this.setState({ redirect: true })
     } else {
       console.log('Wrong Password')
     }
@@ -35,15 +24,15 @@ class Login extends Component {
   getUser = username => {
     console.log('querying for: ' + username)
     API.getUser(username)
-    .then(res =>
-    // console.log(res.data[0].password)
-    // let userData = res.data[0]
-    // this.setState({ user: res.data[0] }),
-    this.validateUser(res.data[0])
-    // this.validateUser()
-    
-    )
-    .catch(err => console.log(err))
+      .then(res =>
+        // console.log(res.data[0].password)
+        // let userData = res.data[0]
+        // this.setState({ user: res.data[0] }),
+        this.validateUser(res.data[0])
+        // this.validateUser()
+
+      )
+      .catch(err => console.log(err))
   }
 
   handleFormSubmit = event => {
@@ -64,17 +53,16 @@ class Login extends Component {
 
     const { redirect } = this.state;
 
-     if (redirect) {
-       return <Redirect to='/admin'/>;
-     }
+    if (redirect) {
+      return <Redirect to='/admin' />
+    }
 
     return (
-
       <div>
 
         <Modal
           header='Welcome Admin, Please login'
-          trigger={<Button id="admin-btn" className="transparent"><Icon large>settings</Icon></Button>}>
+          trigger={<Button floating large id="admin-btn" className="transparent"><Icon large>settings</Icon></Button>}>
           <form>
             {/* <Row> */}
             {/* <Input s={12} label="Email" validate><Icon>account_circle</Icon></Input> */}
@@ -105,41 +93,33 @@ class Login extends Component {
 
             {/* FROM SIGNUPFORM */}
             <Input
+              s={12}
               value={this.state.username}
               onChange={this.handleInputChange}
               name="username"
               placeholder="Username (required)"
             />
             <Input
+              s={12}
               value={this.state.password}
               onChange={this.handleInputChange}
               name="password"
+              type="password"
               placeholder="Password (required)"
             />
             <FormBtn
-              // disabled={!(this.state.author && this.state.title)}
+              disabled={!(this.state.username && this.state.password)}
               onClick={this.handleFormSubmit}
             >
               Login
-                      </FormBtn>
-
-
-
-
-
-
+            </FormBtn>
 
           </form>
         </Modal>
 
       </div>
-
-
-
-
-
     )
   }
 }
 
-export default Login;
+export default Login
