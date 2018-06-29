@@ -110,7 +110,6 @@ class Main extends Component {
     this.loadResources()
     console.log('button pressed')
     console.log(this.state)
-
   }
 
   // Beginning of render function

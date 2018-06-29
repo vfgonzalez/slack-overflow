@@ -23,6 +23,7 @@ import ReorderIcon from '@material-ui/icons/Reorder';
 import NewUser from '../components/SignUpForm/SignUpForm'
 import AdminHelp from '../components/AdminHelp/AdminHelp'
 import AdminRemovePost from '../components/AdminRemovePost/AdminRemovePost';
+import API from '../utils/API'
 
 const drawerWidth = 240;
 
@@ -50,7 +51,7 @@ const styles = theme => ({
     },
     toolbar: theme.mixins.toolbar,
 });
-const  classes = {
+const classes = {
     appBar: "Admin-appBar-2",
     content: "Admin-content-4",
     drawerPaper: "Admin-drawerPaper-3",
@@ -58,103 +59,121 @@ const  classes = {
     toolbar: "Admin-toolbar-5"
 }
 
-    class Admin extends Component {
+class Admin extends Component {
 
-        state = {
-            categoryName: '',
-            resources: [],
-            title: "",
-            link: "",
-            description: "",
-            username: "",
-            password: "",
-            active: 'newUser'
-          };
+    state = {
+        categoryName: '',
+        resources: [],
+        title: "",
+        link: "",
+        description: "",
+        username: "",
+        password: "",
+        active: 'newUser'
+    };
 
-        handleButtonClick = (component) => {
-            console.log('Button Clicked')
-            console.log(component)
-            this.setState({ active: component})
-          };
+    handleButtonClick = (component) => {
+        console.log('Button Clicked')
+        console.log(component)
+        this.setState({ active: component })
+    };
 
-        render() {
+      // Test Button
+  handleTestButton = () => {
+    this.loadUsers()
+    console.log('button pressed')
+    console.log(this.state)
+  }
 
-            var active = this.state.active;
-
-            return (
-
-                <div className={classes.root}>
-                    <AppBar position="absolute" className={classes.appBar}>
-                        <Toolbar>
-                            <Typography variant="title" color="inherit" noWrap>Admin Page</Typography>
-                        </Toolbar>
-                    </AppBar>
-                    {/* <Nav position="absolute"/> */}
-                    <Drawer
-                        variant="permanent"
-                        classes={{
-                            paper: classes.drawerPaper,
-                        }}
-                    >
-                        <div className={classes.toolbar} />
-
-
-                        <List component="a">
-                            <ListItem button onClick={() => this.handleButtonClick("adminHelp")}>
-                                <ListItemIcon><FaceIcon /></ListItemIcon>
-                                <ListItemText primary="Admin Help" />
-                            </ListItem>
-                        </List>
-                        <Divider />
-                        <List component="a">
-                            <ListItem button>
-                                <ListItemIcon><InboxIcon /></ListItemIcon>
-                                <ListItemText primary="Messages" />
-                            </ListItem>
-                            <ListItem button>
-                                <ListItemIcon><ReportProblemIcon /></ListItemIcon>
-                                <ListItemText primary="Flagged Posts" />
-                            </ListItem>
-                        </List>
-                        <Divider />
-                        <List component="a">
-                            <ListItem button onClick={(() => this.handleButtonClick("removePost"))}>
-                                <ListItemIcon><BackspaceIcon /></ListItemIcon>
-                                <ListItemText primary="Remove Post" />
-                            </ListItem>
-                            <ListItem button onClick={() => this.handleButtonClick("addNewUser")}>
-                                <ListItemIcon><PermIdentityIcon /></ListItemIcon>
-                                <ListItemText primary="Add New User" />
-                            </ListItem>
-                            <ListItem button>
-                                <ListItemIcon><EjectIcon /></ListItemIcon>
-                                <ListItemText primary="Remove User" />
-                            </ListItem>
-                            <ListItem button>
-                                <ListItemIcon><ReorderIcon /></ListItemIcon>
-                                <ListItemText primary="Add Category" />
-                            </ListItem>
-                            <ListItem button>
-                                <ListItemText primary="Remove Category" />
-                            </ListItem>
-                        </List>
-
-                    </Drawer>
-                    <main className={classes.content}>
-                        <div className={classes.toolbar} />
-                        <div className='content'>
-                            {(active === 'addNewUser') && <NewUser /> }
-                            {(active === 'adminHelp') && <AdminHelp /> }
-                            {(active === 'removePost') && <AdminRemovePost /> }
-                        </div>
-                    </main>
-                </div>
-            );
+  loadUsers = () => {
+    API.getUsers()
+      .then(res =>  {
+          this.setState({ users: res.data })  
+          console.log(this.state.users);
         }
-    }
+      )
+      .catch(err => console.log(err));
+  };
 
-    Admin.propTypes = {
-        classes: PropTypes.object.isRequired,
-    }
+    render() {
 
-    export default withStyles(styles)(Admin)
+        var active = this.state.active;
+
+        return (
+
+            <div className={classes.root}>
+                <AppBar position="absolute" className={classes.appBar}>
+                    <Toolbar>
+                        <Typography variant="title" color="inherit" noWrap>Admin Page</Typography>
+                    </Toolbar>
+                </AppBar>
+                {/* <Nav position="absolute"/> */}
+                <Drawer
+                    variant="permanent"
+                    classes={{
+                        paper: classes.drawerPaper,
+                    }}
+                >
+                    <div className={classes.toolbar} />
+
+
+                    <List component="a">
+                        <ListItem button onClick={() => this.handleButtonClick("adminHelp")}>
+                            <ListItemIcon><FaceIcon /></ListItemIcon>
+                            <ListItemText primary="Admin Help" />
+                        </ListItem>
+                    </List>
+                    <Divider />
+                    <List component="a">
+                        <ListItem button>
+                            <ListItemIcon><InboxIcon /></ListItemIcon>
+                            <ListItemText primary="Messages" />
+                        </ListItem>
+                        <ListItem button>
+                            <ListItemIcon><ReportProblemIcon /></ListItemIcon>
+                            <ListItemText primary="Flagged Posts" />
+                        </ListItem>
+                    </List>
+                    <Divider />
+                    <List component="a">
+                        <ListItem button onClick={(() => this.handleButtonClick("removePost"))}>
+                            <ListItemIcon><BackspaceIcon /></ListItemIcon>
+                            <ListItemText primary="Remove Post" />
+                        </ListItem>
+                        <ListItem button onClick={() => this.handleButtonClick("addNewUser")}>
+                            <ListItemIcon><PermIdentityIcon /></ListItemIcon>
+                            <ListItemText primary="Add New User" />
+                        </ListItem>
+                        <ListItem button>
+                            <ListItemIcon><EjectIcon /></ListItemIcon>
+                            <ListItemText primary="Remove User" />
+                        </ListItem>
+                        <ListItem button>
+                            <ListItemIcon><ReorderIcon /></ListItemIcon>
+                            <ListItemText primary="Add Category" />
+                        </ListItem>
+                        <ListItem button>
+                            <ListItemText primary="Remove Category" />
+                        </ListItem>
+                    </List>
+
+                </Drawer>
+                <main className={classes.content}>
+                    <div className={classes.toolbar} />
+                    <div className='content'>
+                        {/* <button type="button" onClick={this.handleTestButton} value="Click Me!" /> */}
+                        {(active === 'addNewUser') && <NewUser />}
+                        {(active === 'adminHelp') && <AdminHelp />}
+                        {(active === 'removePost') && <AdminRemovePost />}
+                    </div>
+                </main>
+            </div>
+        );
+    }
+}
+
+Admin.propTypes = {
+    classes: PropTypes.object.isRequired,
+}
+
+export default withStyles(styles)(Admin)
