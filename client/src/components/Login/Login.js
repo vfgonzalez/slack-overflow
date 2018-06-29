@@ -3,83 +3,19 @@ import { Modal, Button, Icon, Row } from 'react-materialize';
 import { Input, FormBtn } from "../Form";
 import API from '../../utils/API'
 import './Login.css';
-<<<<<<< HEAD
-import { Redirect } from 'react-router'
-
-
-
-=======
 import { Route, Redirect } from 'react-router'
->>>>>>> gavinquirk-master
 
 class Login extends Component {
 
   state = {
     username: "",
     password: "",
-<<<<<<< HEAD
-    value: "",
-    user: [],
-    navigate: false,
-    referrer: null,
-    redirect: false
-  };
-
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//         navigate: false,
-//         referrer: null,
-//         username: '',
-//         password: ''
-//     };
-// }
-
-
-
-
-
-
-  validateUser = user => {
-    if (user.password === this.state.password && user.accountLevel === 'Admin') {
-          this.setState({ redirect: true })
-
-          // this also works with react-router-native
-          
-          // const redirect = withRouter(({ history }) => (
-          //   <button
-          //     type='button'
-          //     onClick={() => { history.push('/new-location') }}
-          //   >
-          //     Click Me!
-          //   </button>
-          // ))
-          // this.props.history.push("/admin");
-          // this.props.history.push('/admin')
-          // this.props.router.push('/admin')
-          // browserHistory.push('/admin')
-
-          // browserHistory.push('/admin')
-          // <Route exact path="/" render={() => (
-          //   loggedIn ? (
-          //     <Redirect to="/admin"/>
-          //   ) : (
-          //     <PublicHomePage/>
-          //   )
-          // )}/>
-
-          // this.setState({referrer: '/admin'})
-          // window.location = '/admin';
-
-
-=======
     redirect: false
   };
 
   validateUser = user => {
     if (user.password === this.state.password && user.accountLevel === 'Admin') {
       this.setState({ redirect: true })
->>>>>>> gavinquirk-master
     } else {
       console.log('Wrong Password')
     }
