@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Modal, Button, Row, Icon } from 'react-materialize';
+import { Modal, Button, Icon } from 'react-materialize';
 import { Input, FormBtn } from "../Form";
 import API from '../../utils/API'
 import './Login.css';
@@ -98,6 +98,7 @@ class Login extends Component {
               value={this.state.username}
               onChange={this.handleInputChange}
               name="username"
+              type="text"
               placeholder="Username (required)"
             />
             <Input
@@ -108,6 +109,7 @@ class Login extends Component {
               type="password"
               placeholder="Password (required)"
             />
+            </form>
             <FormBtn
               disabled={!(this.state.username && this.state.password)}
               onClick={this.handleFormSubmit}
@@ -115,7 +117,6 @@ class Login extends Component {
               Login
             </FormBtn>
 
-          </form>
         </Modal>
 
       </div>
