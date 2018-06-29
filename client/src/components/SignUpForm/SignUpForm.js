@@ -2,18 +2,13 @@ import React, { Component } from "react";
 import "./SignUpForm.css";
 import API from '../../utils/API'
 import { Input, FormBtn } from "../../components/Form";
+import './SignUpForm.css'
 
 class SignUpForm extends Component {
 
     state = {
-        categoryName: '',
-        resources: [],
-        title: "",
-        link: "",
-        description: "",
         username: "",
         password: "",
-        value: ""
     };
 
     // Test Button
@@ -22,18 +17,6 @@ class SignUpForm extends Component {
         console.log('button pressed')
         // console.log(this.state)
     }
-
-    // Load Users
-    loadUsers = () => {
-        API.getUsers()
-            .then(res => {
-                this.setState({ users: res.data })
-                console.log("loading users...");
-                console.log(this.state.users);
-            }
-            )
-            .catch(err => console.log(err));
-    };
 
     // Handles updating component state when the user types into the input field
     handleInputChange = event => {
@@ -64,8 +47,7 @@ class SignUpForm extends Component {
     render() {
         return (
             <div className="SignUpForm">
-                <button type="button" onClick={this.handleTestButton} value="Click Me!" />
-
+                <h1>Add a new user</h1>
                 <form>
                     <Input
                         value={this.state.username}
