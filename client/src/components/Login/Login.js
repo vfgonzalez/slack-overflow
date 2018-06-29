@@ -25,12 +25,7 @@ class Login extends Component {
     console.log('querying for: ' + username)
     API.getUser(username)
       .then(res =>
-        // console.log(res.data[0].password)
-        // let userData = res.data[0]
-        // this.setState({ user: res.data[0] }),
         this.validateUser(res.data[0])
-        // this.validateUser()
-
       )
       .catch(err => console.log(err))
   }
@@ -65,34 +60,6 @@ class Login extends Component {
           header='Welcome Admin, Please login'
           trigger={<Button floating large id="admin-btn" className="transparent"><Icon large>settings</Icon></Button>}>
           <form>
-            {/* <Row> */}
-            {/* <Input s={12} label="Email" validate><Icon>account_circle</Icon></Input> */}
-
-            {/* <Input
-                s={12}
-                label="User Name"
-                validate
-                value={this.state.username}
-                onChange={this.handleInputChange}
-              >
-                <Icon>account_circle</Icon>
-              </Input>
-
-              <Input
-                s={12}
-                label="Password"
-                type='password'
-                validate>
-                <Icon>lock</Icon>
-              </Input> */}
-
-            {/* </Row> */}
-
-            {/* <FormBtn onClick={this.handleFormSubmit}>Login</FormBtn> */}
-            {/* <Button onClick={this.handleFormSubmit}>Login</Button> */}
-
-
-            {/* FROM SIGNUPFORM */}
             <Input
               s={12}
               value={this.state.username}
