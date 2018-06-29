@@ -46,8 +46,8 @@ class Results extends Component {
     return (
       <div className="container">
         <Row>
-          <Col s={3}>
-            <Card className="sticky-action card" header={<CardTitle reveal image={"http://via.placeholder.com/350x150"} waves='light' />}
+          <Col m={6}>
+            <Card className="sticky-action card md-6" header={<CardTitle reveal image={"http://via.placeholder.com/350x150"} waves='light' />}
 
               title={this.state.title}
               reveal={<p>{this.state.description}</p>}>

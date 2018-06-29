@@ -16,7 +16,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Attach the adapter to the Express application as a middleware
 // NOTE: The path must match the Request URL and/or Options URL configured in Slack
 
+//Testing getURL functionality
 
+let setData = new Set()
 
 
 
@@ -60,7 +62,7 @@ module.exports = function (app) {
     //     console.log(`Message from channel: ${event.channel}: ${event.text}`);
     // })
     rtm.on('message', (event) => {
-        const conversationId = 'CAG00EFHA'
+        const conversationId = 'GBFF13316'
         
         if( event.text.includes("http://"||"https://"|| "www." ||".com" || ".org" || ".net")){
 
@@ -75,9 +77,11 @@ module.exports = function (app) {
                 // let b = str.indexOf(">"|| "|")
                 // let url = str.slice(a,b)
                 // console.log("Parsed URL is: "+ url);
-                const string = getUrl(event.text)
+                const string ="lorem ipsaiofjasljfasd  dsjfal;sfd dsijfoiapejfoja ojdas;ifdf http://google.com akljdfljkadshfa ljkdhfklahsdfl khasdfhalis"
+
+                const call = getUrl(string)
                 
-                console.log(string);
+                console.log(call);
                 
                 
                 
@@ -94,7 +98,7 @@ module.exports = function (app) {
         
 
         
-        // console.log(`Message from channel: ${event.channel} : message : ${event.text}`);
+        console.log(`Message from channel: ${event.channel} : message : ${event.text}`);
 
             
     })

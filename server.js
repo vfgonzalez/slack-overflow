@@ -6,6 +6,7 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 const mongoose = require("mongoose")
 const axios = require('axios')
+const MONGODB_URI = require("./config/keys.js")
 
 // Define middleware here
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -18,11 +19,11 @@ if (process.env.NODE_ENV === "production") {
 // Define API routes here
 app.use(routes);
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/slackoverflowdb");
+mongoose.connect(MONGODB_URI || "mongodb://localhost/slackoverflowdb");
 
 // require("./routes/slack-routes.js")(app);
 // require("./routes/slackroutes.js")(app);
-// require("./routes/rtmslack.js")(app);
+require("./routes/rtmslack.js")(app);
 // require("./routes/eventsslack.js")(app);
 
 // require("../routes/api/resourceroute.js")(app);
