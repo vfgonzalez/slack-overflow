@@ -55,6 +55,7 @@ class Login extends Component {
 
     if (redirect) {
       return <Redirect to='/admin' />
+      // window.location.reload()
     }
 
     return (

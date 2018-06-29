@@ -24,6 +24,10 @@ import NewUser from '../components/SignUpForm/SignUpForm'
 import AdminHelp from '../components/AdminHelp/AdminHelp'
 import AdminRemovePost from '../components/AdminRemovePost/AdminRemovePost';
 import API from '../utils/API'
+import { Input, FormBtn } from "../components/Form";
+import './styles/Admin.css'
+import { Route, Redirect } from 'react-router'
+
 
 const drawerWidth = 240;
 
@@ -69,7 +73,8 @@ class Admin extends Component {
         description: "",
         username: "",
         password: "",
-        active: 'newUser'
+        active: 'adminHelp',
+        redirect: false
     };
 
     handleButtonClick = (component) => {
@@ -95,9 +100,21 @@ class Admin extends Component {
       .catch(err => console.log(err));
   };
 
-    render() {
+  handleBackButton = () => {
+      console.log('Back Button Pressed')
+      this.setState({ redirect: true })
 
+  }
+
+    render() {
+        
         var active = this.state.active;
+
+        const { redirect } = this.state;
+
+        if (redirect) {
+            return <Redirect to='/main' />
+          }
 
         return (
 
@@ -105,6 +122,7 @@ class Admin extends Component {
                 <AppBar position="absolute" className={classes.appBar}>
                     <Toolbar>
                         <Typography variant="title" color="inherit" noWrap>Admin Page</Typography>
+                        {/* <button className='backButton' onClick={this.handleBackButton}>Back to Main Page</button> */}
                     </Toolbar>
                 </AppBar>
                 {/* <Nav position="absolute"/> */}
@@ -152,8 +170,8 @@ class Admin extends Component {
                             <ListItemIcon><ReorderIcon /></ListItemIcon>
                             <ListItemText primary="Add Category" />
                         </ListItem>
-                        <ListItem button>
-                            <ListItemText primary="Remove Category" />
+                        <ListItem button onClick={this.handleBackButton}>
+                            <ListItemText primary="Back to Main Page" />
                         </ListItem>
                     </List>
 
