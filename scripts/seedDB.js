@@ -81,7 +81,6 @@ const usersSeed = [
   }
 ]
 
-
 db.Resource
   .remove({})
   .then(() => db.Resource.collection.insertMany(resourcesSeed))

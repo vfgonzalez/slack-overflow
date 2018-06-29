@@ -3,7 +3,7 @@ const express = require('express');
 const getUrl = require('get-urls')
 const app = express()
 const { RTMClient } = require('@slack/client');
-const createSlackEventAdapter = require('@slack/events-api').createSlackEventAdapter;
+// const createSlackEventAdapter = require('@slack/events-api').createSlackEventAdapter;
 const { createMessageAdapter } = require('@slack/interactive-messages')
 
 // Create the adapter using the app's verification token, read from environment variable
@@ -62,15 +62,34 @@ module.exports = function (app) {
     rtm.on('message', (event) => {
         const conversationId = 'CAG00EFHA'
         
+        if( event.text.includes("http://"||"https://"|| "www." ||".com" || ".org" || ".net")){
+
             
-            rtm.sendMessage('Thanks for the link', conversationId)
+            rtm.sendMessage('Thanks for sharing! :link:', conversationId)
             .then((res) => {
                 // `res` contains information about the posted message
                 console.log('Message reply successfully sent: ', res.ts);
+                
+                // let str = event.text
+                // let a = str.indexOf("<")
+                // let b = str.indexOf(">"|| "|")
+                // let url = str.slice(a,b)
+                // console.log("Parsed URL is: "+ url);
+                const string = getUrl(event.text)
+                
+                console.log(string);
+                
+                
+                
+                
+                // console.log(getUrl(event.text).Set);
+                
+                
+                
             })
             .catch(console.error);
             
-    
+        }
          
         
 
