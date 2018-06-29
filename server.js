@@ -19,7 +19,7 @@ if (process.env.NODE_ENV === "production") {
 app.use(routes);
 
 // mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/slackoverflowdb");
-mongoose.connect(process.env.MONGODB_URI || "mongodb://<dbuser>:<dbpassword>@ds217671.mlab.com:17671/heroku_0m7qcq66");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://thomas:tseaman14@ds217671.mlab.com:17671/heroku_0m7qcq66");
 
 
 // require("./routes/slack-routes.js")(app);
