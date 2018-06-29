@@ -22,22 +22,6 @@ import API from "./utils/API";
 
 import "./App.css";
 
-// const $ = window.$
-//routes redirect from gavin:
-
-// export default () => (
-//   <Routes />
-// )
-
-
-// handleFormSubmit = event => {
-//   // When the form is submitted, prevent its default behavior, get recipes update the recipes state
-//   event.preventDefault();
-//   API.getResources(this.state.categoryName)
-//     .then(res => this.setState({ resources: res.data }))
-//     .catch(err => console.log(err));
-// };
-
 class App extends Component {
 
   state = {
@@ -49,17 +33,6 @@ class App extends Component {
     description: ""
   };
 
-  // componentDidMount() {
-  //   this.loadResults();
-  // }
-
-  // loadResults = () => {
-  //   API.getResults()
-  //     .then(res =>
-  //       this.setState({ resources: res.data, title: "", link: "", description: "" })
-  //     )
-  //     .catch(err => console.log(err));
-  // };
 
   handleImageClick = (category) => {
     // event.preventDefault();
@@ -150,20 +123,7 @@ class App extends Component {
       //   <ResultsList>
       //   <div> */}
 
-          {/* //     {this.state.resources.map(resource => { */}
-          {/* //       return ( */}
-          {/* //         <Results */}
-          {/* //         results={this.state.results}
-      //         description = {resource.description}
-      //         key={resource.title}
-      //         title={resource.title}
-      //         link={resource.link}
-              
-      //         />
-      //       );
-      //     })}
-      //     </div>
-      //     </ResultsList> */}
+ 
 
         </div>
         <Foot />
