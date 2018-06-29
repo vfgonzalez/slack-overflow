@@ -62,7 +62,7 @@ class SignUpForm extends Component {
                         placeholder="Password (required)"
                     />
                     <FormBtn
-                        // disabled={!(this.state.author && this.state.title)}
+                        disabled={!(this.state.username && this.state.password)}
                         onClick={this.handleFormSubmit}
                     >
                         Add User

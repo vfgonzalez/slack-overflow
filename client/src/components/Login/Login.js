@@ -3,21 +3,21 @@ import { Modal, Button, Icon, Row } from 'react-materialize';
 import { Input, FormBtn } from "../Form";
 import API from '../../utils/API'
 import './Login.css';
+<<<<<<< HEAD
 import { Redirect } from 'react-router'
 
 
 
+=======
+import { Route, Redirect } from 'react-router'
+>>>>>>> gavinquirk-master
 
 class Login extends Component {
 
   state = {
-    categoryName: '',
-    resources: [],
-    title: "",
-    link: "",
-    description: "",
     username: "",
     password: "",
+<<<<<<< HEAD
     value: "",
     user: [],
     navigate: false,
@@ -72,6 +72,14 @@ class Login extends Component {
           // window.location = '/admin';
 
 
+=======
+    redirect: false
+  };
+
+  validateUser = user => {
+    if (user.password === this.state.password && user.accountLevel === 'Admin') {
+      this.setState({ redirect: true })
+>>>>>>> gavinquirk-master
     } else {
       console.log('Wrong Password')
     }
@@ -80,15 +88,10 @@ class Login extends Component {
   getUser = username => {
     console.log('querying for: ' + username)
     API.getUser(username)
-    .then(res =>
-    // console.log(res.data[0].password)
-    // let userData = res.data[0]
-    // this.setState({ user: res.data[0] }),
-    this.validateUser(res.data[0]),
-    // this.validateUser()
-    
-    )
-    .catch(err => console.log(err))
+      .then(res =>
+        this.validateUser(res.data[0])
+      )
+      .catch(err => console.log(err))
   }
 
   handleFormSubmit = event => {
@@ -109,9 +112,10 @@ class Login extends Component {
 
     const { redirect } = this.state;
 
-     if (redirect) {
-       return <Redirect to='/admin'/>
-      }
+    if (redirect) {
+      return <Redirect to='/admin' />
+      // window.location.reload()
+    }
 
     return (
       <div>
@@ -120,37 +124,9 @@ class Login extends Component {
           header='Welcome Admin, Please login'
           trigger={<Button floating large id="admin-btn" className="transparent"><Icon large>settings</Icon></Button>}>
           <form>
-            {/* <Row> */}
-            {/* <Input s={12} label="Email" validate><Icon>account_circle</Icon></Input> */}
-
-            {/* <Input
-                s={12}
-                label="User Name"
-                validate
-                value={this.state.username}
-                onChange={this.handleInputChange}
-              >
-                <Icon>account_circle</Icon>
-              </Input>
-
-              <Input
-                s={12}
-                label="Password"
-                type='password'
-                validate>
-                <Icon>lock</Icon>
-              </Input> */}
-
-            {/* </Row> */}
-
-            {/* <FormBtn onClick={this.handleFormSubmit}>Login</FormBtn> */}
-            {/* <Button onClick={this.handleFormSubmit}>Login</Button> */}
-
-            {/* FROM SIGNUPFORM */}
             <Row>
-
             <Input
-              active
+              s={12}
               value={this.state.username}
               onChange={this.handleInputChange}
               name="username"
@@ -158,6 +134,7 @@ class Login extends Component {
               placeholder="Username (required)"
               />
             <Input
+              s={12}
               value={this.state.password}
               onChange={this.handleInputChange}
               name="password"
@@ -166,9 +143,8 @@ class Login extends Component {
               />
             </Row>
             <FormBtn
-            className="green"
-            // disabled={!(this.state.author && this.state.title)}
-            onClick={this.handleFormSubmit}
+              disabled={!(this.state.username && this.state.password)}
+              onClick={this.handleFormSubmit}
             >
               Login
             </FormBtn>

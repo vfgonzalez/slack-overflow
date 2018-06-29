@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Input, FormBtn } from "../Form"
+import TabComponent from '../SimpleTabs/SimpleTabs'
 
 
 class AdminRemovePost extends Component {
@@ -12,7 +13,9 @@ class AdminRemovePost extends Component {
 
     render() {
         return (
-            <div className="AdminHelp">
+            <div className="AdminRemovePost">
+                <h1>Remove Post</h1>
+                <TabComponent/>
                 <form>
                     <label>This is the label</label>
                     <Input
