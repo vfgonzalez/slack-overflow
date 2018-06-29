@@ -1,26 +1,154 @@
-import React from 'react';
-import {Modal, Button,Row,Input,Icon} from 'react-materialize';
+import React, { Component } from 'react';
+import { Modal, Button, Icon } from 'react-materialize';
+import { Input, FormBtn } from "../Form";
+import API from '../../utils/API'
 import './Login.css';
+import { Redirect } from 'react-router'
+import { BrowserRouter } from 'react-router-dom';
+
+class Login extends Component {
+
+  state = {
+    categoryName: '',
+    resources: [],
+    title: "",
+    link: "",
+    description: "",
+    username: "",
+    password: "",
+    value: "",
+    user: [],
+    redirect: false
+  };
 
 
 
-const Login = () =>
+  validateUser = user => {
+    if (user.password === this.state.password && user.accountLevel === 'Admin') {
+          this.setState({ redirect: true })
+    } else {
+      console.log('Wrong Password')
+    }
+  }
 
-<div>
-
-  <Modal
-    header='Welcome Admin, Please login'
-    trigger={<Button id="admin-btn" className="transparent"><Icon large>settings</Icon></Button>}>
+  getUser = username => {
+    console.log('querying for: ' + username)
+    API.getUser(username)
+    .then(res =>
+    // console.log(res.data[0].password)
+    // let userData = res.data[0]
+    // this.setState({ user: res.data[0] }),
+    this.validateUser(res.data[0]),
+    // this.validateUser()
     
-    <Row>
-      <Input s={12} label="Email" validate><Icon>account_circle</Icon></Input>
-      <Input s={12} label="Password" type='password' validate><Icon>lock</Icon></Input>
-    </Row>
+    )
+    .catch(err => console.log(err))
+  }
 
-    <Button right>Login</Button>
-  </Modal>
+  handleFormSubmit = event => {
+    event.preventDefault();
+    this.setState({ username: this.state.username })
+    this.setState({ password: this.state.password })
+    this.getUser(this.state.username)
+  };
 
-</div>;
+  handleInputChange = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
+  };
 
+  render() {
+
+    const { redirect } = this.state;
+
+     if (redirect) {
+       return (
+         <BrowserRouter>
+       <Redirect 
+      //  from="/"
+       to='/admin'
+       />
+       </BrowserRouter>
+      )
+     }
+
+    return (
+      <div>
+
+        <Modal
+          header='Welcome Admin, Please login'
+          trigger={<Button floating large id="admin-btn" className="transparent"><Icon large>settings</Icon></Button>}>
+          <form>
+            {/* <Row> */}
+            {/* <Input s={12} label="Email" validate><Icon>account_circle</Icon></Input> */}
+
+            {/* <Input
+                s={12}
+                label="User Name"
+                validate
+                value={this.state.username}
+                onChange={this.handleInputChange}
+              >
+                <Icon>account_circle</Icon>
+              </Input>
+
+              <Input
+                s={12}
+                label="Password"
+                type='password'
+                validate>
+                <Icon>lock</Icon>
+              </Input> */}
+
+            {/* </Row> */}
+
+            {/* <FormBtn onClick={this.handleFormSubmit}>Login</FormBtn> */}
+            {/* <Button onClick={this.handleFormSubmit}>Login</Button> */}
+
+
+            {/* FROM SIGNUPFORM */}
+            <Input
+              active
+              value={this.state.username}
+              onChange={this.handleInputChange}
+              name="username"
+              type="text"
+              placeholder="Username (required)"
+            />
+            <Input
+              value={this.state.password}
+              onChange={this.handleInputChange}
+              name="password"
+              type="password"
+              placeholder="Password (required)"
+            />
+            </form>
+            <FormBtn
+            className="left-align"
+              // disabled={!(this.state.author && this.state.title)}
+              onClick={this.handleFormSubmit}
+            >
+              Login
+                      </FormBtn>
+
+
+
+
+
+
+
+        </Modal>
+
+      </div>
+
+
+
+
+
+    )
+  }
+}
 
 export default Login;

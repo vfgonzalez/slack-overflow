@@ -1,34 +1,83 @@
-// ---------- This file holds the jsx for the main page ----------
-//  -----------------------------------------------------------------------
 
 import React, { Component } from 'react';
-//import ReactDOM from 'react-dom';
-import Button from '@material-ui/core/Button';
-// import logo from "./logo.svg";
-import Nav from "../components/Nav/Nav";
+import MenuAppBar from "../components/Nav/Nav";
 import Categories from "../components/Categories/Categories";
 import Jumbotron from "../components/Jumbotron/Jumbotron";
 import Post from "../components/Post/Post";
 import Results from "../components/Results/Results";
-import Footer from "../components/Footer/Footer";
-// import "./App.css";
+import Foot from "../components/Footer/Footer";
+import API from "../utils/API";
+
+import "../App.css";
 
 class Main extends Component {
+
+  state = {
+    categoryName: '',
+    results: [],
+    resources: [],
+    title: "",
+    link: "",
+    description: ""
+  };
+
+  //image click funtion 
+  handleImageClick = (category) => {
+    this.setState({ categoryName: category.name })
+    console.log('category', category)
+    this.loadResources()
+
+  }
+  
+  loadResources = () => {
+
+    API.getResources()
+      .then(res => {
+        this.setState({ resources: res.data })
+        console.log(this.state.resources);
+      }
+      )
+      .catch(err => console.log(err));
+  };
+
+  // run loadResources after component mounts
+  componentDidMount() {
+
+  }
+
+  // Beginning of render function
   render() {
     return (
       <div className="App">
-        <Nav />
+
+        <MenuAppBar />
         <Post />
-        <Jumbotron />
-        <Categories />
-        <Results />
-        <Footer />
-        <Button variant="contained" color="primary">
-          Hello World
-        </Button>
+        <div className="center-align">
+          <h1>Jumbotron Here</h1>
+          <Jumbotron />
+          <Categories
+            onImageClick={this.handleImageClick}
+          />
+          <div className="border row">
+            <div className="category col s12">{this.state.categoryName}</div>
+
+          </div>
+          {this.state.resources.map(resource => {
+            return (
+              <Results>
+                {/* this is how you pass resource, the data that you queried back to the Results component. Results will then consume it as props.children */}
+                {resource}
+              </Results>
+            );
+          })}
+
+        </div>
+        <Foot />
+
       </div>
     );
   }
 }
 
 export default Main;
+
