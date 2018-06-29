@@ -80,13 +80,17 @@ module.exports = function (app) {
                 const string ="lorem ipsaiofjasljfasd  dsjfal;sfd dsijfoiapejfoja ojdas;ifdf http://google.com akljdfljkadshfa ljkdhfklahsdfl khasdfhalis"
 
                 const call = getUrl(string)
-                
-                console.log(call);
-                
-                
+
+                call.forEach((x)=>console.log(x))
                 
                 
-                // console.log(getUrl(event.text).Set);
+                console.log(call.values());
+
+                
+                
+                
+                
+                // console.log(getUrl(event.text));
                 
                 
                 
@@ -98,7 +102,7 @@ module.exports = function (app) {
         
 
         
-        console.log(`Message from channel: ${event.channel} : message : ${event.text}`);
+        // console.log(`Message from channel: ${event.channel} : message : ${event.text}`);
 
             
     })
