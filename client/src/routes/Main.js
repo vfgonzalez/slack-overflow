@@ -1,12 +1,12 @@
-
 import React, { Component } from 'react';
 import MenuAppBar from "../components/Nav/Nav";
 import Categories from "../components/Categories/Categories";
 import Jumbotron from "../components/Jumbotron/Jumbotron";
 import Post from "../components/Post/Post";
-import Results from "../components/Results/Results";
+import Result from "../components/Results/Result";
 import Foot from "../components/Footer/Footer";
 import API from "../utils/API";
+import { Row } from "react-materialize";
 
 import "../App.css";
 
@@ -62,14 +62,18 @@ class Main extends Component {
             <div className="category col s12">{this.state.categoryName}</div>
 
           </div>
-          {this.state.resources.map(resource => {
-            return (
-              <Results>
-                {/* this is how you pass resource, the data that you queried back to the Results component. Results will then consume it as props.children */}
-                {resource}
-              </Results>
-            );
-          })}
+          <div className="container">
+            <Row>
+              {this.state.resources.map(resource => {
+                return (
+                  <Result>
+                    {/* this is how you pass resource, the data that you queried back to the Results component. Results will then consume it as props.children */}
+                    {resource}
+                  </Result>
+                );
+              })}
+            </Row>
+          </div>
 
         </div>
         <Foot />
