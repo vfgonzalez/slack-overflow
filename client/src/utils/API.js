@@ -44,5 +44,7 @@ export default {
   saveUser: function(userData) {
     return axios.post("/api/users", userData);
   },
+  castVote: function(id, vote) {
+    return axios.post("/api/resources/" + id, vote);
+  }
 }
-
