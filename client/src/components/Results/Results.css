@@ -1,5 +1,5 @@
 .container {
-    /* width: 50%; */
+    text-align: center;
 }
 
 
@@ -10,3 +10,21 @@
 .btn-downvote {
     margin: 5px;
 }
+
+.link {
+    color:black; 
+}
+
+.row {
+   
+
+}
+.card {
+    /* width: 45%; */
+    float: left;
+    margin-right:10px;
+    /* margin-left:3.5%;
+    /* margin-top:5%;
+    margin-bottom:10%; */
+} 
+
