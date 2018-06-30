@@ -66,7 +66,7 @@ class Results extends Component {
           title={this.state.title}
           actions={<p>{this.state.description}</p>}>
           <div id="verification-status">[VERIFIED-STATUS-BADGE]{this.state.verified}</div>
-          <div id="resource-link"><a href={this.state.link}>{this.state.link}</a></div>
+          <div id="resource-link"><a href={this.state.link} target="_blank">{this.state.link}</a></div>
           <br />
           <Button
             id="upvote"
