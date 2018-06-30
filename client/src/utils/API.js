@@ -23,6 +23,7 @@ export default {
   getResource: function(id) {
     return axios.get("/api/resources/" + id);
   },
+
   // Deletes the resource with the given id
   deleteResource: function(id) {
     return axios.delete("/api/resources/" + id);
@@ -37,7 +38,6 @@ export default {
   getUsers: function() {
     return axios.get("/api/users")
   },
-  // Get user by username
   getUser: function(username) {
     return axios.get("/api/users/" + username);
   },

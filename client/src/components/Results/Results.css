@@ -5,3 +5,6 @@
 .btn-downvote {
     margin: 5px;
 }
+.card{
+    clear: both;
+}

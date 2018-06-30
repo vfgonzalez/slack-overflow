@@ -4,7 +4,7 @@ import { SideNav, SideNavItem, Button, Modal } from 'react-materialize'
 
 const Sidebar = () =>
     <SideNav
-        trigger={<Button className='left transparent '>Slack Overflow</Button>}
+        trigger={<Button className=' z-depth-0 floating transparent '>Slack Overflow</Button>}
         options={{ closeOnClick: false }}
         left
     >
@@ -25,9 +25,8 @@ const Sidebar = () =>
         />
         <SideNavItem href='#' icon='people'>
             <Modal
-                className="center-align"
                 header='Developers'
-                trigger={<Button className="transparent black-text">Contributors</Button>}>
+                trigger={<Button className="transparent black-text z-depth-0 floating">Contributors</Button>}>
                 <h4>
 
                 <ul>
@@ -44,7 +43,7 @@ const Sidebar = () =>
         <SideNavItem href='#' icon="lightbulb_outline">
         <Modal
                 header='Inspiration'
-                trigger={<Button className="transparent black-text">Inspiration</Button>}>
+                trigger={<Button className="transparent black-text z-depth-0 floating">Inspiration</Button>}>
                 <p>
                 One day we were sitting in class watching valuable links from our biggest resource, our fellow students, flood the Slack channel. Knowing that the channel had hit its limits we scrambled to save these links in any means possible. Some in our notes, others in our favorites and that is when it dawned on us and...... Slack Overflow was born.
                 </p>
@@ -54,7 +53,7 @@ const Sidebar = () =>
         <SideNavItem icon="phone">
             <Modal
                 header='Contact Us'
-                trigger={<Button className="transparent black-text">Contact Us</Button>}>
+                trigger={<Button className="transparent black-text z-depth-0 floating">Contact Us</Button>}>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
             </Modal>
         </SideNavItem>

@@ -1,8 +1,7 @@
-// This file calls front end routes
-// import React from 'react';
+import React from 'react'
 import Routes from './routes'
 
-import React, { Component } from 'react';
+// import React, { Component } from 'react';
 // import {BrowserRouter as Router} from 'react-router-dom'
 // //import Routes from './routes'
 // //import ReactDOM from 'react-dom';
@@ -25,9 +24,9 @@ import React, { Component } from 'react';
 // const $ = window.$
 //routes redirect from gavin:
 
-export default () => (
-  <Routes />
-)
+// export default () => (
+//   <Routes />
+// )
 
 
 // handleFormSubmit = event => {
@@ -173,3 +172,6 @@ export default () => (
 
 // export default App;
 
+export default () => (
+  <Routes />
+)

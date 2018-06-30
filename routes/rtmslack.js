@@ -3,6 +3,7 @@ const express = require('express');
 const getUrl = require('get-urls')
 const app = express()
 const { RTMClient } = require('@slack/client');
+// const axios = require('axios')
 // const createSlackEventAdapter = require('@slack/events-api').createSlackEventAdapter;
 const { createMessageAdapter } = require('@slack/interactive-messages')
 
@@ -16,7 +17,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // Attach the adapter to the Express application as a middleware
 // NOTE: The path must match the Request URL and/or Options URL configured in Slack
 
+//Testing getURL functionality
 
+let setData = new Set()
 
 
 
@@ -31,36 +34,14 @@ module.exports = function (app) {
     app.use('/slack/actions', slackInteractions.expressMiddleware());
 
 
-// // Mount the event handler on a route
-// // NOTE: you must mount to a path that matches the Request URL that was configured earlier
-// app.use('/slack/events', slackEvents.expressMiddleware());
-
-// // Attach listeners to events by Slack Event "type". See: https://api.slack.com/events/message.im
-// slackEvents.on('message', (event)=> {
-//   console.log(`Received a message event: user ${event.user} in channel ${event.channel} says ${event.text}`);
-// });
-
-// // Handle errors (see `errorCodes` export)
-// slackEvents.on('error', console.error);
-
-
-
-
-
-
     // Initialize an RTM API client
     
     const rtm = new RTMClient(token);
     // // Start the connection to the platform
     rtm.start();
     
-    // Log all incoming messages
-    // rtm.on('message', (event) => {
-    //     // Structure of `event`: <https://api.slack.com/events/message>
-    //     console.log(`Message from channel: ${event.channel}: ${event.text}`);
-    // })
     rtm.on('message', (event) => {
-        const conversationId = 'CAG00EFHA'
+        const conversationId = 'GBFF13316'
         
         if( event.text.includes("http://"||"https://"|| "www." ||".com" || ".org" || ".net")){
 
@@ -70,19 +51,31 @@ module.exports = function (app) {
                 // `res` contains information about the posted message
                 console.log('Message reply successfully sent: ', res.ts);
                 
-                // let str = event.text
-                // let a = str.indexOf("<")
-                // let b = str.indexOf(">"|| "|")
-                // let url = str.slice(a,b)
-                // console.log("Parsed URL is: "+ url);
-                const string = getUrl(event.text)
+                const string ="lorem ipsaiofjasljfasd  dsjfal;sfd dsijfoiapejfoja ojdas;ifdf http://google.com akljdfljkadshfa ljkdhfklahsdfl khasdfhalis"
+
+                const call = getUrl(event.text)
+
+               var x
+
+                call.forEach((i)=>
+                x=i
+                )
                 
-                console.log(string);
+                // axios.post('/resources', {
+                //     link: x,
+                //     title: 'Resource Shared via Slack',
+                //     category: 'Slack Submission'
+                //   })
+                //   .then(function (response) {
+                //     console.log(response);
+                //   })
+                //   .catch(function (error) {
+                //     console.log(error);
+                //   });
                 
+                console.log(x);
                 
-                
-                
-                // console.log(getUrl(event.text).Set);
+                // console.log(getUrl(event.text));
                 
                 
                 

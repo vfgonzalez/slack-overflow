@@ -20,10 +20,13 @@ import InboxIcon from '@material-ui/icons/Inbox';
 import EjectIcon from '@material-ui/icons/Eject';
 import PermIdentityIcon from '@material-ui/icons/PermIdentity';
 import ReorderIcon from '@material-ui/icons/Reorder';
-import SignUpForm from '../components/SignUpForm/SignUpForm'
-
-// import DraftsIcon from '@material-ui/icons/Drafts';
-// import Nav from '../components/Nav/Nav'
+import NewUser from '../components/SignUpForm/SignUpForm'
+import AdminHelp from '../components/AdminHelp/AdminHelp'
+import AdminRemovePost from '../components/AdminRemovePost/AdminRemovePost';
+import API from '../utils/API'
+import { Input, FormBtn } from "../components/Form";
+import './styles/Admin.css'
+import { Route, Redirect } from 'react-router'
 
 
 const drawerWidth = 240;
@@ -31,7 +34,7 @@ const drawerWidth = 240;
 const styles = theme => ({
     root: {
         flexGrow: 1,
-        height: 430,
+        height: 1000,
         zIndex: 1,
         overflow: 'hidden',
         position: 'relative',
@@ -52,7 +55,7 @@ const styles = theme => ({
     },
     toolbar: theme.mixins.toolbar,
 });
-const  classes = {
+const classes = {
     appBar: "Admin-appBar-2",
     content: "Admin-content-4",
     drawerPaper: "Admin-drawerPaper-3",
@@ -60,122 +63,135 @@ const  classes = {
     toolbar: "Admin-toolbar-5"
 }
 
-// function Admin(props) {
-    // console.log(props)
-    // const { classes } = props;
-    class Admin extends Component {
+class Admin extends Component {
 
-        state = {
-            categoryName: '',
-            resources: [],
-            title: "",
-            link: "",
-            description: "",
-            username: "",
-            password: "",
-            value: "",
-            user: [],
-          };
+    state = {
+        categoryName: '',
+        resources: [],
+        title: "",
+        link: "",
+        description: "",
+        username: "",
+        password: "",
+        active: 'adminHelp',
+        redirect: false
+    };
 
-        // const { classes } = props;
+    handleButtonClick = (component) => {
+        console.log('Button Clicked')
+        console.log(component)
+        this.setState({ active: component })
+    };
 
-        handleButtonClick = () => {
-            console.log('Button Clicked')
-          };
+      // Test Button
+  handleTestButton = () => {
+    this.loadUsers()
+    console.log('button pressed')
+    console.log(this.state)
+  }
+
+  loadUsers = () => {
+    API.getUsers()
+      .then(res =>  {
+          this.setState({ users: res.data })  
+          console.log(this.state.users);
+        }
+      )
+      .catch(err => console.log(err));
+  };
+
+  handleBackButton = () => {
+      console.log('Back Button Pressed')
+      this.setState({ redirect: true })
+
+  }
+
+    render() {
         
-        handleNewUserButton = () => {
-            console.log('New User Button Clicked')
-            this.setState({ useNewUser: true })
+        var active = this.state.active;
 
-        }
+        const { redirect } = this.state;
 
+        if (redirect) {
+            return <Redirect to='/main' />
+          }
 
+        return (
 
-        render() {
-
-            const { useNewUser } = this.state;
-            if (useNewUser) {
-              return <SignUpForm/>
-            }
-
-            return (
-
-                <div className={classes.root}>
-                    {/* Admin-appBar-2 */}
-                    <AppBar position="absolute" className={classes.appBar}>
-                        <Toolbar>
-                            <Typography variant="title" color="inherit" noWrap>Admin Page</Typography>
-                        </Toolbar>
-                    </AppBar>
-                    {/* <Nav position="absolute"/> */}
-                    <Drawer
-                        variant="permanent"
-                        classes={{
-                            paper: classes.drawerPaper,
-                        }}
-                    >
-                        <div className={classes.toolbar} />
+            <div className={classes.root}>
+                <AppBar position="absolute" className={classes.appBar}>
+                    <Toolbar>
+                        <Typography variant="title" color="inherit" noWrap>Admin Page</Typography>
+                        {/* <button className='backButton' onClick={this.handleBackButton}>Back to Main Page</button> */}
+                    </Toolbar>
+                </AppBar>
+                {/* <Nav position="absolute"/> */}
+                <Drawer
+                    variant="permanent"
+                    classes={{
+                        paper: classes.drawerPaper,
+                    }}
+                >
+                    <div className={classes.toolbar} />
 
 
-                        <List component="a">
-                            <ListItem button onClick={this.handleButtonClick}>
-                                <ListItemIcon><FaceIcon /></ListItemIcon>
-                                <ListItemText primary="Admin Help" />
-                            </ListItem>
-                        </List>
-                        <Divider />
-                        <List component="a">
-                            <ListItem button>
-                                <ListItemIcon><InboxIcon /></ListItemIcon>
-                                <ListItemText primary="Messages" />
-                            </ListItem>
-                            <ListItem button>
-                                <ListItemIcon><ReportProblemIcon /></ListItemIcon>
-                                <ListItemText primary="Flagged Posts" />
-                            </ListItem>
-                        </List>
-                        <Divider />
-                        <List component="a">
-                            <ListItem button>
-                                <ListItemIcon><BackspaceIcon /></ListItemIcon>
-                                <ListItemText primary="Remove Post" />
-                            </ListItem>
-                            <ListItem button onClick={this.handleNewUserButton}>
-                                <ListItemIcon><PermIdentityIcon /></ListItemIcon>
-                                <ListItemText primary="Add New User" />
-                            </ListItem>
-                            <ListItem button>
-                                <ListItemIcon><EjectIcon /></ListItemIcon>
-                                <ListItemText primary="Remove User" />
-                            </ListItem>
-                            <ListItem button>
-                                <ListItemIcon><ReorderIcon /></ListItemIcon>
-                                <ListItemText primary="Add Category" />
-                            </ListItem>
-                            <ListItem button>
-                                <ListItemText primary="Remove Category" />
-                            </ListItem>
-                        </List>
+                    <List component="a">
+                        <ListItem button onClick={() => this.handleButtonClick("adminHelp")}>
+                            <ListItemIcon><FaceIcon /></ListItemIcon>
+                            <ListItemText primary="Admin Help" />
+                        </ListItem>
+                    </List>
+                    <Divider />
+                    <List component="a">
+                        <ListItem button>
+                            <ListItemIcon><InboxIcon /></ListItemIcon>
+                            <ListItemText primary="Messages" />
+                        </ListItem>
+                        <ListItem button>
+                            <ListItemIcon><ReportProblemIcon /></ListItemIcon>
+                            <ListItemText primary="Flagged Posts" />
+                        </ListItem>
+                    </List>
+                    <Divider />
+                    <List component="a">
+                        <ListItem button onClick={(() => this.handleButtonClick("removePost"))}>
+                            <ListItemIcon><BackspaceIcon /></ListItemIcon>
+                            <ListItemText primary="Remove Post" />
+                        </ListItem>
+                        <ListItem button onClick={() => this.handleButtonClick("addNewUser")}>
+                            <ListItemIcon><PermIdentityIcon /></ListItemIcon>
+                            <ListItemText primary="Add New User" />
+                        </ListItem>
+                        <ListItem button>
+                            <ListItemIcon><EjectIcon /></ListItemIcon>
+                            <ListItemText primary="Remove User" />
+                        </ListItem>
+                        <ListItem button>
+                            <ListItemIcon><ReorderIcon /></ListItemIcon>
+                            <ListItemText primary="Add Category" />
+                        </ListItem>
+                        <ListItem button onClick={this.handleBackButton}>
+                            <ListItemText primary="Back to Main Page" />
+                        </ListItem>
+                    </List>
 
-                    </Drawer>
-                    <main className={classes.content}>
-                        <div className={classes.toolbar} />
-                        {/* <Typography noWrap>{'Here is where selected actions will be displayed'}</Typography> */}
-                        <div className='content'>
-                            <p>This is content</p>
-                            {/* <SignUpForm /> */}
-
-                        </div>
-                    </main>
-                </div>
-            );
-        }
+                </Drawer>
+                <main className={classes.content}>
+                    <div className={classes.toolbar} />
+                    <div className='content'>
+                        {/* <button type="button" onClick={this.handleTestButton} value="Click Me!" /> */}
+                        {(active === 'addNewUser') && <NewUser />}
+                        {(active === 'adminHelp') && <AdminHelp />}
+                        {(active === 'removePost') && <AdminRemovePost />}
+                    </div>
+                </main>
+            </div>
+        );
     }
+}
 
+Admin.propTypes = {
+    classes: PropTypes.object.isRequired,
+}
 
-    Admin.propTypes = {
-        classes: PropTypes.object.isRequired,
-    }
-
-
-    export default withStyles(styles)(Admin)
+export default withStyles(styles)(Admin)
