@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Modal, Button, Icon } from 'react-materialize';
+import { Modal, Button, Icon, Row } from 'react-materialize';
 import { Input, FormBtn } from "../Form";
 import API from '../../utils/API'
 import './Login.css';
@@ -25,12 +25,7 @@ class Login extends Component {
     console.log('querying for: ' + username)
     API.getUser(username)
       .then(res =>
-        // console.log(res.data[0].password)
-        // let userData = res.data[0]
-        // this.setState({ user: res.data[0] }),
         this.validateUser(res.data[0])
-        // this.validateUser()
-
       )
       .catch(err => console.log(err))
   }
@@ -65,34 +60,7 @@ class Login extends Component {
           header='Welcome Admin, Please login'
           trigger={<Button floating large id="admin-btn" className="transparent"><Icon large>settings</Icon></Button>}>
           <form>
-            {/* <Row> */}
-            {/* <Input s={12} label="Email" validate><Icon>account_circle</Icon></Input> */}
-
-            {/* <Input
-                s={12}
-                label="User Name"
-                validate
-                value={this.state.username}
-                onChange={this.handleInputChange}
-              >
-                <Icon>account_circle</Icon>
-              </Input>
-
-              <Input
-                s={12}
-                label="Password"
-                type='password'
-                validate>
-                <Icon>lock</Icon>
-              </Input> */}
-
-            {/* </Row> */}
-
-            {/* <FormBtn onClick={this.handleFormSubmit}>Login</FormBtn> */}
-            {/* <Button onClick={this.handleFormSubmit}>Login</Button> */}
-
-
-            {/* FROM SIGNUPFORM */}
+            <Row>
             <Input
               s={12}
               value={this.state.username}
@@ -100,7 +68,7 @@ class Login extends Component {
               name="username"
               type="text"
               placeholder="Username (required)"
-            />
+              />
             <Input
               s={12}
               value={this.state.password}
@@ -108,8 +76,8 @@ class Login extends Component {
               name="password"
               type="password"
               placeholder="Password (required)"
-            />
-            </form>
+              />
+            </Row>
             <FormBtn
               disabled={!(this.state.username && this.state.password)}
               onClick={this.handleFormSubmit}
@@ -117,6 +85,7 @@ class Login extends Component {
               Login
             </FormBtn>
 
+            </form>
         </Modal>
 
       </div>

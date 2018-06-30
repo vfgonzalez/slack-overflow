@@ -2,11 +2,11 @@ import React, { Component } from 'react'
 import { Modal, Button, Row, Input, Icon } from 'react-materialize'
 import API from '../../utils/API'
 // import Input from '@material-ui/core/Input';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
+// import InputLabel from '@material-ui/core/InputLabel';
+// import MenuItem from '@material-ui/core/MenuItem';
+// import FormHelperText from '@material-ui/core/FormHelperText';
+// import FormControl from '@material-ui/core/FormControl';
+// import Select from '@material-ui/core/Select';
 
 class NewPost extends Component {
 
@@ -19,20 +19,9 @@ class NewPost extends Component {
     description: ''
   };
 
-  // handleFormSubmit = event => {
-  //   event.preventDefault();
-  //   this.setState({ link: this.state.link })
-  //   this.setState({ title: this.state.title })
-  //   this.setState({ description: this.state.description })
-  //   // this.getUser(this.state.username)
-  //   console.log(this.state.link)
-  //   console.log(this.state.title)
-  //   console.log(this.state.description)
-  // };
-
+  // Send new post to database
   handleFormSubmit = event => {
     event.preventDefault();
-    console.log(this.state.username)
     API.saveResource(
       {
         link: this.state.link,
@@ -41,10 +30,11 @@ class NewPost extends Component {
         category: 'General Tools'
       }
     )
-      .then(res => console.log(res))
+      .then(res => console.log(res.data))
       .catch(err => console.log(err));
   };
 
+  // Allows inputs to be manipulated while typing
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -53,8 +43,6 @@ class NewPost extends Component {
   };
 
   render() {
-
-
 
     return (
 
@@ -71,35 +59,6 @@ class NewPost extends Component {
           </Button>}>
           <Row>
             <form>
-              {/* <Input
-              s={12}
-              label="Link"
-              name="link"
-              value={this.state.link}
-            >
-              <Icon large>insert_link</Icon>
-            </Input>
-
-            <Input
-              s={12}
-              label="Title"
-              name="title"
-              value={this.state.title}
-            >
-              <Icon large>title</Icon>
-            </Input>
-
-            <Input
-              s={12}
-              label="Summary"
-              name='description'
-              value={this.state.description}
-              type="textarea"
-            >
-              <Icon large>info</Icon>
-            </Input> */}
-
-
               <Input
                 s={12}
                 value={this.state.link}
@@ -148,19 +107,9 @@ class NewPost extends Component {
                 <MenuItem value={20}>Twenty</MenuItem>
                 <MenuItem value={30}>Thirty</MenuItem>
               </Select> */}
-
-
-
-
-
-
-
-
             </form>
           </Row>
           {/* <Button className="red" >Cancel</Button> */}
-
-
           <Button onClick={this.handleFormSubmit} className="green"> Submit</Button>
         </Modal>
       </div>
