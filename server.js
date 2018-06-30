@@ -18,7 +18,7 @@ if (process.env.NODE_ENV === "production") {
 // Define API routes here
 app.use(routes);
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/slackoverflowdb").then((x)=>console.log(x));
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/slackoverflowdb");
 
 
 // require("./routes/slack-routes.js")(app);
@@ -41,5 +41,4 @@ app.get("/", (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`🌎 ==> Server now on port ${PORT}!`);
-  //console.log(process.env)
 })
