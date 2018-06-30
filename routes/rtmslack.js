@@ -51,7 +51,6 @@ module.exports = function (app) {
                 // `res` contains information about the posted message
                 console.log('Message reply successfully sent: ', res.ts);
                 
-                const string ="lorem ipsaiofjasljfasd  dsjfal;sfd dsijfoiapejfoja ojdas;ifdf http://google.com akljdfljkadshfa ljkdhfklahsdfl khasdfhalis"
 
                 const call = getUrl(event.text)
 
