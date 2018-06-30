@@ -2,6 +2,11 @@
     text-align: center;
 }
 
+.card{
+    clear: both;
+    background-color: lightslategray;
+    font-family: 'Anonymous Pro', monospace;
+}
 
 .btn-upvote {
     margin: 5px;
@@ -9,12 +14,6 @@
 
 .btn-downvote {
     margin: 5px;
-}
-
-.card{
-    clear: both;
-    background-color: lightslategray;
-    font-family: 'Anonymous Pro', monospace;
 }
 
 #voteCount {
