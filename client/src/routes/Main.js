@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import MenuAppBar from "../components/Nav/Nav";
 import Categories from "../components/Categories/Categories";
-import Jumbotron from "../components/Jumbotron/Jumbotron";
+import Heading from "../components/Jumbotron/Heading";
 import Post from "../components/Post/Post";
 import Result from "../components/Results/Result";
 import Foot from "../components/Footer/Footer";
 import API from "../utils/API";
-import { Row, Toast } from "react-materialize";
+import { Row } from "react-materialize";
+import "./Main.css";
 
-import "../App.css";
+
+
 
 class Main extends Component {
 
@@ -57,11 +59,16 @@ class Main extends Component {
         <MenuAppBar />
         <Post />
         <div className="center-align">
-          <h1>Jumbotron Here</h1>
-          <Jumbotron />
+          <h1> </h1>
+          <Heading />
           <Categories
             onImageClick={this.handleImageClick}
           />
+          {/* HTML for bracket under carousel */}
+          <div className ="bracket">
+            <p>{"}"}</p>
+          </div>
+          
           <div className="border row">
             <div className="category col s12">{this.state.categoryName}</div>
 

@@ -20,18 +20,6 @@
     font-size: 20px;
 }
 
-a:link {
-    color: darkgreen;
-}
-
-a:visited {
-    color:darkred;
-}
-
-a:hover {
-    color:rebeccapurple;
-}
-
-a:active {
-    color: blue;
+.card-title {
+    padding-left: 10%;
 }

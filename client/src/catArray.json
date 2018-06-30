@@ -7,8 +7,8 @@
     },
     {   
         "id": 2,
-        "name": "Teaching Resource",
-        "image": "./images/teachingresources.png",
+        "name": "Teaching Resources",
+        "image": "./images/teaching-resources.png",
         "description": "Enter text here"
     },
     {   
@@ -68,7 +68,7 @@
     {
         "id": 12,
         "name": "HTML",
-        "image": "./images/html.png",
+        "image": "./images/html2.png",
         "description": "Enter text here"
     },
     {
