@@ -13,3 +13,7 @@
 .card{
     clear: both;
 }
+
+.card-title {
+    padding-left: 10%;
+}

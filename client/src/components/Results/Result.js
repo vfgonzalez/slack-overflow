@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Results.css";
-import { Row, Col, Button, Icon, Card, CardTitle } from "react-materialize";
+import { Col, Button, Icon, Card, CardTitle } from "react-materialize";
 import API from "../../utils/API";
 
 class Results extends Component {
@@ -65,7 +65,19 @@ class Results extends Component {
         <Card className="sticky-action card md-6" header={<CardTitle reveal image={"http://via.placeholder.com/350x150"} waves='light' />}
           title={this.state.title}
           reveal={<p>{this.state.description}</p>}>
-          <Button className="transparent z-depth-0"><p><a className="red-text" rel="noreferrer noopener" target="_blank" href={this.state.link}>View Article</a></p></Button>
+
+          <Button className="transparent z-depth-0">
+            <p>
+              <a className="red-text"
+                rel="noreferrer noopener"
+                target="_blank"
+                href={this.state.link}>View Article
+                </a>
+            </p>
+          </Button>
+
+          <br />
+
           <Button
             id="upvote"
             className="btn-upvote green"
@@ -74,6 +86,7 @@ class Results extends Component {
           >
             <Icon center>thumb_up</Icon>
           </Button>
+
           <Button
             id="downvote"
             className="btn-downvote red"
@@ -84,8 +97,9 @@ class Results extends Component {
             <Icon center>thumb_down</Icon>
           </Button>
           <div id="voteCount"><p>{this.state.voteCount}</p></div>
-          <div id="author"><p>{this.state.author}</p></div>
-          <div id="dateCreated"><p>{this.state.createAd}</p></div>
+          {/* <div id="author"><p>{this.state.author}</p></div>
+          <div id="dateCreated"><p>{this.state.createAd}</p></div> */}
+
         </Card>
       </Col>
     );
