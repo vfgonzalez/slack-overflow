@@ -64,9 +64,9 @@ class Results extends Component {
       <Col m={6}>
         <Card className="sticky-action card md-6" header={<CardTitle waves='light' />}
           title={this.state.title}
-          actions={<p>{this.state.description} <br /> {this.state.link}</p>}>
+          actions={<p>{this.state.description}</p>}>
           <div id="verification-status">[VERIFIED-STATUS-BADGE]{this.state.verified}</div>
-          <Button id="link-btn" className="transparent z-depth-0"><p><a className="red-text" rel="noreferrer noopener" target="_blank" href={this.state.link}>View Article</a></p></Button>
+          <div id="resource-link"><a>{this.state.link}</a></div>
           <br />
           <Button
             id="upvote"
