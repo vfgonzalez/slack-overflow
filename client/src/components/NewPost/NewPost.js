@@ -30,7 +30,6 @@ class NewPost extends Component {
   //   console.log(this.state.description)
   // };
 
-
   handleFormSubmit = event => {
     event.preventDefault();
     console.log(this.state.username)
@@ -44,7 +43,6 @@ class NewPost extends Component {
     )
       .then(res => console.log(res))
       .catch(err => console.log(err));
-
   };
 
   handleInputChange = event => {
