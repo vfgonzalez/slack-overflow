@@ -2,6 +2,11 @@
     text-align: center;
 }
 
+.card{
+    clear: both;
+    background-color: lightslategray;
+    font-family: 'Anonymous Pro', monospace;
+}
 
 .btn-upvote {
     margin: 5px;
@@ -10,6 +15,23 @@
 .btn-downvote {
     margin: 5px;
 }
-.card{
-    clear: both;
+
+#voteCount {
+    font-size: 20px;
+}
+
+a:link {
+    color: darkgreen;
+}
+
+a:visited {
+    color:darkred;
+}
+
+a:hover {
+    color:rebeccapurple;
+}
+
+a:active {
+    color: blue;
 }

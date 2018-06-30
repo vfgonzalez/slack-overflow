@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./Results.css";
 import { Row, Col, Button, Icon, Card, CardTitle } from "react-materialize";
-import API from "../../utils/API";
+import API from "../../utils/API"; 
 
 class Results extends Component {
 
@@ -62,10 +62,12 @@ class Results extends Component {
   render() {
     return (
       <Col m={6}>
-        <Card className="sticky-action card md-6" header={<CardTitle reveal image={"http://via.placeholder.com/350x150"} waves='light' />}
+        <Card className="sticky-action card md-6" header={<CardTitle waves='light' />}
           title={this.state.title}
-          reveal={<p>{this.state.description}</p>}>
-          <Button className="transparent z-depth-0"><p><a className="red-text" rel="noreferrer noopener" target="_blank" href={this.state.link}>View Article</a></p></Button>
+          actions={<p>{this.state.description}</p>}>
+          <div id="verification-status">[VERIFIED-STATUS-BADGE]{this.state.verified}</div>
+          <div id="resource-link"><a href={this.state.link} target="_blank">{this.state.link}</a></div>
+          <br />
           <Button
             id="upvote"
             className="btn-upvote green"
@@ -74,6 +76,7 @@ class Results extends Component {
           >
             <Icon center>thumb_up</Icon>
           </Button>
+
           <Button
             id="downvote"
             className="btn-downvote red"
@@ -83,6 +86,9 @@ class Results extends Component {
           >
             <Icon center>thumb_down</Icon>
           </Button>
+
+          <br />
+
           <div id="voteCount"><p>{this.state.voteCount}</p></div>
           <div id="author"><p>{this.state.author}</p></div>
           <div id="dateCreated"><p>{this.state.createAd}</p></div>
