@@ -6,7 +6,7 @@ import Post from "../components/Post/Post";
 import Result from "../components/Results/Result";
 import Foot from "../components/Footer/Footer";
 import API from "../utils/API";
-import { Row } from "react-materialize";
+import { Row, Toast } from "react-materialize";
 
 import "../App.css";
 
@@ -24,21 +24,25 @@ class Main extends Component {
   //image click funtion 
   handleImageClick = (category) => {
     this.setState({ categoryName: category.name })
-    console.log('category', category)
-    this.loadResources()
-
+    console.log('category', category.name)
+    this.getCategory(category.name)
   }
-  
-  loadResources = () => {
 
-    API.getResources()
-      .then(res => {
-        this.setState({ resources: res.data })
-        console.log(this.state.resources);
-      }
+  // Query database for chosen category, and call category change function with category
+  getCategory = category => {
+    console.log('querying for: ' + category)
+    API.getCategory(category)
+      .then(res =>
+        this.handleCategoryChange(res.data)
       )
-      .catch(err => console.log(err));
-  };
+      .catch(err => console.log(err))
+  }
+
+  // Empty resources and set to chosen category
+  handleCategoryChange = category => {
+    this.setState({ resources: [] })
+    this.setState({ resources: category})
+  }
 
   // run loadResources after component mounts
   componentDidMount() {

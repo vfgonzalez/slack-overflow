@@ -13,10 +13,15 @@ router.route("/")
   .post(resourceController.create);
 
 // Matches with "/api/resources/:id"
-router.route("/:id")
-  .get(resourceController.findById)
-  .put(resourceController.update)
-  .post(resourceController.castVote)
-  .delete(resourceController.remove);
+// router.route("/:id")
+//   .get(resourceController.findById)
+//   .put(resourceController.update)
+//   .post(resourceController.castVote)
+//   .delete(resourceController.remove);
+
+// Matches with "/api/resources/:category"
+router.route("/:category")
+  .get(resourceController.findByCategory)
+
 
 module.exports = router;
