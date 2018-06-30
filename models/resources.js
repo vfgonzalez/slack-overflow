@@ -14,7 +14,8 @@ const resourcesSchema = new Schema({
   category: { type: String, required: true },
   createdAt: { type: Date, default: Date.now },
   author: { type: String, required: false },
-  voteCount: {type: Number, default:0, required: false}
+  voteCount: {type: Number, default:0, required: false},
+  date: { type: Date, default: Date.now }
 })
 
 const Resources = mongoose.model("Resource", resourcesSchema);
