@@ -18,17 +18,9 @@ if (process.env.NODE_ENV === "production") {
 // Define API routes here
 app.use(routes);
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/slackoverflowdb").then((x)=>console.log(x));
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/slackoverflowdb");
 
-
-// require("./routes/slack-routes.js")(app);
-// require("./routes/slackroutes.js")(app);
-// require("./routes/rtmslack.js")(app);
-// require("./routes/eventsslack.js")(app);
-
-// require("../routes/api/resourceroute.js")(app);
-// require("../routes/api/cohortroute.js")(app);
-// require("../routes/api/userroute.js")(app);
+require("./routes/rtmslack.js")(app);
 
 // Send every other request to the React app
 // Define any API routes before this runs
@@ -41,5 +33,4 @@ app.get("/", (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`🌎 ==> Server now on port ${PORT}!`);
-  console.log(process.env)
 })
