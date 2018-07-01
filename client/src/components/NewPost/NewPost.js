@@ -7,8 +7,12 @@ import MenuItem from '@material-ui/core/MenuItem';
 // import FormHelperText from '@material-ui/core/FormHelperText';
 // import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 
 class NewPost extends Component {
+
+  notify = () => toast("Wow so easy !")
 
   state = {
     username: "",
@@ -16,7 +20,8 @@ class NewPost extends Component {
     redirect: false,
     link: '',
     title: '',
-    description: ''
+    description: '',
+    category: ''
   };
 
   // Send new post to database
@@ -27,9 +32,21 @@ class NewPost extends Component {
         link: this.state.link,
         title: this.state.title,
         description: this.state.description,
-        category: 'General Tools'
+        category: this.state.category
+        // category: 'HTML'
+
       }
     )
+    // API.saveResource(
+    //   {
+    //     link: 'test',
+    //     title: 'test',
+    //     description: 'test',
+    //     // category: this.state.category
+    //     category: 'HTML'
+
+    //   }
+    // )
       // .then(res => this.clearResources)
       .then(res => console.log(res.data))
 
@@ -37,11 +54,11 @@ class NewPost extends Component {
       .catch(err => console.log(err))
   };
 
-  clearResources = () => {
-    this.setState({ link: '' })
-    this.setState({ title: '' })
-    this.setState({ description: '' })
-  }
+  // clearResources = () => {
+  //   this.setState({ link: '' })
+  //   this.setState({ title: '' })
+  //   this.setState({ description: '' })
+  // }
 
   // Allows inputs to be manipulated while typing
   handleInputChange = event => {
@@ -67,6 +84,7 @@ class NewPost extends Component {
           >
           </Button>}>
           <Row>
+          <ToastContainer />
             <form>
               <Input
                 s={12}
@@ -92,6 +110,17 @@ class NewPost extends Component {
               </Input>
               <Input
                 s={12}
+                value={this.state.category}
+                onChange={this.handleInputChange}
+                name="category"
+                type="text"
+                label="Category"
+              // placeholder="Password (required)"
+              >
+                <Icon large>info</Icon>
+              </Input>
+              <Input
+                s={12}
                 value={this.state.description}
                 onChange={this.handleInputChange}
                 name="description"
@@ -103,7 +132,8 @@ class NewPost extends Component {
               </Input>
 
 
-              <Select
+
+              {/* <Select
                 value={this.state.category}
                 onChange={this.handleInputChange}
                 name="category"
@@ -116,7 +146,7 @@ class NewPost extends Component {
                 <MenuItem value={10}>Ten</MenuItem>
                 <MenuItem value={20}>Twenty</MenuItem>
                 <MenuItem value={30}>Thirty</MenuItem>
-              </Select>
+              </Select> */}
               {/* <select name="cars">
                 <option value="volvo">Volvo</option>
                 <option value="saab">Saab</option>
@@ -126,11 +156,20 @@ class NewPost extends Component {
             </form>
 
             {/* <Toast toast='"here you go!" + this.state.link' onClick={this.handleFormSubmit} className="green modal-close">Submit</Toast> */}
-            <Toast toast={"Thanks For Submitting " + this.state.link + "!"} onClick={this.handleFormSubmit} className="green modal-close">Submit</Toast>
+            {/* <Toast
+            toast={"Thanks For Submitting " + this.state.link + "!"}
+            onClick={this.handleFormSubmit}
+            className="green modal-close"
+            // disabled={!(this.state.title && this.state.link)}
+            >
+            Submit
+            </Toast> */}
 
           </Row>
           {/* <Button className="red modal-close" >Cancel</Button> */}
           {/* <Button onClick={this.handleFormSubmit} className="green modal-close"> Submit</Button> */}
+          <Button onClick={this.notify} className="green modal-close">Submit</Button>
+
         </Modal>
       </div>
     )

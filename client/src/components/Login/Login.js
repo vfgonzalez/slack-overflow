@@ -81,6 +81,7 @@ class Login extends Component {
             <FormBtn
               disabled={!(this.state.username && this.state.password)}
               onClick={this.handleFormSubmit}
+              className='modal-close'
             >
               Login
             </FormBtn>
