@@ -1,4 +1,17 @@
 .bracket {
     color: white;
-    font-size:50px;
+    font-size:35px;
+    margin-top:-10%;
+    font-family: 'Anonymous Pro', monospace;
 }
+
+/* .cat {
+    color: white;
+} */
+
+.results {
+    /* background-color: rgb(88, 82, 82); */
+    width: 90%;
+}
+
+

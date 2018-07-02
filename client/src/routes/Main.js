@@ -30,7 +30,7 @@ class Main extends Component {
     this.loadResources()
 
   }
-  
+
   loadResources = () => {
 
     API.getResources()
@@ -61,16 +61,16 @@ class Main extends Component {
             onImageClick={this.handleImageClick}
           />
           {/* HTML for bracket under carousel */}
-          <div className ="bracket">
+          <div className="bracket">
             <p>{"}"}</p>
           </div>
-          
-          <div className="border row">
-            <div className="category col s12">{this.state.categoryName}</div>
 
+          <div className="border row">
+            <div className="cat col s12">{this.state.categoryName}</div>
           </div>
-          <div className="container">
-            <Row>
+
+          <div className="container results">
+            <Row className="collapse">
               {this.state.resources.map(resource => {
                 return (
                   <Result>
