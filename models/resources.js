@@ -15,7 +15,8 @@ const resourcesSchema = new Schema({
   createdAt: { type: Date, default: Date.now },
   author: { type: String, required: false },
   voteCount: {type: Number, default:0, required: false},
-  date: { type: Date, default: Date.now }
+  date: { type: Date, default: Date.now },
+  safelink:{type:String, default:"", required:true }
 })
 
 const Resources = mongoose.model("Resource", resourcesSchema);

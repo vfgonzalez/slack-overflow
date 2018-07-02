@@ -1,10 +1,11 @@
 import React from 'react'
 import { SideNav, SideNavItem, Button, Modal } from 'react-materialize'
+import "./Sidebar.css";
 
 
 const Sidebar = () =>
     <SideNav
-        trigger={<Button className=' z-depth-0 floating transparent '>Slack Overflow</Button>}
+        trigger={<Button className='brand z-depth-0 floating transparent '>Slack Overflow</Button>}
         options={{ closeOnClick: false }}
         left
     >
