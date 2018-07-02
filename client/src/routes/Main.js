@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import MenuAppBar from "../components/Nav/Nav";
 import Categories from "../components/Categories/Categories";
-import Jumbotron from "../components/Jumbotron/Jumbotron";
+import Heading from "../components/Jumbotron/Heading";
 import Post from "../components/Post/Post";
 import Result from "../components/Results/Result";
 import Foot from "../components/Footer/Footer";
 import API from "../utils/API";
-import { Row, Toast } from "react-materialize";
+import { Row } from "react-materialize";
+import "./Main.css";
 
-import "../App.css";
+
+
 
 class Main extends Component {
 
@@ -26,6 +28,9 @@ class Main extends Component {
     this.setState({ categoryName: category.name })
     console.log('category', category.name)
     this.getCategory(category.name)
+  }
+
+  loadResources = () => {
   }
 
   // Query database for chosen category, and call category change function with category
@@ -57,17 +62,22 @@ class Main extends Component {
         <MenuAppBar />
         <Post />
         <div className="center-align">
-          <h1>Jumbotron Here</h1>
-          <Jumbotron />
+          <h1> </h1>
+          <Heading />
           <Categories
             onImageClick={this.handleImageClick}
           />
-          <div className="border row">
-            <div className="category col s12">{this.state.categoryName}</div>
-
+          {/* HTML for bracket under carousel */}
+          <div className="bracket">
+            <p>{"}"}</p>
           </div>
-          <div className="container">
-            <Row>
+
+          <div className="border row">
+            <div className="cat col s12">{this.state.categoryName}</div>
+          </div>
+
+          <div className="container results">
+            <Row className="collapse">
               {this.state.resources.map(resource => {
                 return (
                   <Result>
@@ -86,6 +96,8 @@ class Main extends Component {
     );
   }
 }
+
+
 
 export default Main;
 
