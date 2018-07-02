@@ -7,6 +7,7 @@ import Result from "../components/Results/Result";
 import Foot from "../components/Footer/Footer";
 import API from "../utils/API";
 import { Row } from "react-materialize";
+import SlackToast from "../components/SlackToastr/slackAlert"
 import "./Main.css";
 
 
@@ -57,6 +58,8 @@ class Main extends Component {
       <div className="App">
 
         <MenuAppBar />
+        
+        <SlackToast/>
         <Post />
         <div className="center-align">
           <h1> </h1>
@@ -73,6 +76,8 @@ class Main extends Component {
             <div className="category col s12">{this.state.categoryName}</div>
 
           </div>
+
+        
           <div className="container">
             <Row>
               {this.state.resources.map(resource => {

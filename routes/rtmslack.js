@@ -29,7 +29,6 @@ if (!token) { console.log('You must specify a token to use this example'); proce
 
 
 
-
 module.exports = function (app) {
     
     app.use('/slack/actions', slackInteractions.expressMiddleware());
