@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Results.css";
-import { Col, Button, Icon, Card, CardTitle } from "react-materialize";
+import { Col, CollapsibleItem, Collapsible, Button, Icon, Card, CardTitle } from "react-materialize";
 import API from "../../utils/API";
 
 class Results extends Component {
@@ -68,6 +68,20 @@ class Results extends Component {
           <div id="verification-status">[VERIFIED-STATUS-BADGE]{this.state.verified}</div>
           <div id="resource-link"><a href={this.state.link} target="_blank">{this.state.link}</a></div>
           <br />
+        </Card>
+      {/* <Col m={4}> */}
+
+        <Collapsible popout defaultActiveKey={2}>
+          <CollapsibleItem header={this.state.title}>
+            Lorem ipsum dolor sit amet.
+        </CollapsibleItem>
+        </Collapsible>
+
+        {/* <Card className="sticky-action card md-6"
+          // header={<CardTitle
+          // reveal image={"http://via.placeholder.com/350x150"} 
+          // waves='light' />}
+          title={this.state.title}
           reveal={<p>{this.state.description}</p>}>
 
           <Button className="transparent z-depth-0">
@@ -104,10 +118,10 @@ class Results extends Component {
           <br />
 
           <div id="voteCount"><p>{this.state.voteCount}</p></div>
-          {/* <div id="author"><p>{this.state.author}</p></div>
-          <div id="dateCreated"><p>{this.state.createAd}</p></div> */}
+          <div id="author"><p>{this.state.author}</p></div>
+          <div id="dateCreated"><p>{this.state.createAd}</p></div>
 
-        </Card>
+        </Card> */}
       </Col>
     );
   }

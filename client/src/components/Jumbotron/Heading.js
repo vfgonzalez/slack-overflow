@@ -6,20 +6,32 @@ const Heading = () => (
   <div className="heading">
     <p>
       <span className="purps">
-        {"function "}
+        {/* {"select "} */}
 
       </span>
+
       <span className="secondColor">
-        {"chooseTopic"}
+        {"selectCategory"}
 
       </span>
 
       <span>
-        {"()   {"}
+        {" ()   {"}
 
+      </span>
+
+    </p>
+    <p>
+    <span className="purps">
+        {"return "}
+      </span>
+
+      <span>
+        {"("}
       </span>
     </p>
 
+      
 
   </div>
 

@@ -23,3 +23,18 @@
 .card-title {
     padding-left: 10%;
 }
+
+a:visited {
+    color:darkred;
+}
+
+a:hover {
+    color:rebeccapurple;
+}
+
+a:active {
+    color: blue;
+}
+/* .card-title {
+
+} */

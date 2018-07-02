@@ -31,6 +31,9 @@ class Main extends Component {
     this.getCategory(category.name)
   }
 
+  loadResources = () => {
+  }
+
   // Query database for chosen category, and call category change function with category
   getCategory = category => {
     console.log('querying for: ' + category)
@@ -68,18 +71,16 @@ class Main extends Component {
             onImageClick={this.handleImageClick}
           />
           {/* HTML for bracket under carousel */}
-          <div className ="bracket">
+          <div className="bracket">
             <p>{"}"}</p>
           </div>
-          
-          <div className="border row">
-            <div className="category col s12">{this.state.categoryName}</div>
 
+          <div className="border row">
+            <div className="cat col s12">{this.state.categoryName}</div>
           </div>
 
-        
-          <div className="container">
-            <Row>
+          <div className="container results">
+            <Row className="collapse">
               {this.state.resources.map(resource => {
                 return (
                   <Result>
@@ -98,6 +99,8 @@ class Main extends Component {
     );
   }
 }
+
+
 
 export default Main;
 
