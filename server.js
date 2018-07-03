@@ -27,7 +27,7 @@ app.get('/slack/actions', (req, res) => {
 
 // require("./routes/slack-routes.js")(app);
 // require("./routes/slackroutes.js")(app);
-require("./routes/rtmslack.js")(app);
+// require("./routes/rtmslack.js")(app);
 // require("./routes/eventsslack.js")(app);
 
 // require("../routes/api/resourceroute.js")(app);
