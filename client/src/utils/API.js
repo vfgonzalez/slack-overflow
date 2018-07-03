@@ -16,9 +16,9 @@ export default {
 // ---------------------------------------------------------------------------------
 
   // Gets all resources
-  // getResources: function() {
-  //   return axios.get("/api/resources")
-  // },
+  getResources: function() {
+    return axios.get("/api/resources")
+  },
   //Gets the resource with the given id
   // getResource: function(id) {
   //   return axios.get("/api/resources/" + id);
@@ -30,6 +30,7 @@ export default {
   },
   // Saves a resource to the database
   saveResource: function(resourceData) {
+    console.log("API: " + resourceData)
     return axios.post("/api/resources", resourceData);
   },
   getUsers: function() {
@@ -40,6 +41,9 @@ export default {
   },
   saveUser: function(userData) {
     return axios.post("/api/users", userData);
+  },
+  removeUser: function(username) {
+    return axios.delete("/api/users/delete" + username);
   },
   castVote: function(id, vote) {
     return axios.post("/api/resources/" + id, vote);
