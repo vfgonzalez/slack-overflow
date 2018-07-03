@@ -9,6 +9,7 @@ const db = require("../models");
 // Defining methods for the resourcesController
 module.exports = {
   findAll: function(req, res) {
+    console.log("Finding All Resources")
     db.Resource
       .find(req.query)
       .sort({ date: -1 })
@@ -16,24 +17,29 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   findById: function(req, res) {
+    console.log("Finding Resource By ID")
     db.Resource
       .findById(req.params.id)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   findByCategory: function(req, res) {
+    console.log("Finding Resources By Category")
     db.Resource
       .find({category: req.params.category})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
+    console.log("Creating New Resource")
+    console.log(req.body)
     db.Resource
       .create(req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   update: function(req, res) {
+    console.log("Updating Resource")
     db.Resource
       .findOneAndUpdate({ _id: req.params.id }, req.body)
       .then(dbModel => res.json(dbModel))
@@ -50,8 +56,9 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   remove: function(req, res) {
+    console.log("Removing Resource: " + req.params.title)
     db.Resource
-      .findById({ _id: req.params.id })
+      .findById({ title: req.params.title })
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));

@@ -7,7 +7,6 @@ import Result from "../components/Results/Result";
 import Foot from "../components/Footer/Footer";
 import API from "../utils/API";
 import { Col, Row, Collapsible } from "react-materialize";
-import SlackToast from "../components/SlackToastr/slackAlert"
 import "./Main.css";
 
 
@@ -61,9 +60,7 @@ class Main extends Component {
       <div className="App">
 
         <MenuAppBar />
-
-        <SlackToast />
-        <Post />
+        
         <div className="center-align">
           <h1> </h1>
           <Heading />
@@ -98,9 +95,10 @@ class Main extends Component {
             </Row>
           </div>
 
-        </div>
         {/* <Foot /> */}
 
+                </div>
+                <Post />
       </div>
     );
   }

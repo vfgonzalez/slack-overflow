@@ -88,11 +88,5 @@
         "name": "Slack Submissions",
         "image": "./images/slacksubmissions.png",
         "description": "Enter text here"
-    },
-    {
-        "id": 16,
-        "name": "Text Submissions",
-        "image": "./images/textsubmissions.png",
-        "description": "Enter text here"
     }
 ]
