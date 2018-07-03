@@ -60,69 +60,100 @@ class Results extends Component {
   }
 
   render() {
+
     return (
-      <Col m={6}>
-        <Card className="sticky-action card md-6" header={<CardTitle waves='light' />}
-          title={this.state.title}
-          actions={<p>{this.state.description}</p>}>
-          <div id="verification-status">[VERIFIED-STATUS-BADGE]{this.state.verified}</div>
-          <div id="resource-link"><a href={this.state.link} target="_blank">{this.state.link}</a></div>
-          <br />
-        </Card>
-      {/* <Col m={4}> */}
 
-        <Collapsible popout defaultActiveKey={2}>
-          <CollapsibleItem header={this.state.title}>
-            Lorem ipsum dolor sit amet.
-        </CollapsibleItem>
-        </Collapsible>
+      <CollapsibleItem
+        header={this.state.title} 
+        icon={this.state.voteCount}
+      >
+        <div>
 
-        {/* <Card className="sticky-action card md-6"
-          // header={<CardTitle
-          // reveal image={"http://via.placeholder.com/350x150"} 
-          // waves='light' />}
-          title={this.state.title}
-          reveal={<p>{this.state.description}</p>}>
+          {<p>{this.state.description}</p>}
+          <p>
+            <a className="blue-text"
+              rel="noreferrer noopener"
+              target="_blank"
+              href={this.state.link}>{this.state.link}
+            </a>
 
-          <Button className="transparent z-depth-0">
-            <p>
-              <a className="red-text"
-                rel="noreferrer noopener"
-                target="_blank"
-                href={this.state.link}>View Article
-                </a>
-            </p>
-          </Button>
+            <br />
 
-          <br />
+            <Button
+              id="upvote"
+              className="btn-upvote green"
+              waves='light'
+              onClick={() => this.vote('up')}
+            >
+              <Icon center>thumb_up</Icon>
 
-          <Button
-            id="upvote"
-            className="btn-upvote green"
-            waves='light'
-            onClick={() => this.vote('up')}
-          >
-            <Icon center>thumb_up</Icon>
-          </Button>
+            </Button>
 
-          <Button
-            id="downvote"
-            className="btn-downvote red"
-            waves='light'
-            onClick={() => this.vote('down')}
-            disabled={this.state.voteCount === 0 ? true : false}
-          >
-            <Icon center>thumb_down</Icon>
-          </Button>
+            <Button
+              id="downvote"
+              className="btn-downvote red"
+              waves='light'
+              onClick={() => this.vote('down')}
+              disabled={this.state.voteCount === 0 ? true : false}
+            >
+              <Icon center>thumb_down</Icon>
+            </Button>
 
-          <br />
+            <br />
 
-          <div id="voteCount"><p>{this.state.voteCount}</p></div>
-          <div id="author"><p>{this.state.author}</p></div>
-          <div id="dateCreated"><p>{this.state.createAd}</p></div>
+            <div id="voteCount"><p>{this.state.voteCount}</p></div>
+          </p>
+        </div>
 
-        </Card> */}
-      </Col>
+      </CollapsibleItem>
+
+
+      /*<Card className="sticky-action card md-6"
+        // header={<CardTitle
+        // reveal image={"http://via.placeholder.com/350x150"} 
+        // waves='light' />}
+        title={this.state.title}
+        reveal={<p>{this.state.description}</p>}>
+
+        <Button className="transparent z-depth-0">
+          <p>
+            <a className="red-text"
+              rel="noreferrer noopener"
+              target="_blank"
+              href={this.state.link}>View Article
+              </a>
+          </p>
+        </Button>
+
+        <br />
+
+        <Button
+          id="upvote"
+          className="btn-upvote green"
+          waves='light'
+          onClick={() => this.vote('up')}
+        >
+          <Icon center>thumb_up</Icon>
+        </Button>
+
+        <Button
+          id="downvote"
+          className="btn-downvote red"
+          waves='light'
+          onClick={() => this.vote('down')}
+          disabled={this.state.voteCount === 0 ? true : false}
+        >
+          <Icon center>thumb_down</Icon>
+        </Button>
+
+        <br />
+
+        <div id="voteCount"><p>{this.state.voteCount}</p></div>
+        <div id="author"><p>{this.state.author}</p></div>
+        <div id="dateCreated"><p>{this.state.createAd}</p></div>
+
+      </Card> */
+      // </Col>
     );
   }
 }
