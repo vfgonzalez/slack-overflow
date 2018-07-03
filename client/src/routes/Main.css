@@ -1,19 +1,26 @@
 .bracket {
     color: white;
-
     font-size:35px;
-    margin-top:-10%;
+    margin-top:-12%;
     font-family: 'Anonymous Pro', monospace;
 }
 
-/* .cat {
-    color: white;
-} */
 
 .results {
-    /* background-color: rgb(88, 82, 82); */
     width: 90%;
 }
 
+.collapsible-body {
+    font-family: 'Anonymous Pro', monospace;
+    background-color: beige;
+    padding: 1rem;
+}
 
+.collapse {
+    font-family: 'Anonymous Pro', monospace
+}
+
+.App {
+    background-image: url("bg.png");
+}
 

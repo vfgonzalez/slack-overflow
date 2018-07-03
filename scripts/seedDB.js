@@ -11,10 +11,10 @@ mongoose.connect(
 
 const resourcesSeed = [
   {
-    link: "https://medium.freecodecamp.org/",
-    title: "Free Code Camp",
-    description: "A useful tool for brushing up on past things we have learned.",
-    category: "Teaching Resource",
+    link:"https://medium.freecodecamp.org/",
+    title:"Free Code Camp",
+    description:"A useful tool for brushing up on past things we have learned.",
+    category:"Teaching Resource",
     createAd: new Date(Date.now()),
     author: "Thomas Seaman",
     voteCount: 0

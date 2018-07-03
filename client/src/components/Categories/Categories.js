@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import "./Categories.css";
 import { Carousel } from "react-materialize";
 import catArray from "../../catArray.json";
@@ -6,39 +6,48 @@ import catArray from "../../catArray.json";
 let $ = window.$
 
 class Categories extends Component {
-    componentDidMount () {
+    componentDidMount() {
 
         $('.carousel').carousel('next', 16)
-      }
-      
-    render () {
+    }
+
+    render() {
         return (
             <div>
 
-        <div id="Carousel">
-            
-            <Carousel
-                options={{
-                    dist: -80,
-                    shift: 60,
-                    numVisible:16,
-                }}
-                children={catArray.map((cat) => {
-                    
-                    return (
-                        <img
-                            key={cat.id}
-                            onClick={() => { this.props.onImageClick(cat) }}
-                            src={cat.image}
-                            alt={cat.name}
-                        />
-                    );
-                })}
-            />
+                <div id="Carousel">
 
-        </div>
+                    <Carousel
+                        options={{
+                            dist: -40,
+                            shift: 40,
+                            numVisible: 16,
+                            indicators: true,
+                        }}
+                        children={catArray.map((cat) => {
 
-    </div>
+                            return (
+
+                                <p
+                                    key={cat.id}
+                                    id="cards"
+                                    onClick={() => { this.props.onImageClick(cat) }}>{cat.name}
+                                </p>
+
+                                // old carousel
+                                // <img
+                                //     key={cat.id}
+                                //     onClick={() => { this.props.onImageClick(cat) }}
+                                //     src={cat.image}
+                                //     alt={cat.name}
+                                // />
+                            );
+                        })}
+                    />
+
+                </div>
+
+            </div>
         )
     }
 }
