@@ -64,8 +64,7 @@ class Results extends Component {
     return (
 
       <CollapsibleItem
-        header={this.state.title} 
-        // icon={this.state.voteCount}
+        header={`${this.state.title}  |  Rank: ${this.state.voteCount}`}
       >
         <div>
 
