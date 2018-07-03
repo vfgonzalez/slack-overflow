@@ -61,7 +61,6 @@ class Main extends Component {
 
         <MenuAppBar />
         
-       
         <Post />
         <div className="center-align">
           <h1> </h1>
