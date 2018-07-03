@@ -20,6 +20,10 @@ app.use(routes);
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/slackoverflowdb");
 
+// API calls
+app.get('/slack/actions', (req, res) => {
+  res.send({ express: 'New Slack Submission!' });
+});
 
 // require("./routes/slack-routes.js")(app);
 // require("./routes/slackroutes.js")(app);

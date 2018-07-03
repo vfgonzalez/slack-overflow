@@ -6,8 +6,7 @@ import Post from "../components/Post/Post";
 import Result from "../components/Results/Result";
 import Foot from "../components/Footer/Footer";
 import API from "../utils/API";
-import { Row } from "react-materialize";
-import SlackToast from "../components/SlackToastr/slackAlert"
+import { Row, Collapsible } from "react-materialize";
 import "./Main.css";
 
 
@@ -62,7 +61,7 @@ class Main extends Component {
 
         <MenuAppBar />
         
-        <SlackToast/>
+       
         <Post />
         <div className="center-align">
           <h1> </h1>
@@ -72,7 +71,7 @@ class Main extends Component {
           />
           {/* HTML for bracket under carousel */}
           <div className="bracket">
-            <p>{"}"}</p>
+            <p>{"})"}</p>
           </div>
 
           <div className="border row">
@@ -83,10 +82,13 @@ class Main extends Component {
             <Row className="collapse">
               {this.state.resources.map(resource => {
                 return (
+                  
+                  <Collapsible popout defaultActiveKey={2}>
                   <Result>
                     {/* this is how you pass resource, the data that you queried back to the Results component. Results will then consume it as props.children */}
                     {resource}
                   </Result>
+                  </Collapsible>
                 );
               })}
             </Row>

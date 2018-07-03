@@ -123,7 +123,10 @@ class Admin extends Component {
                     <Toolbar>
                         <Typography variant="title" color="inherit" noWrap>Admin Page</Typography>
                         {/* <button className='backButton' onClick={this.handleBackButton}>Back to Main Page</button> */}
+                    
                     </Toolbar>
+
+                     {/* <NewUser /> */}
                 </AppBar>
                 {/* <Nav position="absolute"/> */}
                 <Drawer

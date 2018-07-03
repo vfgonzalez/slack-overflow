@@ -61,21 +61,21 @@ class Results extends Component {
 
   render() {
     return (
-      <Col m={6}>
-        <Card className="sticky-action card md-6" header={<CardTitle waves='light' />}
+      <Col m={12}>
+        {/* <Card className="sticky-action card md-6" header={<CardTitle waves='light' />}
           title={this.state.title}
           actions={<p>{this.state.description}</p>}>
           <div id="verification-status">[VERIFIED-STATUS-BADGE]{this.state.verified}</div>
           <div id="resource-link"><a href={this.state.link} target="_blank">{this.state.link}</a></div>
           <br />
-        </Card>
+        </Card> */}
       {/* <Col m={4}> */}
 
-        <Collapsible popout defaultActiveKey={2}>
+        {/* <Collapsible popout defaultActiveKey={2}> */}
           <CollapsibleItem header={this.state.title}>
             Lorem ipsum dolor sit amet.
-        </CollapsibleItem>
-        </Collapsible>
+          </CollapsibleItem>
+        {/* </Collapsible> */}
 
         {/* <Card className="sticky-action card md-6"
           // header={<CardTitle
