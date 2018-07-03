@@ -3,7 +3,7 @@ const db = require("../models");
 // Defining methods for the booksController
 module.exports = {
   findAll: function(req, res) {
-    console.log('woops wrong one 1')
+    console.log('Finding All Users')
     db.User
       .find(req.query)
       .sort({ date: -1 })
@@ -18,9 +18,7 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   findByUsername: function(req, res) {
-    console.log('ping')
-    console.log(req.params)
-    console.log(req.body)
+    console.log("Finding By Username: " + req.params.username)
     db.User
       .find({ username: req.params.username })
       .then(dbModel => res.json(dbModel))
@@ -40,12 +38,20 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  remove: function(req, res) {
-    console.log('woops wrong one 5')
+  removeByUsername: function(req, res) {
+    console.log('Removing By Username: ' + req.params.username)
     db.User
-      .findById({ _id: req.params.id })
-      .then(dbModel => dbModel.remove())
-      .then(dbModel => res.json(dbModel))
+      .deleteOne({ username: req.params.username })
+      // .then(dbModel => dbModel.remove())
+      // .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   }
+  // removeByUsername: function(req, res) {
+  //   console.log('Removing By Username: ' + req.params.username)
+  //   db.User
+  //     .findById({ _id: req.params.id })
+  //     .then(dbModel => dbModel.remove())
+  //     .then(dbModel => res.json(dbModel))
+  //     .catch(err => res.status(422).json(err));
+  // }
 };

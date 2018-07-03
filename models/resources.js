@@ -13,10 +13,10 @@ const resourcesSchema = new Schema({
   description: { type: String, required: false },
   category: { type: String, required: true },
   createdAt: { type: Date, default: Date.now },
-  author: { type: String, required: false },
+  // author: { type: String, required: false },
   voteCount: {type: Number, default:0, required: false},
   date: { type: Date, default: Date.now },
-  safelink:{type:String, default:"", required:true }
+  // safelink:{type:String, default:"", required:true }
 })
 
 const Resources = mongoose.model("Resource", resourcesSchema);

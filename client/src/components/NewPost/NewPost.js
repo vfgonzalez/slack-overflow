@@ -9,10 +9,11 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
+import Suggestor from 'ssuggestor'
 
 class NewPost extends Component {
 
-  notify = () => toast("Wow so easy !")
+  notify = () => toast.success("Thank you for submitting " + this.state.title)
 
   state = {
     username: "",
@@ -21,7 +22,7 @@ class NewPost extends Component {
     link: '',
     title: '',
     description: '',
-    category: ''
+    category: '',
   };
 
   // Send new post to database
@@ -32,33 +33,20 @@ class NewPost extends Component {
         link: this.state.link,
         title: this.state.title,
         description: this.state.description,
-        category: this.state.category
-        // category: 'HTML'
-
+        // category: this.state.category
+        category: this.state.category,
       }
     )
-    // API.saveResource(
-    //   {
-    //     link: 'test',
-    //     title: 'test',
-    //     description: 'test',
-    //     // category: this.state.category
-    //     category: 'HTML'
-
-    //   }
-    // )
-      // .then(res => this.clearResources)
-      .then(res => console.log(res.data))
+      // .then(res => console.log(res.data))
 
       // .then(res => console.log(instance.close()))
       .catch(err => console.log(err))
   };
 
-  // clearResources = () => {
-  //   this.setState({ link: '' })
-  //   this.setState({ title: '' })
-  //   this.setState({ description: '' })
-  // }
+  handleButtonClick = (event) => {
+    this.handleFormSubmit(event)
+    this.notify()
+  }
 
   // Allows inputs to be manipulated while typing
   handleInputChange = event => {
@@ -68,8 +56,29 @@ class NewPost extends Component {
     });
   };
 
-  render() {
+  handleTestButton = () => {
+    console.log(this.state)
+  }
 
+  render() {
+    const catArray = [
+      "General Tools",
+      "Teaching Resource",
+      "CSS",
+      "Testing",
+      "Javascript",
+      "API",
+      "Databases",
+      "NPM Packages",
+      "Templates",
+      "Common Issues",
+      "Job Resources",
+      "HTML",
+      "Random",
+      "Podcasts",
+      "Slack Submissions",
+      "Text Submissions"
+    ]
     return (
 
       <div>
@@ -84,7 +93,9 @@ class NewPost extends Component {
           >
           </Button>}>
           <Row>
-          <ToastContainer />
+          <button onClick={this.handleTestButton}>TEST</button>
+
+            <ToastContainer />
             <form>
               <Input
                 s={12}
@@ -108,7 +119,7 @@ class NewPost extends Component {
               >
                 <Icon large>title</Icon>
               </Input>
-              <Input
+              {/* <Input
                 s={12}
                 value={this.state.category}
                 onChange={this.handleInputChange}
@@ -118,7 +129,7 @@ class NewPost extends Component {
               // placeholder="Password (required)"
               >
                 <Icon large>info</Icon>
-              </Input>
+              </Input> */}
               <Input
                 s={12}
                 value={this.state.description}
@@ -130,45 +141,41 @@ class NewPost extends Component {
               >
                 <Icon large>info</Icon>
               </Input>
+              {/* <Dropdown>
+                <ul>
+                  <li>
+                    <p>Test</p>
+                  </li>
+                </ul>
+              </Dropdown> */}
+              {/* <div>
+              <Icon small>insert_link</Icon>
+              <Suggestor
+                list={['suggestion-a', 'suggestion-b', 'suggestion-c', '...', 'suggestion-z']}
+                // theme={b3Theme}
+                onChange={value => { }}
+                onSelect={(value, suggestion) => { }}
+                placeholder="placeholder text..."
+              />,
+              </div> */}
+              <Suggestor
+                label="LABEL"
+                list={catArray}
+                // theme={b3Theme}
+                onChange={value => {}}
+                onSelect={(value, suggestion) => {this.setState({ category : suggestion })}}
+                placeholder="placeholder text..."
+              />
+            
 
-
-
-              {/* <Select
-                value={this.state.category}
-                onChange={this.handleInputChange}
-                name="category"
-                displayEmpty
-                // className={classes.selectEmpty}
-              >
-                <MenuItem value="" disabled>
-                  Placeholder
-                </MenuItem>
-                <MenuItem value={10}>Ten</MenuItem>
-                <MenuItem value={20}>Twenty</MenuItem>
-                <MenuItem value={30}>Thirty</MenuItem>
-              </Select> */}
-              {/* <select name="cars">
-                <option value="volvo">Volvo</option>
-                <option value="saab">Saab</option>
-                <option value="fiat">Fiat</option>
-                <option value="audi">Audi</option>
-              </select> */}
             </form>
 
-            {/* <Toast toast='"here you go!" + this.state.link' onClick={this.handleFormSubmit} className="green modal-close">Submit</Toast> */}
-            {/* <Toast
-            toast={"Thanks For Submitting " + this.state.link + "!"}
-            onClick={this.handleFormSubmit}
-            className="green modal-close"
-            // disabled={!(this.state.title && this.state.link)}
-            >
-            Submit
-            </Toast> */}
 
           </Row>
           {/* <Button className="red modal-close" >Cancel</Button> */}
           {/* <Button onClick={this.handleFormSubmit} className="green modal-close"> Submit</Button> */}
-          <Button onClick={this.notify} className="green modal-close">Submit</Button>
+          {/* <Button onClick={this.handleFormSubmit} className="green modal-close">Submit</Button> */}
+          <Button onClick={this.handleButtonClick} className="green modal-close">Submit</Button>
 
         </Modal>
       </div>

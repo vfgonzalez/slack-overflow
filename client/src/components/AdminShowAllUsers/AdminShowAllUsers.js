@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import API from '../../utils/API'
 import { Input, FormBtn } from "../../components/Form";
 
-class AdminRemovePost extends Component {
+class AdminShowAllUsers extends Component {
 
     state = {
         username: "",
@@ -37,31 +37,12 @@ class AdminRemovePost extends Component {
 
     render() {
         return (
-            <div className="AdminRemovePost">
-                <h1>Remove a Post</h1>
-                <form>
-                    <Input
-                        value={this.state.username}
-                        onChange={this.handleInputChange}
-                        name="username"
-                        placeholder="Name (required)"
-                    />
-                    <Input
-                        value={this.state.password}
-                        onChange={this.handleInputChange}
-                        name="password"
-                        placeholder="Password (required)"
-                    />
-                    <FormBtn
-                        disabled={!(this.state.username && this.state.password)}
-                        onClick={this.handleFormSubmit}
-                    >
-                        Add User
-              </FormBtn>
-                </form>
+            <div className="AdminShowAllUsers">
+                <h1>Show All Users</h1>
+
             </div >
         );
     }
 }
 
-export default AdminRemovePost
+export default AdminShowAllUsers

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import API from '../../utils/API'
 import { Input, FormBtn } from "../../components/Form";
 
-class AdminRemovePost extends Component {
+class AdminRemoveUser extends Component {
 
     state = {
         username: "",
@@ -37,8 +37,8 @@ class AdminRemovePost extends Component {
 
     render() {
         return (
-            <div className="AdminRemovePost">
-                <h1>Remove a Post</h1>
+            <div className="AdminRemoveUser">
+                <h1>Remove a User</h1>
                 <form>
                     <Input
                         value={this.state.username}
@@ -64,4 +64,4 @@ class AdminRemovePost extends Component {
     }
 }
 
-export default AdminRemovePost
+export default AdminRemoveUser

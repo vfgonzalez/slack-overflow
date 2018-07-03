@@ -13,11 +13,12 @@ import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import BackspaceIcon from '@material-ui/icons/Backspace';
+import PageIcon from '@material-ui/icons/Description';
 import FaceIcon from '@material-ui/icons/Face';
-import ReportProblemIcon from '@material-ui/icons/ReportProblem';
-import InboxIcon from '@material-ui/icons/Inbox';
+import RemoveIcon from '@material-ui/icons/Remove';
+import AddIcon from '@material-ui/icons/Add';
 import EjectIcon from '@material-ui/icons/Eject';
+import GroupIcon from '@material-ui/icons/Group';
 import PermIdentityIcon from '@material-ui/icons/PermIdentity';
 import ReorderIcon from '@material-ui/icons/Reorder';
 import NewUser from '../components/SignUpForm/SignUpForm'
@@ -27,6 +28,12 @@ import API from '../utils/API'
 import { Input, FormBtn } from "../components/Form";
 import './styles/Admin.css'
 import { Route, Redirect } from 'react-router'
+import AdminShowAllUsers from '../components/AdminShowAllUsers/AdminShowAllUsers'
+import AdminAddNewPost from '../components/AdminAddNewPost/AdminAddNewPost'
+import AdminRemoveUser from '../components/AdminRemoveUser/AdminRemoveUser'
+import NewPost from '../components/NewPost/NewPost'
+
+
 
 
 const drawerWidth = 240;
@@ -83,38 +90,38 @@ class Admin extends Component {
         this.setState({ active: component })
     };
 
-      // Test Button
-  handleTestButton = () => {
-    this.loadUsers()
-    console.log('button pressed')
-    console.log(this.state)
-  }
+    // Test Button
+    handleTestButton = () => {
+        this.loadUsers()
+        console.log('button pressed')
+        console.log(this.state)
+    }
 
-  loadUsers = () => {
-    API.getUsers()
-      .then(res =>  {
-          this.setState({ users: res.data })  
-          console.log(this.state.users);
-        }
-      )
-      .catch(err => console.log(err));
-  };
+    loadUsers = () => {
+        API.getUsers()
+            .then(res => {
+                this.setState({ users: res.data })
+                console.log(this.state.users);
+            }
+            )
+            .catch(err => console.log(err));
+    };
 
-  handleBackButton = () => {
-      console.log('Back Button Pressed')
-      this.setState({ redirect: true })
+    handleBackButton = () => {
+        console.log('Back Button Pressed')
+        this.setState({ redirect: true })
 
-  }
+    }
 
     render() {
-        
+
         var active = this.state.active;
 
         const { redirect } = this.state;
 
         if (redirect) {
             return <Redirect to='/main' />
-          }
+        }
 
         return (
 
@@ -134,7 +141,7 @@ class Admin extends Component {
                 >
                     <div className={classes.toolbar} />
 
-
+                    {/* Buttons For Admin Toolbar Navigation */}
                     <List component="a">
                         <ListItem button onClick={() => this.handleButtonClick("adminHelp")}>
                             <ListItemIcon><FaceIcon /></ListItemIcon>
@@ -142,7 +149,7 @@ class Admin extends Component {
                         </ListItem>
                     </List>
                     <Divider />
-                    <List component="a">
+                    {/* <List component="a">
                         <ListItem button>
                             <ListItemIcon><InboxIcon /></ListItemIcon>
                             <ListItemText primary="Messages" />
@@ -152,25 +159,43 @@ class Admin extends Component {
                             <ListItemText primary="Flagged Posts" />
                         </ListItem>
                     </List>
-                    <Divider />
+                    <Divider /> */}
                     <List component="a">
+                        <ListItem button onClick={(() => this.handleButtonClick("addNewPost"))}>
+                            <ListItemIcon><AddIcon /></ListItemIcon>
+                            <ListItemText primary="Add Post" />
+                        </ListItem>
                         <ListItem button onClick={(() => this.handleButtonClick("removePost"))}>
-                            <ListItemIcon><BackspaceIcon /></ListItemIcon>
+                            <ListItemIcon><RemoveIcon /></ListItemIcon>
                             <ListItemText primary="Remove Post" />
                         </ListItem>
+                    </List>
+                    <Divider />
+                    <List component="a">
                         <ListItem button onClick={() => this.handleButtonClick("addNewUser")}>
                             <ListItemIcon><PermIdentityIcon /></ListItemIcon>
                             <ListItemText primary="Add New User" />
                         </ListItem>
-                        <ListItem button>
+                        <ListItem button onClick={() => this.handleButtonClick("removeUser")}>
                             <ListItemIcon><EjectIcon /></ListItemIcon>
                             <ListItemText primary="Remove User" />
                         </ListItem>
-                        <ListItem button>
+                        <ListItem button onClick={() => this.handleButtonClick("showUsers")}>
+                            <ListItemIcon><GroupIcon /></ListItemIcon>
+                            <ListItemText primary="Show Users" />
+                        </ListItem>
+                    </List>
+                    <Divider />
+                    <List component="a">
+                        <ListItem button disabled>
                             <ListItemIcon><ReorderIcon /></ListItemIcon>
                             <ListItemText primary="Add Category" />
                         </ListItem>
+                    </List>
+                    <Divider />
+                    <List component="a">
                         <ListItem button onClick={this.handleBackButton}>
+                            <ListItemIcon><PageIcon /></ListItemIcon>
                             <ListItemText primary="Back to Main Page" />
                         </ListItem>
                     </List>
@@ -183,6 +208,12 @@ class Admin extends Component {
                         {(active === 'addNewUser') && <NewUser />}
                         {(active === 'adminHelp') && <AdminHelp />}
                         {(active === 'removePost') && <AdminRemovePost />}
+                        {(active === 'showUsers') && <AdminShowAllUsers />}
+                        {(active === 'addNewPost') && <AdminAddNewPost />}
+                        {(active === 'removeUser') && <AdminRemoveUser />}
+
+
+
                     </div>
                 </main>
             </div>
