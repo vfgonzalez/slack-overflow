@@ -27,6 +27,9 @@ import API from '../utils/API'
 import { Input, FormBtn } from "../components/Form";
 import './styles/Admin.css'
 import { Route, Redirect } from 'react-router'
+import {Button, Tabs, Tab} from 'react-materialize';
+import Col from 'react-materialize/lib/Col';
+// import Tab from 'react-materialize/lib/Tab';
 
 
 const drawerWidth = 240;
@@ -117,16 +120,37 @@ class Admin extends Component {
           }
 
         return (
-
+            
             <div className={classes.root}>
                 <AppBar position="absolute" className={classes.appBar}>
                     <Toolbar>
                         <Typography variant="title" color="inherit" noWrap>Admin Page</Typography>
                         {/* <button className='backButton' onClick={this.handleBackButton}>Back to Main Page</button> */}
                     </Toolbar>
+                    <Col>
+                        <Button className="transparent white-text z-depth-0" onClick={() => this.handleButtonClick("addPost")}>
+                            Add Post
+                        </Button>
+                        <Button className="transparent white-text z-depth-0" onClick={(() => this.handleButtonClick("removePost"))}>
+                            Remove Post
+                        </Button>
+                        <Button className="transparent white-text z-depth-0" onClick={() => this.handleButtonClick("addNewUser")}>
+                            Add User
+                        </Button>
+                        <Button className="transparent white-text z-depth-0" onClick={() => this.handleButtonClick("removeUser")}>
+                            Remove User
+                        </Button>
+                        <Button className="transparent white-text z-depth-0" onClick={() => this.handleButtonClick("addNewUser")}>
+                            Show User
+                        </Button>
+                        <Button className="transparent white-text z-depth-0" onClick={this.handleBackButton}>
+                            Main Page
+                        </Button>
+                    </Col>
                 </AppBar>
+                
                 {/* <Nav position="absolute"/> */}
-                <Drawer
+                {/* <Drawer
                     variant="permanent"
                     classes={{
                         paper: classes.drawerPaper,
@@ -175,7 +199,7 @@ class Admin extends Component {
                         </ListItem>
                     </List>
 
-                </Drawer>
+                </Drawer> */}
                 <main className={classes.content}>
                     <div className={classes.toolbar} />
                     <div className='content'>

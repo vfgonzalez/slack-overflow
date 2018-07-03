@@ -7,7 +7,6 @@ import Result from "../components/Results/Result";
 import Foot from "../components/Footer/Footer";
 import API from "../utils/API";
 import { Row } from "react-materialize";
-import SlackToast from "../components/SlackToastr/slackAlert"
 import "./Main.css";
 
 
@@ -62,7 +61,6 @@ class Main extends Component {
 
         <MenuAppBar />
         
-        <SlackToast/>
         <Post />
         <div className="center-align">
           <h1> </h1>

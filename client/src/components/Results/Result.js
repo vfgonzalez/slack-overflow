@@ -71,10 +71,38 @@ class Results extends Component {
         </Card>
       {/* <Col m={4}> */}
 
-        <Collapsible popout defaultActiveKey={2}>
+        <Collapsible defaultActiveKey={2}>
           <CollapsibleItem header={this.state.title}>
-            Lorem ipsum dolor sit amet.
-        </CollapsibleItem>
+            {this.state.description}
+            <br />
+            {this.state.link}
+            <br />
+            {this.state.createAd}
+            <br />
+            {this.state.author}
+            <br />
+
+            <Button
+              id="upvote"
+              className="btn-upvote green"
+              waves='light'
+              onClick={() => this.vote('up')}
+            >
+              <Icon center>thumb_up</Icon>
+            </Button>
+
+            <Button
+              id="downvote"
+              className="btn-downvote red"
+              waves='light'
+              onClick={() => this.vote('down')}
+              disabled={this.state.voteCount === 0 ? true : false}
+            >
+              <Icon center>thumb_down</Icon>
+            </Button>
+            <br />
+            {this.state.voteCount}
+          </CollapsibleItem>
         </Collapsible>
 
         {/* <Card className="sticky-action card md-6"

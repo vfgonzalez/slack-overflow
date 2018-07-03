@@ -78,6 +78,12 @@ const usersSeed = [
     accountLevel: "Admin",
     password: "1234",
     cohort: "UCIRV201801FSF2"
+  },
+  {
+    username: "Admin",
+    accountLevel: "Admin",
+    password: "admin",
+    cohort: "UCIRV201801FSF2"
   }
 ]
 
