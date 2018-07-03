@@ -141,30 +141,13 @@ class NewPost extends Component {
               >
                 <Icon large>info</Icon>
               </Input>
-              {/* <Dropdown>
-                <ul>
-                  <li>
-                    <p>Test</p>
-                  </li>
-                </ul>
-              </Dropdown> */}
-              {/* <div>
-              <Icon small>insert_link</Icon>
-              <Suggestor
-                list={['suggestion-a', 'suggestion-b', 'suggestion-c', '...', 'suggestion-z']}
-                // theme={b3Theme}
-                onChange={value => { }}
-                onSelect={(value, suggestion) => { }}
-                placeholder="placeholder text..."
-              />,
-              </div> */}
               <Suggestor
                 label="LABEL"
                 list={catArray}
                 // theme={b3Theme}
                 onChange={value => {}}
                 onSelect={(value, suggestion) => {this.setState({ category : suggestion })}}
-                placeholder="placeholder text..."
+                placeholder="Choose a Category"
               />
             
 
