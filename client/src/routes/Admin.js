@@ -9,18 +9,6 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
-import Divider from '@material-ui/core/Divider';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import PageIcon from '@material-ui/icons/Description';
-import FaceIcon from '@material-ui/icons/Face';
-import RemoveIcon from '@material-ui/icons/Remove';
-import AddIcon from '@material-ui/icons/Add';
-import EjectIcon from '@material-ui/icons/Eject';
-import GroupIcon from '@material-ui/icons/Group';
-import PermIdentityIcon from '@material-ui/icons/PermIdentity';
-import ReorderIcon from '@material-ui/icons/Reorder';
 import NewUser from '../components/SignUpForm/SignUpForm'
 import AdminHelp from '../components/AdminHelp/AdminHelp'
 import AdminRemovePost from '../components/AdminRemovePost/AdminRemovePost';
@@ -94,21 +82,21 @@ class Admin extends Component {
     };
 
     // Test Button
-    handleTestButton = () => {
-        this.loadUsers()
-        console.log('button pressed')
-        console.log(this.state)
-    }
+    // handleTestButton = () => {
+    //     this.loadUsers()
+    //     console.log('button pressed')
+    //     console.log(this.state)
+    // }
 
-    loadUsers = () => {
-        API.getUsers()
-            .then(res => {
-                this.setState({ users: res.data })
-                console.log(this.state.users);
-            }
-            )
-            .catch(err => console.log(err));
-    };
+    // loadUsers = () => {
+    //     API.getUsers()
+    //         .then(res => {
+    //             this.setState({ users: res.data })
+    //             console.log(this.state.users);
+    //         }
+    //         )
+    //         .catch(err => console.log(err));
+    // };
 
     handleBackButton = () => {
         console.log('Back Button Pressed')
@@ -136,7 +124,7 @@ class Admin extends Component {
                     
                     </Toolbar>
                     <Col>
-                        <Button className="transparent white-text z-depth-0" onClick={() => this.handleButtonClick("addPost")}>
+                        <Button className="transparent white-text z-depth-0" onClick={() => this.handleButtonClick("addNewPost")}>
                             Add Post
                         </Button>
                         <Button className="transparent white-text z-depth-0" onClick={(() => this.handleButtonClick("removePost"))}>
@@ -148,8 +136,8 @@ class Admin extends Component {
                         <Button className="transparent white-text z-depth-0" onClick={() => this.handleButtonClick("removeUser")}>
                             Remove User
                         </Button>
-                        <Button className="transparent white-text z-depth-0" onClick={() => this.handleButtonClick("addNewUser")}>
-                            Show User
+                        <Button className="transparent white-text z-depth-0" onClick={() => this.handleButtonClick("showUsers")}>
+                            Show Users
                         </Button>
                         <Button className="transparent white-text z-depth-0" onClick={this.handleBackButton}>
                             Main Page
