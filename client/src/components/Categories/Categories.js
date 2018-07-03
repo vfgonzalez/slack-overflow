@@ -19,7 +19,7 @@ class Categories extends Component {
             
             <Carousel
                 options={{
-                    dist: -60,
+                    dist: -80,
                     shift: 60,
                     numVisible:16,
                 }}

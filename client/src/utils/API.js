@@ -16,13 +16,13 @@ export default {
 // ---------------------------------------------------------------------------------
 
   // Gets all resources
-  getResources: function() {
-    return axios.get("/api/resources")
-  },
+  // getResources: function() {
+  //   return axios.get("/api/resources")
+  // },
   //Gets the resource with the given id
-  getResource: function(id) {
-    return axios.get("/api/resources/" + id);
-  },
+  // getResource: function(id) {
+  //   return axios.get("/api/resources/" + id);
+  // },
 
   // Deletes the resource with the given id
   deleteResource: function(id) {
@@ -31,9 +31,6 @@ export default {
   // Saves a resource to the database
   saveResource: function(resourceData) {
     return axios.post("/api/resources", resourceData);
-  },
-  getCategory : function(categoryName){
-    return axios.post("/api/resources/"+ categoryName)
   },
   getUsers: function() {
     return axios.get("/api/users")
@@ -44,5 +41,10 @@ export default {
   saveUser: function(userData) {
     return axios.post("/api/users", userData);
   },
+  castVote: function(id, vote) {
+    return axios.post("/api/resources/" + id, vote);
+  },
+  getCategory: function(category) {
+    return axios.get("/api/resources/" + category)
+  }
 }
-

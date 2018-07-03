@@ -36,7 +36,7 @@ const styles = theme => ({
         flexGrow: 1,
         height: 1000,
         zIndex: 1,
-        overflow: 'hidden',
+        overflow: 'auto',
         position: 'relative',
         display: 'flex',
     },

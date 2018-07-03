@@ -1,14 +1,17 @@
-
 import React, { Component } from 'react';
 import MenuAppBar from "../components/Nav/Nav";
 import Categories from "../components/Categories/Categories";
-import Jumbotron from "../components/Jumbotron/Jumbotron";
+import Heading from "../components/Jumbotron/Heading";
 import Post from "../components/Post/Post";
-import Results from "../components/Results/Results";
+import Result from "../components/Results/Result";
 import Foot from "../components/Footer/Footer";
 import API from "../utils/API";
+import { Row } from "react-materialize";
+import SlackToast from "../components/SlackToastr/slackAlert"
+import "./Main.css";
 
-import "../App.css";
+
+
 
 class Main extends Component {
 
@@ -24,21 +27,28 @@ class Main extends Component {
   //image click funtion 
   handleImageClick = (category) => {
     this.setState({ categoryName: category.name })
-    console.log('category', category)
-    this.loadResources()
-
+    console.log('category', category.name)
+    this.getCategory(category.name)
   }
-  
-  loadResources = () => {
 
-    API.getResources()
-      .then(res => {
-        this.setState({ resources: res.data })
-        console.log(this.state.resources);
-      }
+  loadResources = () => {
+  }
+
+  // Query database for chosen category, and call category change function with category
+  getCategory = category => {
+    console.log('querying for: ' + category)
+    API.getCategory(category)
+      .then(res =>
+        this.handleCategoryChange(res.data)
       )
-      .catch(err => console.log(err));
-  };
+      .catch(err => console.log(err))
+  }
+
+  // Empty resources and set to chosen category
+  handleCategoryChange = category => {
+    this.setState({ resources: [] })
+    this.setState({ resources: category})
+  }
 
   // run loadResources after component mounts
   componentDidMount() {
@@ -51,25 +61,36 @@ class Main extends Component {
       <div className="App">
 
         <MenuAppBar />
+        
+        <SlackToast/>
         <Post />
         <div className="center-align">
-          <h1>Jumbotron Here</h1>
-          <Jumbotron />
+          <h1> </h1>
+          <Heading />
           <Categories
             onImageClick={this.handleImageClick}
           />
-          <div className="border row">
-            <div className="category col s12">{this.state.categoryName}</div>
-
+          {/* HTML for bracket under carousel */}
+          <div className="bracket">
+            <p>{"}"}</p>
           </div>
-          {this.state.resources.map(resource => {
-            return (
-              <Results>
-                {/* this is how you pass resource, the data that you queried back to the Results component. Results will then consume it as props.children */}
-                {resource}
-              </Results>
-            );
-          })}
+
+          <div className="border row">
+            <div className="cat col s12">{this.state.categoryName}</div>
+          </div>
+
+          <div className="container results">
+            <Row className="collapse">
+              {this.state.resources.map(resource => {
+                return (
+                  <Result>
+                    {/* this is how you pass resource, the data that you queried back to the Results component. Results will then consume it as props.children */}
+                    {resource}
+                  </Result>
+                );
+              })}
+            </Row>
+          </div>
 
         </div>
         <Foot />
@@ -78,6 +99,8 @@ class Main extends Component {
     );
   }
 }
+
+
 
 export default Main;
 

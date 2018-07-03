@@ -39,6 +39,16 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+  castVote: function(req, res) {
+    //{ name: 'jason bourne' }
+    //{$inc : {'post.likes' : 1}}
+    // req.body should look like this: { voteCount: 1 } or { voteCount: -1 }
+    console.log('req.body', req.body);
+    db.Resource
+      .findOneAndUpdate({ _id: req.params.id }, { $inc: req.body })
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
   remove: function(req, res) {
     db.Resource
       .findById({ _id: req.params.id })

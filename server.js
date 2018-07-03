@@ -22,7 +22,15 @@ app.use(routes);
 mongoose.connect(process.env.MONGODB_URI || "mongodb://thomas:tseaman14@ds217671.mlab.com:17671/heroku_0m7qcq66");
 
 
+
+// require("./routes/slack-routes.js")(app);
+// require("./routes/slackroutes.js")(app);
 require("./routes/rtmslack.js")(app);
+// require("./routes/eventsslack.js")(app);
+
+// require("../routes/api/resourceroute.js")(app);
+// require("../routes/api/cohortroute.js")(app);
+// require("../routes/api/userroute.js")(app);
 
 // Send every other request to the React app
 // Define any API routes before this runs
