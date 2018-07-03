@@ -99,7 +99,7 @@ class Main extends Component {
           </div>
 
         </div>
-        <Foot />
+        {/* <Foot /> */}
 
       </div>
     );
