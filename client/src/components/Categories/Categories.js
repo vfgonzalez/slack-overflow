@@ -21,8 +21,7 @@ class Categories extends Component {
                         options={{
                             dist: -40,
                             shift: 40,
-                            numVisible: 16,
-                            indicators: true,
+                            // indicators: true,
                         }}
                         children={catArray.map((cat) => {
 
