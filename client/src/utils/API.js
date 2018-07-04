@@ -43,7 +43,7 @@ export default {
     return axios.post("/api/users", userData);
   },
   removeUser: function(username) {
-    return axios.delete("/api/users/delete" + username);
+    return axios.delete("/api/users/" + username);
   },
   castVote: function(id, vote) {
     return axios.post("/api/resources/" + id, vote);

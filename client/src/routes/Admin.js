@@ -82,23 +82,6 @@ class Admin extends Component {
         this.setState({ active: component })
     };
 
-    // Test Button
-    // handleTestButton = () => {
-    //     this.loadUsers()
-    //     console.log('button pressed')
-    //     console.log(this.state)
-    // }
-
-    // loadUsers = () => {
-    //     API.getUsers()
-    //         .then(res => {
-    //             this.setState({ users: res.data })
-    //             console.log(this.state.users);
-    //         }
-    //         )
-    //         .catch(err => console.log(err));
-    // };
-
     handleBackButton = () => {
         console.log('Back Button Pressed')
         this.setState({ redirect: true })
