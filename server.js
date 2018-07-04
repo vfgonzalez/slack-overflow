@@ -21,18 +21,8 @@ app.use(routes);
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/slackoverflowdb");
 
 // API calls
-app.get('/slack/actions', (req, res) => {
-  res.send({ express: 'New Slack Submission!' });
-});
-
-// require("./routes/slack-routes.js")(app);
-// require("./routes/slackroutes.js")(app);
+// Slack bot Route to listen for links to post to DB
 // require("./routes/rtmslack.js")(app);
-// require("./routes/eventsslack.js")(app);
-
-// require("../routes/api/resourceroute.js")(app);
-// require("../routes/api/cohortroute.js")(app);
-// require("../routes/api/userroute.js")(app);
 
 // Send every other request to the React app
 // Define any API routes before this runs

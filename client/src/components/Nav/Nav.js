@@ -13,7 +13,7 @@ class Nav extends Component {
   render() {
     return (
       <Navbar brand={<Sidebar />} right
-      className="black darken-2 left-align"
+      className="col s12 black darken-2 left-align"
       >
 
       <NavItem >
