@@ -58,7 +58,7 @@ class Login extends Component {
 
         <Modal
           header='Welcome Admin, Please login'
-          trigger={<Button floating large id="admin-btn" className="transparent"><Icon large>settings</Icon></Button>}>
+          trigger={<Button floating large id="admin-btn" className="transparent col s12"><Icon large>settings</Icon></Button>}>
           <form>
             <Row>
             <Input
