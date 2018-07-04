@@ -104,7 +104,6 @@ class AdminAddNewPost extends Component {
                     >
                         Add Post
                 </Button>
-                <h1>TEST</h1>
 
                 </form>
             </div >

@@ -43,14 +43,10 @@ class AdminRemoveUser extends Component {
           .catch(err => console.log(err));
       };
 
-      handleTestButton = () => {
-          console.log(this.state)
-      }
     render() {
         return (
             <div className="container">
                 <h1>Remove a User</h1>
-                <button onClick={this.handleTestButton}>TEST</button>
                 <form>
                     <Input
                         value={this.state.username}
@@ -62,7 +58,7 @@ class AdminRemoveUser extends Component {
                         disabled={!(this.state.username)}
                         onClick={this.handleFormSubmit}
                     >
-                        Add User
+                        Remove User
               </FormBtn>
                 </form>
             </div >

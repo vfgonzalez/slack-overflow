@@ -33,15 +33,10 @@ class AdminRemovePost extends Component {
           .catch(err => console.log(err));
       };
 
-    handleTestButton = () => {
-        console.log(this.state)
-    }
-
     render() {
         return (
             <div className="container">
                 <h1>Remove a Post</h1>
-                <button onClick={this.handleTestButton}>TEST</button>
                 <form>
                     <Input
                         value={this.state.title}

@@ -28,22 +28,10 @@ class AdminShowAllUsers extends Component {
             .catch(err => console.log(err));
     };
 
-    handleTestButton = () => {
-        console.log(this.state)
-    }
-
-    handleFindUsers = () => {
-        console.log("Handling Find Users Button Click")
-    }
-
-
-
     render() {
         return (
             <div className="container">
                 <h1>Show All Users</h1>
-                <button onClick={this.handleTestButton}>TEST</button>
-                <button onClick={this.handleFindUsers}>Find Users</button>
                 {this.state.users.map(user => {
                     return (
                         <UserResult defaultActiveKey={2}>
