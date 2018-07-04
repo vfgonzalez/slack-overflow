@@ -59,6 +59,7 @@ class Main extends Component {
   // Beginning of render function
   render() {
     return (
+      
       <div className="App">
 
         <MenuAppBar />
@@ -102,6 +103,7 @@ class Main extends Component {
                 </div>
                 <Post />
       </div>
+    
     );
   }
 }

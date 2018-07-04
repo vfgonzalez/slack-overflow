@@ -22,13 +22,17 @@
 
 .App {
     background-image: url("bg.png");
-    /* background-image: url(${bg.png}); */
+    /* height: 10000%; */
+   
 }
 
 .cat {
     color: orange;
     font-size:35px;
-    /* margin-top:-12%; */
     font-family: 'Anonymous Pro', monospace;
+}
+
+html {
+    padding-bottom:-1000%;
 }
 
