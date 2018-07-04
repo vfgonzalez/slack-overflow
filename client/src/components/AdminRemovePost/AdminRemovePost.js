@@ -24,15 +24,14 @@ class AdminRemovePost extends Component {
         event.preventDefault();
         console.log(this.state.title)
         console.log("Removing Resource")
-        API.deleteResource(
-            {
-                title: this.state.title
-            }
-        )
-            .then(res => console.log(res))
-            .catch(err => console.log(err));
-
+        this.removeResource(this.state.title)
     };
+
+    removeResource = title => {
+        API.deleteResource(title)
+          .then(res => console.log(res))
+          .catch(err => console.log(err));
+      };
 
     handleTestButton = () => {
         console.log(this.state)
