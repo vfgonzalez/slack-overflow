@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Results.css";
-import { Col, CollapsibleItem, Collapsible, Button, Icon, Card, CardTitle } from "react-materialize";
+import { Col, CollapsibleItem, Button, Icon,} from "react-materialize";
 import API from "../../utils/API";
 
 class Results extends Component {
@@ -98,9 +98,9 @@ class Results extends Component {
               <Icon center>thumb_down</Icon>
             </Button>
 
-            <br />
+            {/* <br />
 
-            <div id="voteCount"><p>{this.state.voteCount}</p></div>
+            <div id="voteCount"><p>{this.state.voteCount}</p></div> */}
           </p>
         </div>
 

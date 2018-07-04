@@ -20,7 +20,8 @@ class Main extends Component {
     resources: [],
     title: "",
     link: "",
-    description: ""
+    description: "",
+    selectedCat: ""
   };
 
   //image click funtion 
@@ -28,6 +29,7 @@ class Main extends Component {
     this.setState({ categoryName: category.name })
     console.log('category', category.name)
     this.getCategory(category.name)
+    this.setState({selectedCat: 'selectedCategory ='})
   }
 
   loadResources = () => {
@@ -57,6 +59,7 @@ class Main extends Component {
   // Beginning of render function
   render() {
     return (
+      
       <div className="App">
 
         <MenuAppBar />
@@ -73,7 +76,7 @@ class Main extends Component {
           </div>
 
           <div className="border row">
-            <div className="cat col s12">{this.state.categoryName}</div>
+            <div className="cat col s12"> {`${this.state.selectedCat} ${this.state.categoryName}`}</div>
           </div>
 
           <div className="container results">
@@ -100,6 +103,7 @@ class Main extends Component {
                 </div>
                 <Post />
       </div>
+    
     );
   }
 }

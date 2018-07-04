@@ -7,14 +7,14 @@ import Sidebar from '../Sidebar/Sidebar'
 import { BrowserRouter } from 'react-router-dom';
 import Button from 'react-materialize/lib/Button';
 // import API from '../utils/API'
-import "./Nav.css"
+import "./Nav.css";
 
 
 class Nav extends Component {
   render() {
     return (
-      <Navbar brand={<Sidebar className="sidebar-styiling" />} right
-      className="col s12 black darken-2 left-align "
+      <Navbar brand={<Sidebar />} right
+      className=" z-depth-0 left-align mainNav"
       >
 
       <NavItem >
