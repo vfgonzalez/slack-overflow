@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import API from '../../utils/API'
-// import { Input, FormBtn } from "../../components/Form";
 import { Modal, Button, Row, Input, Icon, Toast, Dropdown, NavItem } from 'react-materialize'
 import Suggestor from 'ssuggestor'
+import "./AdminAddNewPost.css"
 
 
 
@@ -64,7 +64,7 @@ class AdminAddNewPost extends Component {
           ]
 
         return (
-            <div className="AdminAddNewPost">
+            <div className="container">
                 <h1>Add a New Post</h1>
                 <form>
                     <Input
@@ -102,8 +102,9 @@ class AdminAddNewPost extends Component {
                         disabled={!(this.state.link && this.state.title && this.state.category)}
                         className="green modal-close"
                     >
-                        Submit
+                        Add Post
                 </Button>
+                <h1>TEST</h1>
 
                 </form>
             </div >

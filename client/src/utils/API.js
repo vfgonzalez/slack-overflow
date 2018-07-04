@@ -25,8 +25,8 @@ export default {
   // },
 
   // Deletes the resource with the given id
-  deleteResource: function(id) {
-    return axios.delete("/api/resources/" + id);
+  deleteResource: function(title) {
+    return axios.delete("/api/resources/" + title);
   },
   // Saves a resource to the database
   saveResource: function(resourceData) {

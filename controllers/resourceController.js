@@ -57,6 +57,13 @@ module.exports = {
   },
   remove: function(req, res) {
     console.log("Removing Resource: " + req.params.title)
+    // console.log(req.params.stringify())
+    var stringtitle = JSON.stringify(req.params.title)
+    console.log("Stringify: " + stringtitle)
+    // console.log(req)
+    // console.log(req.params)
+    // console.log(req.params.title)
+    console.log(req.body)
     db.Resource
       .findById({ title: req.params.title })
       .then(dbModel => dbModel.remove())

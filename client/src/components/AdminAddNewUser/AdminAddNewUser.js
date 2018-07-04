@@ -1,14 +1,21 @@
 import React, { Component } from "react";
 import API from '../../utils/API'
 import { Input, FormBtn } from "../../components/Form";
-import "./AdminRemoveUser.css"
+import './AdminAddNewUser.css'
 
-class AdminRemoveUser extends Component {
+class AdminAddNewUser extends Component {
 
     state = {
         username: "",
         password: "",
     };
+
+    // Test Button
+    handleTestButton = () => {
+        this.loadUsers()
+        console.log('button pressed')
+        // console.log(this.state)
+    }
 
     // Handles updating component state when the user types into the input field
     handleInputChange = event => {
@@ -31,7 +38,7 @@ class AdminRemoveUser extends Component {
                 // cohortname: 'test'
             }
         )
-            .then(res => this.loadUsers())
+            // .then(res => this.loadUsers())
             .catch(err => console.log(err));
 
     };
@@ -39,7 +46,7 @@ class AdminRemoveUser extends Component {
     render() {
         return (
             <div className="container">
-                <h1>Remove a User</h1>
+                <h1>Add a new user</h1>
                 <form>
                     <Input
                         value={this.state.username}
@@ -65,4 +72,4 @@ class AdminRemoveUser extends Component {
     }
 }
 
-export default AdminRemoveUser
+export default AdminAddNewUser
