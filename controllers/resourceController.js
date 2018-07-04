@@ -55,12 +55,27 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+  // remove: function(req, res) {
+  //   console.log("Removing Resource: " + req.params.title)
+  //   // console.log(req.params.stringify())
+  //   var stringtitle = JSON.stringify(req.params.title)
+  //   console.log("Stringify: " + stringtitle)
+  //   // console.log(req)
+  //   // console.log(req.params)
+  //   // console.log(req.params.title)
+  //   console.log(req.body)
+  //   db.Resource
+  //     .findById({ title: req.params.title })
+  //     .then(dbModel => dbModel.remove())
+  //     .then(dbModel => res.json(dbModel))
+  //     .catch(err => res.status(422).json(err));
+  // }
   remove: function(req, res) {
-    console.log("Removing Resource: " + req.params.title)
-    db.Resource
-      .findById({ title: req.params.title })
-      .then(dbModel => dbModel.remove())
-      .then(dbModel => res.json(dbModel))
+    console.log('Removing By Title: ' + req.params.title)
+    db.User
+      .deleteOne({ title: req.params.title })
+      // .then(dbModel => dbModel.remove())
+      // .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
-  }
+  },
 };

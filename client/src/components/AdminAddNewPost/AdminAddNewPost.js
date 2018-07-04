@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import API from '../../utils/API'
-// import { Input, FormBtn } from "../../components/Form";
 import { Modal, Button, Row, Input, Icon, Toast, Dropdown, NavItem } from 'react-materialize'
+import Suggestor from 'ssuggestor'
+import "./AdminAddNewPost.css"
+
 
 
 class AdminAddNewPost extends Component {
@@ -23,6 +25,8 @@ class AdminAddNewPost extends Component {
 
     // When the form is submitted, use the API method to save the data
     handleFormSubmit = event => {
+        console.log("Submitting Resource from Admin Page")
+        console.log(this.state)
         event.preventDefault();
         API.saveResource(
             {
@@ -39,8 +43,28 @@ class AdminAddNewPost extends Component {
     };
 
     render() {
+
+        const catArray = [
+            "General Tools",
+            "Teaching Resource",
+            "CSS",
+            "Testing",
+            "Javascript",
+            "API",
+            "Databases",
+            "NPM Packages",
+            "Templates",
+            "Common Issues",
+            "Job Resources",
+            "HTML",
+            "Random",
+            "Podcasts",
+            "Slack Submissions",
+            "Text Submissions"
+          ]
+
         return (
-            <div className="AdminAddNewPost">
+            <div className="container">
                 <h1>Add a New Post</h1>
                 <form>
                     <Input
@@ -58,31 +82,27 @@ class AdminAddNewPost extends Component {
                         type="text"
                     />
                     <Input
-                        value={this.state.category}
-                        onChange={this.handleInputChange}
-                        name="category"
-                        placeholder="Category (required)"
-                        type="text"
-                    />
-                    <Input
                         value={this.state.description}
                         onChange={this.handleInputChange}
                         name="description"
                         placeholder="Description"
                         type="textarea"
                     />
-                    {/* <FormBtn
-                        disabled={!(this.state.username && this.state.password && this.state.category)}
+                    <Suggestor
+                        label="LABEL"
+                        list={catArray}
+                        // theme={b3Theme}
+                        onChange={value => { }}
+                        onSelect={(value, suggestion) => { this.setState({ category: suggestion }) }}
+                        placeholder="Choose a Category"
+                    />
+
+                    <Button
                         onClick={this.handleFormSubmit}
+                        disabled={!(this.state.link && this.state.title && this.state.category)}
+                        className="green modal-close"
                     >
-                        Add User
-              </FormBtn> */}
-              <Button
-                onClick={this.notify}
-                disabled={!(this.state.link && this.state.title && this.state.category)}
-                className="green modal-close"
-                >
-                Submit
+                        Add Post
                 </Button>
 
                 </form>
@@ -93,4 +113,3 @@ class AdminAddNewPost extends Component {
 
 export default AdminAddNewPost
 
-        

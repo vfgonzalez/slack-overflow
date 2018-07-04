@@ -1,14 +1,21 @@
 import React, { Component } from "react";
 import API from '../../utils/API'
 import { Input, FormBtn } from "../../components/Form";
-import "./AdminRemoveUser.css"
+import './AdminAddNewUser.css'
 
-class AdminRemoveUser extends Component {
+class AdminAddNewUser extends Component {
 
     state = {
         username: "",
         password: "",
     };
+
+    // Test Button
+    handleTestButton = () => {
+        this.loadUsers()
+        console.log('button pressed')
+        // console.log(this.state)
+    }
 
     // Handles updating component state when the user types into the input field
     handleInputChange = event => {
@@ -22,31 +29,24 @@ class AdminRemoveUser extends Component {
     // Then reload data from the database
     handleFormSubmit = event => {
         event.preventDefault();
-        // console.log(this.state.username)
-        // API.saveUser(
-        //     {
-        //         username: this.state.username,
-        //         password: this.state.password,
-        //         accountLevel: 'Admin',
-        //         // cohortname: 'test'
-        //     }
-        // )
-        //     .then(res => this.loadUsers())
-        //     .catch(err => console.log(err));
-        this.removeUser(this.state.username)
+        console.log(this.state.username)
+        API.saveUser(
+            {
+                username: this.state.username,
+                password: this.state.password,
+                accountLevel: 'Admin',
+                // cohortname: 'test'
+            }
+        )
+            // .then(res => this.loadUsers())
+            .catch(err => console.log(err));
 
     };
-
-    removeUser = username => {
-        API.removeUser(username)
-          .then(res => console.log(res))
-          .catch(err => console.log(err));
-      };
 
     render() {
         return (
             <div className="container">
-                <h1>Remove a User</h1>
+                <h1>Add a new user</h1>
                 <form>
                     <Input
                         value={this.state.username}
@@ -54,11 +54,17 @@ class AdminRemoveUser extends Component {
                         name="username"
                         placeholder="Name (required)"
                     />
+                    <Input
+                        value={this.state.password}
+                        onChange={this.handleInputChange}
+                        name="password"
+                        placeholder="Password (required)"
+                    />
                     <FormBtn
-                        disabled={!(this.state.username)}
+                        disabled={!(this.state.username && this.state.password)}
                         onClick={this.handleFormSubmit}
                     >
-                        Remove User
+                        Add User
               </FormBtn>
                 </form>
             </div >
@@ -66,4 +72,4 @@ class AdminRemoveUser extends Component {
     }
 }
 
-export default AdminRemoveUser
+export default AdminAddNewUser

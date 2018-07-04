@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import "./AdminHelp.css"
 
 class AdminHelp extends Component {
 
@@ -16,7 +16,7 @@ class AdminHelp extends Component {
 
     render() {
         return (
-            <div className="AdminHelp">
+            <div className="container">
                 <p>This is the admin help page</p>
             </div >
         );
