@@ -1,0 +1,7 @@
+Modal {
+    display: flex;
+}
+
+FormBtn {
+    align-content: flex-start;
+}
