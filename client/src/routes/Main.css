@@ -21,16 +21,15 @@
 
 .App {
     background-image: url("bg.png");
+<<<<<<< HEAD
+=======
+   
+>>>>>>> 7f21859d63c9b23b7ae09d5ee8a1f8b42710a65a
 }
 
 .cat {
     color: orange;
     font-size:35px;
     font-family: 'Anonymous Pro', monospace;
-}
-
-html {
-    background: rgba(30, 30, 30, 0.1);
-  
 }
 
