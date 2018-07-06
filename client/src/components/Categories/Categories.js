@@ -24,6 +24,7 @@ class Categories extends Component {
                             dist: -40,
                             shift: 40,
                         }}
+                        
                         children={catArray.map((cat) => {
 
                             return (
