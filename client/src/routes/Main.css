@@ -23,6 +23,7 @@
 .App {
     background-image: url("bg.png");
     /* height: 10000%; */
+    /* height: 100vh; */
    
 }
 
@@ -33,6 +34,7 @@
 }
 
 html {
-    padding-bottom:-1000%;
+    background: rgba(30, 30, 30, 0.1);
+  
 }
 
