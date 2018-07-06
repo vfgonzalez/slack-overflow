@@ -24,9 +24,9 @@ const Sidebar = () =>
                         <h5> Christian Lopes
                     <br />
                             <a href="https://github.com/CLopes1" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-github-square"></i>
+                            <i className="fab fa-github-square"></i>
                             </a> | <a href="https://www.linkedin.com/in/christian-lopes/" rel="noopener noreferrer" target="_blank">
-                            <i class="fab fa-linkedin"></i>
+                            <i className="fab fa-linkedin"></i>
                             </a>
                         </h5>
                         </div>
@@ -36,9 +36,9 @@ const Sidebar = () =>
                         <h5>Gavin Quirk
                             <br />
                             <a href="https://github.com/gavinquirk" rel="noopener noreferrer" target="_blank">
-                                <i class="fab fa-github-square"></i>
+                                <i className="fab fa-github-square"></i>
                             </a> | <a href="https://www.linkedin.com/in/gavin-quirk/" target="_blank" rel="noopener noreferrer">
-                                <i class="fab fa-linkedin"></i>
+                                <i className="fab fa-linkedin"></i>
                             </a>
                         </h5>
                         </div>
@@ -49,9 +49,9 @@ const Sidebar = () =>
                         <h5>Jeremy Knappe
                             <br />
                             <a href="https://github.com/jdknappe" target="_blank" rel="noopener noreferrer">
-                                <i class="fab fa-github-square"></i>
+                                <i className="fab fa-github-square"></i>
                             </a> | <a href="https://www.linkedin.com/in/jeremy-knappe/" target="_blank" rel="noopener noreferrer">
-                                <i class="fab fa-linkedin"></i>
+                                <i className="fab fa-linkedin"></i>
                             </a>
                         </h5>
                         </div>
@@ -63,9 +63,9 @@ const Sidebar = () =>
                         <h5>Thomas Seaman
                     <br />
                             <a href="https://github.com/ThomasSeaman" target="_blank" rel="noopener noreferrer">
-                                <i class="fab fa-github-square"></i>
+                                <i className="fab fa-github-square"></i>
                             </a> | <a href=" https://www.linkedin.com/in/thomasseaman/" target="_blank" rel="noopener noreferrer">
-                                <i class="fab fa-linkedin"></i>
+                                <i className="fab fa-linkedin"></i>
                             </a>
                         </h5>
                         </div>
@@ -75,9 +75,9 @@ const Sidebar = () =>
                         <h5>Vicente Gonzalez
                             <br />
                             <a href="\https://github.com/vfgonzalez" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-github-square"></i>
+                            <i className="fab fa-github-square"></i>
                             </a> | <a href="https://www.linkedin.com/in/vfgonzalez/" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-linkedin"></i>
+                            <i className="fab fa-linkedin"></i>
                             </a>
                         </h5>
 
