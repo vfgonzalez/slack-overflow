@@ -4,14 +4,7 @@ import "./AdminHelp.css"
 class AdminHelp extends Component {
 
     state = {
-        categoryName: '',
-        resources: [],
-        title: "",
-        link: "",
-        description: "",
-        username: "",
-        password: "",
-        value: ""
+
     };
 
     render() {
