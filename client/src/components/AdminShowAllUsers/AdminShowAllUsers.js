@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import API from '../../utils/API'
-import { Input, FormBtn } from "../../components/Form";
-import { Col, Row } from "react-materialize";
 import UserResult from "../UserResult/UserResult"
 import "./AdminShowAllUsers.css"
 
