@@ -5,40 +5,41 @@ import catArray from "../../catArray.json";
 
 let $ = window.$
 
+//This initializes the carousel
+
 class Categories extends Component {
     componentDidMount() {
 
         $('.carousel').carousel('next', 16)
     }
 
+    //Renders the carousel. Here we're looping over catArray.json to display all of the individual categories listed in the JSON. 
     render() {
         return (
             <div>
+                <div id="Carousel">
 
-        <div id="Carousel">
-            
-            <Carousel
-                options={{
-                    dist:-40,
-                    shift:40,
-                    numVisible:16,
-                    indicators:true,
-                }}
-                children={catArray.map((cat) => {
-                    
-                    return (
-                        <p 
-                            key={cat.id} 
-                            id="cards"
-                            onClick={() => { this.props.onImageClick(cat) }}>{cat.name}
-                        </p>
-                    );
-                })}
-            />
+                    <Carousel
+                        options={{
+                            dist: -40,
+                            shift: 40,
+                        }}
+                        children={catArray.map((cat) => {
 
-        </div>
+                            return (
 
-    </div>
+                                <p
+                                    key={cat.id}
+                                    id="cards"
+                                    onClick={() => { this.props.onImageClick(cat) }}>{cat.name}
+                                </p>
+                            );
+                        })}
+                    />
+
+                </div>
+
+            </div>
         )
     }
 }

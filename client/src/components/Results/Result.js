@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Results.css";
-import { Col, CollapsibleItem, Button, Icon,} from "react-materialize";
+import {CollapsibleItem, Button, Icon,} from "react-materialize";
 import API from "../../utils/API";
 
 class Results extends Component {
@@ -21,7 +21,6 @@ class Results extends Component {
     const { title, category, createAt, createAd, description, link, voteCount, _id, author } = this.props.children
 
     this.setState({
-
       title,
       category,
       createAt,
@@ -32,7 +31,6 @@ class Results extends Component {
       _id,
       author
     })
-
   }
 
   vote = (direction) => {
@@ -58,8 +56,10 @@ class Results extends Component {
     }
   }
 
-  render() {
+  //This section will render the category results on the main page
 
+  render() {
+    
     return (
 
       <CollapsibleItem
@@ -101,7 +101,6 @@ class Results extends Component {
         </div>
 
       </CollapsibleItem>
-
     );
   }
 }

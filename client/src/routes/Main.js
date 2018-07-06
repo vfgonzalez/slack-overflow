@@ -9,9 +9,6 @@ import API from "../utils/API";
 import { Col, Row, Collapsible } from "react-materialize";
 import "./Main.css";
 
-
-
-
 class Main extends Component {
 
   state = {

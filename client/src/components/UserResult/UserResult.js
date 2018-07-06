@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import { Col, CollapsibleItem, Collapsible, Button, Icon, Card, CardTitle } from "react-materialize";
-import API from "../../utils/API";
 import './UserResult.css'
 
 class UserResult extends Component {
