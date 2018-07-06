@@ -2,14 +2,12 @@
 import React, {Component} from 'react'
 import {Navbar, NavItem} from 'react-materialize'
 import Login from '../Login/Login'
-// import NewPost from '../NewPost/NewPost'
 import Sidebar from '../Sidebar/Sidebar'
-import { BrowserRouter } from 'react-router-dom';
-import Button from 'react-materialize/lib/Button';
-// import API from '../utils/API'
 import "./Nav.css";
 
 
+// Nav Component render navbar with sideloaded bar that includes summary of developers, inspiration, and contact detail.
+// Login componenent passed through renders the modal for Admin login.
 class Nav extends Component {
   render() {
     return (

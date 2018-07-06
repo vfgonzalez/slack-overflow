@@ -13,11 +13,13 @@ class Login extends Component {
     redirect: false
   };
 
+
+  // validateUser checks DB to make sure Admin username and Password match what is stored. If fails. throws alert warning to attempt again.
   validateUser = user => {
     if (user.password === this.state.password && user.accountLevel === 'Admin') {
       this.setState({ redirect: true })
     } else {
-      console.log('Wrong Password')
+      alert('Wrong Password. please try again.')
     }
   }
 
@@ -30,6 +32,7 @@ class Login extends Component {
       .catch(err => console.log(err))
   }
 
+  // handleFormSubmit grabs inputs of user login to pass the states to validation
   handleFormSubmit = event => {
     event.preventDefault();
     this.setState({ username: this.state.username })
@@ -37,6 +40,7 @@ class Login extends Component {
     this.getUser(this.state.username)
   };
 
+  // changes the states from empty to user input data.
   handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({
@@ -50,7 +54,6 @@ class Login extends Component {
 
     if (redirect) {
       return <Redirect to='/admin' />
-      // window.location.reload()
     }
 
     return (

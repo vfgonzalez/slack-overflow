@@ -44,7 +44,7 @@ const Sidebar = () =>
                         </div>
                     
                         <div className=" col s4 team-info">
-                            <img className="profileimg" src="./images/profileimg/#" alt="Jeremy Knappe" />
+                            <img className="profileimg" src="./images/profileimg/jeremy.png" alt="Jeremy Knappe" />
                     <br />
                         <h5>Jeremy Knappe
                             <br />
@@ -110,7 +110,7 @@ const Sidebar = () =>
                 <hr />
                 <h5>Christian Lopes</h5> <h6>christian.alexander.lopes@gmail.com</h6>
                 <h5>Gavin Quirk</h5>  <h6>gavinquirk.work@gmail.com</h6>
-                <h5>Jeremy Knappe</h5>  <h6>email</h6>
+                <h5>Jeremy Knappe</h5>  <h6>jdknappe@me.com</h6>
                 <h5>Thomas Seaman</h5>  <h6>thomasseaman27@gmail.com</h6>
                 <h5>Vicente Gonzalez</h5>  <h6>vgonzalez28@gmail.com</h6>
             </Modal>

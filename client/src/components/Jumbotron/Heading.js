@@ -1,13 +1,14 @@
 import React from "react";
 import "./Heading.css";
 
+
+// Renders the function display through categories, replicating the view of a function.
 const Heading = () => (
 
   <div className="heading">
     <p>
       <span className="purps">
-        {/* {"select "} */}
-
+        
       </span>
 
       <span className="secondColor">

@@ -4,8 +4,6 @@ const getUrl = require('get-urls')
 const app = express()
 const { RTMClient } = require('@slack/client');
 const db = require("../models")
-const createSlackEventAdapter = require('@slack/events-api').createSlackEventAdapter;
-// const slackEvents = createSlackEventAdapter(process.env.SLACK_VERIFICATION_TOKEN);
 const { createMessageAdapter } = require('@slack/interactive-messages')
 
 // Create the adapter using the app's verification token, read from environment variable
@@ -20,8 +18,6 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// Attach the adapter to the Express application as a middleware
-// NOTE: The path must match the Request URL and/or Options URL configured in Slack
 
 
 const token = process.env.SLACK_API_TOKEN || '';
@@ -44,7 +40,7 @@ module.exports = function (app) {
         //conversationId is specific to #resources channel in UCI workspace.
         const conversationId = 'C7VMYGXME'
 
-        //test channel, private
+        //test channel, private sandbox for testing
         const testId = 'GBG7RNUL8'
         
 
@@ -57,7 +53,7 @@ module.exports = function (app) {
                 // `res` contains information about the posted message
                 console.log('Message reply successfully sent: ', res.ts);
                 
-
+                // function getURL parses through a string and pushes the URL to a Set() function to extract later.
                 const call = getUrl(event.text)
 
                var x
@@ -65,7 +61,7 @@ module.exports = function (app) {
                 call.forEach((i)=>
                 x=i
                 )
-
+                // Grabs the link that was submitted, renders an object to be posted to DB.
                 db.Resource.create( {
                     link: x,
                     title: 'Resource Shared via Slack',
@@ -78,7 +74,7 @@ module.exports = function (app) {
                     console.log(error);
                   })
                     
-                
+                // validates what link was extracted.
                 console.log(x + "Link has been added to DB");
                 
                 // console.log(getUrl(event.text));
@@ -92,7 +88,7 @@ module.exports = function (app) {
          
         
 
-        
+        // tester for identifying what channel the message is coming from, so that slack bot replies to correct channel.
         console.log(`Message from channel: ${event.channel} : message : ${event.text}`);
 
             
