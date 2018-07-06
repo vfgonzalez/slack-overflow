@@ -5,7 +5,6 @@
     font-family: 'Anonymous Pro', monospace;
 }
 
-
 .results {
     width: 90%;
 }
@@ -22,9 +21,6 @@
 
 .App {
     background-image: url("bg.png");
-    /* height: 10000%; */
-    /* height: 100vh; */
-   
 }
 
 .cat {
