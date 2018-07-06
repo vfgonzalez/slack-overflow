@@ -29,9 +29,9 @@ class AdminRemovePost extends Component {
 
     removeResource = title => {
         API.deleteResource(title)
-          .then(res => console.log(res))
-          .catch(err => console.log(err));
-      };
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
+    };
 
     render() {
         return (

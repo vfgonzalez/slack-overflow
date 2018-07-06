@@ -22,8 +22,6 @@ class AdminShowAllUsers extends Component {
         API.getUsers()
             .then(res =>
                 this.setState({ users: res.data })
-                // this.setState({ books: res.data, title: "", author: "", synopsis: "" })
-
             )
             .catch(err => console.log(err));
     };
