@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Modal, Button, Row, Input, Icon, Toast, Dropdown, NavItem } from 'react-materialize'
+import { Modal, Button, Row, Input, Icon } from 'react-materialize'
 import API from '../../utils/API'
 // import Input from '@material-ui/core/Input';
 // import InputLabel from '@material-ui/core/InputLabel';
