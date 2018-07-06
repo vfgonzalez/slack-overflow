@@ -3,7 +3,7 @@ import { Modal, Button, Icon, Row } from 'react-materialize';
 import { Input, FormBtn } from "../Form";
 import API from '../../utils/API'
 import './Login.css';
-import { Route, Redirect } from 'react-router'
+import { Redirect } from 'react-router'
 
 class Login extends Component {
 
@@ -58,7 +58,7 @@ class Login extends Component {
 
         <Modal
           header='Welcome Admin, Please login'
-          trigger={<Button floating large id="admin-btn" className="transparent"><Icon large>settings</Icon></Button>}>
+          trigger={<Button floating large id="admin-btn" className="transparent col s12"><Icon large>settings</Icon></Button>}>
           <form>
             <Row>
             <Input
@@ -81,6 +81,7 @@ class Login extends Component {
             <FormBtn
               disabled={!(this.state.username && this.state.password)}
               onClick={this.handleFormSubmit}
+              className='modal-close'
             >
               Login
             </FormBtn>

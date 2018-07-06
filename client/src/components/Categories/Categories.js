@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import "./Categories.css";
 import { Carousel } from "react-materialize";
 import catArray from "../../catArray.json";
@@ -6,15 +6,16 @@ import catArray from "../../catArray.json";
 let $ = window.$
 
 class Categories extends Component {
-    componentDidMount () {
+    componentDidMount() {
 
         $('.carousel').carousel('next', 16)
-      }
-      
-    render () {
+    }
+
+    render() {
         return (
             <div>
 
+<<<<<<< HEAD
         <div id="Carousel">
             
             <Carousel
@@ -39,6 +40,40 @@ class Categories extends Component {
         </div>
 
     </div>
+=======
+                <div id="Carousel">
+
+                    <Carousel
+                        options={{
+                            dist: -40,
+                            shift: 40,
+                            // indicators: true,
+                        }}
+                        children={catArray.map((cat) => {
+
+                            return (
+
+                                <p
+                                    key={cat.id}
+                                    id="cards"
+                                    onClick={() => { this.props.onImageClick(cat) }}>{cat.name}
+                                </p>
+
+                                // old carousel
+                                // <img
+                                //     key={cat.id}
+                                //     onClick={() => { this.props.onImageClick(cat) }}
+                                //     src={cat.image}
+                                //     alt={cat.name}
+                                // />
+                            );
+                        })}
+                    />
+
+                </div>
+
+            </div>
+>>>>>>> d018b69344b26de328f42dd1fd920f4184f766ee
         )
     }
 }

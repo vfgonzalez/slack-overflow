@@ -17,6 +17,8 @@ router.route("/")
 router
   .route("/:username")
   .get(userController.findByUsername)
+  .delete(userController.remove)
+  
   // .put(userController.update)
   // .delete(userController.remove);
 

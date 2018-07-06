@@ -39,7 +39,7 @@ class SignUpForm extends Component {
                 // cohortname: 'test'
             }
         )
-            .then(res => this.loadUsers())
+            // .then(res => this.loadUsers())
             .catch(err => console.log(err));
 
     };

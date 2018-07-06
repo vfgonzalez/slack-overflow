@@ -1,41 +1,56 @@
 import React, { Component } from "react";
-import { Input, FormBtn } from "../Form"
-import TabComponent from '../SimpleTabs/SimpleTabs'
+import API from '../../utils/API'
+import { Button, Input } from 'react-materialize'
+import "./AdminRemovePost.css"
 
 
 class AdminRemovePost extends Component {
 
     state = {
-        postTitle: '',
-        postId: '',
-        postAuthor: ''
+        title: ''
     };
+
+    // Handles updating component state when the user types into the input field
+    handleInputChange = event => {
+        const { name, value } = event.target;
+        this.setState({
+            [name]: value
+        });
+    };
+
+    // When the form is submitted, use the API method to save the data
+    // Then reload data from the database
+    handleFormSubmit = event => {
+        event.preventDefault();
+        console.log(this.state.title)
+        console.log("Removing Resource")
+        this.removeResource(this.state.title)
+    };
+
+    removeResource = title => {
+        API.deleteResource(title)
+          .then(res => console.log(res))
+          .catch(err => console.log(err));
+      };
 
     render() {
         return (
-            <div className="AdminRemovePost">
-                <h1>Remove Post</h1>
-                <TabComponent/>
+            <div className="container">
+                <h1>Remove a Post</h1>
                 <form>
-                    <label>This is the label</label>
                     <Input
-                        value={this.state.username}
+                        value={this.state.title}
                         onChange={this.handleInputChange}
-                        name="username"
-                        placeholder="Name (required)"
+                        name="title"
+                        placeholder="Title (required)"
                     />
-                    {/* <Input
-                        value={this.state.password}
-                        onChange={this.handleInputChange}
-                        name="password"
-                        placeholder="Password (required)"
-                    /> */}
-                    <FormBtn
-                        // disabled={!(this.state.author && this.state.title)}
+                    <Button
                         onClick={this.handleFormSubmit}
+                        disabled={!(this.state.title)}
+                        className="green modal-close"
                     >
                         Remove Post
-                    </FormBtn>
+                </Button>
                 </form>
             </div >
         );

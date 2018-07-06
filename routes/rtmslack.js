@@ -66,45 +66,27 @@ module.exports = function (app) {
                 x=i
                 )
 
-                var verifiedlink 
-
-                    // validate.lookup(x)
-                    // .on( 'success', function ( data ) {
-                    //     console.log(data);
-                    //     console.log("Message Succeded in Verifying");
-                        
-                        
-                    //     //  verifiedlink = "green check"
-                    // } )
-                    // .on( 'error', function ( error ) {
-                    //     console.log(error);
-                    //     console.log('dsakfj;dsa;fkl');
-                        
-                    //     // verifiedlink = "yellow warning"
-
-                    // } )
-                
-                // db.Resource.create( {
-                //     link: x,
-                //     title: 'Resource Shared via Slack',
-                //     category: 'Slack Submissions'
-                //   })
-                //   .then(function (response) {
-                //     console.log(response);
-                //   })
-                //   .catch(function (error) {
-                //     console.log(error);
-                //   })
+                db.Resource.create( {
+                    link: x,
+                    title: 'Resource Shared via Slack',
+                    category: 'Slack Submissions'
+                  })
+                  .then(function (response) {
+                    console.log(response);
+                  })
+                  .catch(function (error) {
+                    console.log(error);
+                  })
                     
                 
-                // console.log(x);
+                console.log(x + "Link has been added to DB");
                 
                 // console.log(getUrl(event.text));
                 
                 
                 
             })
-            // .catch(console.error);
+            .catch(console.error);
             
         }
          

@@ -4,10 +4,9 @@ import Categories from "../components/Categories/Categories";
 import Heading from "../components/Jumbotron/Heading";
 import Post from "../components/Post/Post";
 import Result from "../components/Results/Result";
-import Foot from "../components/Footer/Footer";
+// import Foot from "../components/Footer/Footer";
 import API from "../utils/API";
-import { Row } from "react-materialize";
-import SlackToast from "../components/SlackToastr/slackAlert"
+import { Col, Row, Collapsible } from "react-materialize";
 import "./Main.css";
 
 
@@ -21,7 +20,8 @@ class Main extends Component {
     resources: [],
     title: "",
     link: "",
-    description: ""
+    description: "",
+    selectedCat: ""
   };
 
   //image click funtion 
@@ -29,6 +29,7 @@ class Main extends Component {
     this.setState({ categoryName: category.name })
     console.log('category', category.name)
     this.getCategory(category.name)
+    this.setState({selectedCat: 'selectedCategory ='})
   }
 
   loadResources = () => {
@@ -47,7 +48,7 @@ class Main extends Component {
   // Empty resources and set to chosen category
   handleCategoryChange = category => {
     this.setState({ resources: [] })
-    this.setState({ resources: category})
+    this.setState({ resources: category })
   }
 
   // run loadResources after component mounts
@@ -58,12 +59,11 @@ class Main extends Component {
   // Beginning of render function
   render() {
     return (
+      
       <div className="App">
 
         <MenuAppBar />
         
-        <SlackToast/>
-        <Post />
         <div className="center-align">
           <h1> </h1>
           <Heading />
@@ -76,26 +76,34 @@ class Main extends Component {
           </div>
 
           <div className="border row">
-            <div className="cat col s12">{this.state.categoryName}</div>
+            <div className="cat col s12"> {`${this.state.selectedCat} ${this.state.categoryName}`}</div>
           </div>
 
           <div className="container results">
             <Row className="collapse">
-              {this.state.resources.map(resource => {
-                return (
-                  <Result>
-                    {/* this is how you pass resource, the data that you queried back to the Results component. Results will then consume it as props.children */}
-                    {resource}
-                  </Result>
-                );
-              })}
+              <Col m={12}>
+                {this.state.resources.map(resource => {
+                  return (
+                    <Collapsible popout defaultActiveKey={2}>
+                      <Result>
+
+                        {/* this is how you pass resource, the data that you queried back to the Results component. Results will then consume it as props.children */}
+                        {resource}
+
+                      </Result>
+                    </Collapsible>
+                  );
+                })}
+              </Col>
             </Row>
           </div>
 
-        </div>
-        <Foot />
+        {/* <Foot /> */}
 
+                </div>
+                <Post />
       </div>
+    
     );
   }
 }

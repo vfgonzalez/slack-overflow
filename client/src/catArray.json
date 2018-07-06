@@ -7,14 +7,15 @@
     },
     {   
         "id": 2,
-        "name": "Teaching Resource",
-        "image": "./images/teaching-resources.png",
+        "name": "CSS",
+        "image": "./images/css.png",
         "description": "Enter text here"
+        
     },
     {   
         "id": 3,
-        "name": "CSS",
-        "image": "./images/css.png",
+        "name": "Teaching Resource",
+        "image": "./images/teachingresources.png",
         "description": "Enter text here"
     },
     {
@@ -61,38 +62,34 @@
     },
     {
         "id": 11,
+        "name": "HTML",
+        "image": "./images/html.png",
+        "description": "Enter text here"
+
+    },
+    {
+        "id": 12,
         "name": "Job Resources",
         "image": "./images/jobresources.png",
         "description": "Enter text here"
     },
     {
-        "id": 12,
-        "name": "HTML",
-        "image": "./images/html2.png",
-        "description": "Enter text here"
-    },
-    {
         "id": 13,
-        "name": "Random",
-        "image": "./images/random.png",
-        "description": "Enter text here"
-    },
-    {
-        "id": 14,
         "name": "Podcasts",
         "image": "./images/podcasts.png",
         "description": "Enter text here"
+        
     },
     {
-        "id": 15,
+        "id": 14,
         "name": "Slack Submissions",
         "image": "./images/slacksubmissions.png",
         "description": "Enter text here"
     },
     {
-        "id": 16,
-        "name": "Text Submissions",
-        "image": "./images/textsubmissions.png",
+        "id": 15,
+        "name": "Random",
+        "image": "./images/random.png",
         "description": "Enter text here"
     }
 ]
