@@ -1,11 +1,6 @@
 .category {
-<<<<<<< HEAD
     /* border-top: 2px solid gray; */
     /* border-bottom: 2px solid gray; */
-=======
-    /* border-top: 2px solid gray;
-    border-bottom: 2px solid gray; */
->>>>>>> d018b69344b26de328f42dd1fd920f4184f766ee
     font-size: 40px;
     
 }
@@ -20,15 +15,4 @@
     text-align: center;
     /* margin-left: 10%; */
     /* width: 60%; */
-<<<<<<< HEAD
 }
-=======
-}
-
-#cards{
-    color: lightgreen;
-    font-family: 'Anonymous Pro', monospace;
-    font-size:35px;
-}
-
->>>>>>> d018b69344b26de328f42dd1fd920f4184f766ee
