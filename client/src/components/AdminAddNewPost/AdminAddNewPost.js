@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import API from '../../utils/API'
-import { Modal, Button, Row, Input, Icon, Toast, Dropdown, NavItem } from 'react-materialize'
+import { Button, Input } from 'react-materialize'
 import Suggestor from 'ssuggestor'
 import "./AdminAddNewPost.css"
 
@@ -38,7 +38,6 @@ class AdminAddNewPost extends Component {
         )
             .then(res => console.log(res.data))
 
-            // .then(res => console.log(instance.close()))
             .catch(err => console.log(err))
     };
 

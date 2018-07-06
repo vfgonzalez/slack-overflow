@@ -3,7 +3,7 @@ import { Modal, Button, Icon, Row } from 'react-materialize';
 import { Input, FormBtn } from "../Form";
 import API from '../../utils/API'
 import './Login.css';
-import { Route, Redirect } from 'react-router'
+import { Redirect } from 'react-router'
 
 class Login extends Component {
 
