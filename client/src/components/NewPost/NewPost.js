@@ -93,9 +93,7 @@ class NewPost extends Component {
           >
           </Button>}>
           <Row>
-          <button onClick={this.handleTestButton}>TEST</button>
-
-            <ToastContainer />
+        
             <form>
               <Input
                 s={12}
@@ -119,17 +117,6 @@ class NewPost extends Component {
               >
                 <Icon large>title</Icon>
               </Input>
-              {/* <Input
-                s={12}
-                value={this.state.category}
-                onChange={this.handleInputChange}
-                name="category"
-                type="text"
-                label="Category"
-              // placeholder="Password (required)"
-              >
-                <Icon large>info</Icon>
-              </Input> */}
               <Input
                 s={12}
                 value={this.state.description}
@@ -137,14 +124,13 @@ class NewPost extends Component {
                 name="description"
                 type="textarea"
                 label="Description"
-              // placeholder="Password (required)"
+              
               >
                 <Icon large>info</Icon>
               </Input>
               <Suggestor
                 label="LABEL"
                 list={catArray}
-                // theme={b3Theme}
                 onChange={value => {}}
                 onSelect={(value, suggestion) => {this.setState({ category : suggestion })}}
                 placeholder="Choose a Category"
