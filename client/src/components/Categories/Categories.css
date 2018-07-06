@@ -1,14 +1,8 @@
 .category {
-    /* border-top: 2px solid gray;
-    border-bottom: 2px solid gray; */
+    /* border-top: 2px solid gray; */
+    /* border-bottom: 2px solid gray; */
     font-size: 40px;
-
-}
-
-.border {
-    text-align: center;
-    /* margin-left: 10%; */
-    /* width: 60%; */
+    
 }
 
 #cards{
@@ -17,3 +11,8 @@
     font-size:35px;
 }
 
+.border {
+    text-align: center;
+    /* margin-left: 10%; */
+    /* width: 60%; */
+}

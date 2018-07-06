@@ -17,8 +17,6 @@ class UserResult extends Component {
     const { username, accountLevel, cohortname, date, _id } = this.props.children
 
     this.setState({
-      //you can also do it like this - title: title,
-
       username,
       accountLevel,
       cohortname,
@@ -32,14 +30,14 @@ class UserResult extends Component {
 
     return (
 
-        <div className="userResult">
-            <h4>Username: {this.state.username}</h4>
-            <p>ID: {this.state._id}</p>
-            <p>Account Level: {this.state.accountLevel}</p>
-            <p>Cohort: {this.state.cohortname}</p>
-            <p>Date: {this.state.date}</p>
-        </div>
-        
+      <div className="userResult">
+        <h4>Username: {this.state.username}</h4>
+        <p>ID: {this.state._id}</p>
+        <p>Account Level: {this.state.accountLevel}</p>
+        <p>Cohort: {this.state.cohortname}</p>
+        <p>Date: {this.state.date}</p>
+      </div>
+
     );
   }
 }
