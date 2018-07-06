@@ -4,10 +4,11 @@ import "./Post.css";
 import NewPost from '../NewPost/NewPost'
 
 
+
 class Post extends Component {
 
   handleTopScroll = () => {
-    console.log('scroll top button pressed')
+    // console.log('scroll top button pressed')
     window.scrollTo(0, 0)
   }
 

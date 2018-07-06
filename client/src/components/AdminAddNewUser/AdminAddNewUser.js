@@ -21,7 +21,7 @@ class AdminAddNewUser extends Component {
     // Send data to database when form is submitted
     handleFormSubmit = event => {
         event.preventDefault();
-        console.log(this.state.username)
+        // console.log(this.state.username)
         API.saveUser(
             {
                 username: this.state.username,

@@ -7,11 +7,8 @@ import "./Footer.css";
 const Foot = props => (
   <div >
     <Footer 
-      // className="black lighten-2"
       id="footer-style"
-      
     >
-      
     </Footer>
   </div>
 

@@ -1,13 +1,7 @@
 import React, { Component } from 'react'
 import { Modal, Button, Row, Input, Icon } from 'react-materialize'
 import API from '../../utils/API'
-// import Input from '@material-ui/core/Input';
-// import InputLabel from '@material-ui/core/InputLabel';
-// import MenuItem from '@material-ui/core/MenuItem';
-// import FormHelperText from '@material-ui/core/FormHelperText';
-// import FormControl from '@material-ui/core/FormControl';
-// import Select from '@material-ui/core/Select';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 import Suggestor from 'ssuggestor'
 
@@ -57,7 +51,7 @@ class NewPost extends Component {
   };
 
   handleTestButton = () => {
-    console.log(this.state)
+    // console.log(this.state)
   }
 
   render() {
@@ -139,9 +133,6 @@ class NewPost extends Component {
 
 
           </Row>
-          {/* <Button className="red modal-close" >Cancel</Button> */}
-          {/* <Button onClick={this.handleFormSubmit} className="green modal-close"> Submit</Button> */}
-          {/* <Button onClick={this.handleFormSubmit} className="green modal-close">Submit</Button> */}
           <Button onClick={this.handleButtonClick} className="green modal-close">Submit</Button>
 
         </Modal>
