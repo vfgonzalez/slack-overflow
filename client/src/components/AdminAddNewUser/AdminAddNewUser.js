@@ -10,13 +10,6 @@ class AdminAddNewUser extends Component {
         password: "",
     };
 
-    // Test Button
-    handleTestButton = () => {
-        this.loadUsers()
-        console.log('button pressed')
-        // console.log(this.state)
-    }
-
     // Handles updating component state when the user types into the input field
     handleInputChange = event => {
         const { name, value } = event.target;
@@ -25,8 +18,7 @@ class AdminAddNewUser extends Component {
         });
     };
 
-    // When the form is submitted, use the API method to save the data
-    // Then reload data from the database
+    // Send data to database when form is submitted
     handleFormSubmit = event => {
         event.preventDefault();
         console.log(this.state.username)
@@ -35,10 +27,8 @@ class AdminAddNewUser extends Component {
                 username: this.state.username,
                 password: this.state.password,
                 accountLevel: 'Admin',
-                // cohortname: 'test'
             }
         )
-            // .then(res => this.loadUsers())
             .catch(err => console.log(err));
 
     };
@@ -47,6 +37,7 @@ class AdminAddNewUser extends Component {
         return (
             <div className="container">
                 <h1>Add a new user</h1>
+                {/* Form for adding new user */}
                 <form>
                     <Input
                         value={this.state.username}

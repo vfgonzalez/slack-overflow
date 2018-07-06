@@ -1,15 +1,12 @@
-module.exports = {
-  Resource: require("./resources"),
-  User: require("./users"),
-  Cohort: require("./cohorts")
-};
 // ---------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------
 // Model Index
 // ---------------------------------------------------------------------------------
 // ---------------------------------------------------------------------------------
 
-// module.exports = {
-//   Resource: require("./resource")
-// };
-  
+module.exports = {
+  Resource: require("./resources"),
+  User: require("./users"),
+  Cohort: require("./cohorts")
+};
+

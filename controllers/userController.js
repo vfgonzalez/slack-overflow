@@ -1,6 +1,6 @@
 const db = require("../models");
 
-// Defining methods for the booksController
+// methods for user
 module.exports = {
   findAll: function (req, res) {
     console.log('Finding All Users')
@@ -41,8 +41,6 @@ module.exports = {
     console.log('Removing By Username: ' + req.params.username)
     db.User
       .deleteOne({ username: req.params.username })
-      // .then(dbModel => dbModel.remove())
-      // .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
 };

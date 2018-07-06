@@ -15,7 +15,7 @@ class AdminAddNewPost extends Component {
         category: 'General Tools'
     };
 
-    // Handles updating component state when the user types into the input field
+    // Handles updating state when the user types into the input field
     handleInputChange = event => {
         const { name, value } = event.target;
         this.setState({
@@ -23,7 +23,7 @@ class AdminAddNewPost extends Component {
         });
     };
 
-    // When the form is submitted, use the API method to save the data
+    // Save resource data using API when form is submitted
     handleFormSubmit = event => {
         console.log("Submitting Resource from Admin Page")
         console.log(this.state)
@@ -37,12 +37,12 @@ class AdminAddNewPost extends Component {
             }
         )
             .then(res => console.log(res.data))
-
             .catch(err => console.log(err))
     };
 
     render() {
 
+        // Array of all categories
         const catArray = [
             "General Tools",
             "Teaching Resource",
@@ -65,6 +65,7 @@ class AdminAddNewPost extends Component {
         return (
             <div className="container">
                 <h1>Add a New Post</h1>
+                {/* Form for adding new resource */}
                 <form>
                     <Input
                         value={this.state.link}
@@ -90,12 +91,10 @@ class AdminAddNewPost extends Component {
                     <Suggestor
                         label="LABEL"
                         list={catArray}
-                        // theme={b3Theme}
                         onChange={value => { }}
                         onSelect={(value, suggestion) => { this.setState({ category: suggestion }) }}
                         placeholder="Choose a Category"
                     />
-
                     <Button
                         onClick={this.handleFormSubmit}
                         disabled={!(this.state.link && this.state.title && this.state.category)}
