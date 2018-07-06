@@ -1,12 +1,18 @@
 .category {
-    border-top: 2px solid gray;
-    border-bottom: 2px solid gray;
+    /* border-top: 2px solid gray; */
+    /* border-bottom: 2px solid gray; */
     font-size: 40px;
+    
+}
 
+#cards{
+    color: lightgreen;
+    font-family: 'Anonymous Pro', monospace;
+    font-size:35px;
 }
 
 .border {
     text-align: center;
     /* margin-left: 10%; */
-    width: 60%;
+    /* width: 60%; */
 }

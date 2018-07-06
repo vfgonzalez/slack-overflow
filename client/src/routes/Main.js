@@ -72,7 +72,7 @@ class Main extends Component {
           />
           {/* HTML for bracket under carousel */}
           <div className="bracket">
-            <p>{"}"}</p>
+            <p>{")}"}</p>
           </div>
 
           <div className="border row">

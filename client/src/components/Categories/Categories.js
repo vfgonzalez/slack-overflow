@@ -19,19 +19,19 @@ class Categories extends Component {
             
             <Carousel
                 options={{
-                    dist: -80,
-                    shift: 60,
+                    dist:-40,
+                    shift:40,
                     numVisible:16,
+                    indicators:true,
                 }}
                 children={catArray.map((cat) => {
                     
                     return (
-                        <img
-                            key={cat.id}
-                            onClick={() => { this.props.onImageClick(cat) }}
-                            src={cat.image}
-                            alt={cat.name}
-                        />
+                        <p 
+                            key={cat.id} 
+                            id="cards"
+                            onClick={() => { this.props.onImageClick(cat) }}>{cat.name}
+                        </p>
                     );
                 })}
             />
