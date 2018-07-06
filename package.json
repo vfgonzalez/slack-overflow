@@ -40,6 +40,7 @@
     "react-router": "^4.3.1",
     "react-scroll-up": "^1.3.3",
     "react-toastify": "^4.1.0",
+    "react-tooltip": "^3.6.1",
     "safe-browse": "^1.0.1",
     "ssuggestor": "^1.0.0"
   }

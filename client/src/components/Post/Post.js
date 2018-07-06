@@ -3,8 +3,7 @@ import { Button,Icon } from 'react-materialize'
 import "./Post.css";
 import NewPost from '../NewPost/NewPost'
 
-// window.scrollTo(0, 0)
-// const Post = props => (
+
 class Post extends Component {
 
   handleTopScroll = () => {

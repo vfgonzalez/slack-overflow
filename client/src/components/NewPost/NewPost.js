@@ -76,8 +76,7 @@ class NewPost extends Component {
       "HTML",
       "Random",
       "Podcasts",
-      "Slack Submissions",
-      "Text Submissions"
+      "Slack Submissions"
     ]
     return (
 
@@ -93,7 +92,6 @@ class NewPost extends Component {
           >
           </Button>}>
           <Row>
-        
             <form>
               <Input
                 s={12}
