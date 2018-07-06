@@ -38,7 +38,6 @@ class AdminAddNewPost extends Component {
         )
             .then(res => console.log(res.data))
 
-            // .then(res => console.log(instance.close()))
             .catch(err => console.log(err))
     };
 
