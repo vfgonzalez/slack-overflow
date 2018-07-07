@@ -97,28 +97,28 @@
 
 ## App Demo
 > Landing Page
-![](./public/images/readmescreenshots/main.png)
+![](./client/public/images/readmescreenshots/main.png)
 > Category Selected
-![](./public/images/readmescreenshots/categoryselected.png)
+![](./client/public/images/readmescreenshots/categoryselected.png)
 > Resources
-![](./public/images/readmescreenshots/resources.png)
+![](./client/public/images/readmescreenshots/resources.png)
 > Return to Top + New Post Button
-![](./public/images/readmescreenshots/returntotop_newpostbutton.png)
+![](./client/public/images/readmescreenshots/returntotop_newpostbutton.png)
 > New Post
-![](./public/images/readmescreenshots/newpost.png)
+![](./client/public/images/readmescreenshots/newpost.png)
 > Side Nav
-![](./public/images/readmescreenshots/sidenav.png)
+![](./client/public/images/readmescreenshots/sidenav.png)
 > Admin Login
-![](./public/images/readmescreenshots/adminlogin.png)
+![](./client/public/images/readmescreenshots/adminlogin.png)
 > Admin Help
-![](./public/images/readmescreenshots/adminhelp.png)
+![](./client/public/images/readmescreenshots/adminhelp.png)
 > Admin New Post
-![](./public/images/readmescreenshots/adminnewpost.png)
+![](./client/public/images/readmescreenshots/adminnewpost.png)
 > Admin New User
-![](./public/images/readmescreenshots/adminnewuser.png)
+![](./client/public/images/readmescreenshots/adminnewuser.png)
 > Admin Remove Post
-![](./public/images/readmescreenshots/adminremovepost.png)
+![](./client/public/images/readmescreenshots/adminremovepost.png)
 > Admin Remove User
-![](./public/images/readmescreenshots/adminremoveuser.png)
+![](./client/public/images/readmescreenshots/adminremoveuser.png)
 > Admin Show All Users
-![](./public/images/readmescreenshots/resources.png)
+![](./client/public/images/readmescreenshots/resources.png)
