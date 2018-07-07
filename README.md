@@ -96,29 +96,42 @@
 [npm-downloads]: https://img.shields.io/npm/dm/datadog-metrics.svg?style=flat-square
 
 ## App Demo
+
 > Landing Page
 ![](./client/public/images/readmescreenshots/main.png)
+
 > Category Selected
 ![](./client/public/images/readmescreenshots/categoryselected.png)
+
 > Resources
 ![](./client/public/images/readmescreenshots/resources.png)
+
 > Return to Top + New Post Button
 ![](./client/public/images/readmescreenshots/returntotop_newpostbutton.png)
+
 > New Post
 ![](./client/public/images/readmescreenshots/newpost.png)
+
 > Side Nav
 ![](./client/public/images/readmescreenshots/sidenav.png)
+
 > Admin Login
 ![](./client/public/images/readmescreenshots/adminlogin.png)
+
 > Admin Help
 ![](./client/public/images/readmescreenshots/adminhelp.png)
+
 > Admin New Post
 ![](./client/public/images/readmescreenshots/adminnewpost.png)
+
 > Admin New User
 ![](./client/public/images/readmescreenshots/adminnewuser.png)
+
 > Admin Remove Post
 ![](./client/public/images/readmescreenshots/adminremovepost.png)
+
 > Admin Remove User
 ![](./client/public/images/readmescreenshots/adminremoveuser.png)
+
 > Admin Show All Users
 ![](./client/public/images/readmescreenshots/resources.png)
