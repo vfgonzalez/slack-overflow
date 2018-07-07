@@ -134,4 +134,4 @@
 ![](./client/public/images/readmescreenshots/adminremoveuser.png)
 
 > Admin Show All Users
-![](./client/public/images/readmescreenshots/resources.png)
+![](./client/public/images/readmescreenshots/adminshowallusers.png)
