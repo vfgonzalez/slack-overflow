@@ -1,32 +1,37 @@
-.bracket {
-    color: white;
-    font-size:35px;
-    margin-top:-12%;
-    font-family: 'Anonymous Pro', monospace;
-}
+    .bracket {
+        color: white;
+        font-size:35px;
+        margin-top:-9%;
+        font-family: 'Anonymous Pro', monospace;
+    }
+    
+    .results {
+        width: 90%;
+    }
+    
+    .collapsible-body {
+        font-family: 'Anonymous Pro', monospace;
+        background-color: beige;
+        padding: 1rem;
+    }
+    
+    .collapse {
+        font-family: 'Anonymous Pro', monospace
+    }
+    
+    .App {
+        background-image: url("bg.png");
+       
+    }
+    
+    .cat {
+        color: orange;
+        font-size:35px;
+        font-family: 'Anonymous Pro', monospace;
+    }
 
-.results {
-    width: 90%;
-}
 
-.collapsible-body {
-    font-family: 'Anonymous Pro', monospace;
-    background-color: beige;
-    padding: 1rem;
-}
 
-.collapse {
-    font-family: 'Anonymous Pro', monospace
-}
 
-.App {
-    background-image: url("bg.png");
-   
-}
 
-.cat {
-    color: orange;
-    font-size:35px;
-    font-family: 'Anonymous Pro', monospace;
-}
 
