@@ -1,17 +1,21 @@
-.heading {
-    color: white;
-    font-size:35px;
-    margin-bottom:-10%;
-    font-family: 'Anonymous Pro', monospace;
-}
+    .heading {
+        color: white;
+        font-size:35px;
+        margin-bottom:-8%;
+        font-family: 'Anonymous Pro', monospace;
+    }
+    
+    .purps {
+        color: purple;
+        font-family: 'Anonymous Pro', monospace;
+    }
+    
+    .secondColor {
+        color: rgb(248, 248, 118);
+        font-family: 'Anonymous Pro', monospace;
+    }
 
-.purps {
-    color: purple;
-    font-family: 'Anonymous Pro', monospace;
-}
 
-.secondColor {
-    color: rgb(248, 248, 118);
-    font-family: 'Anonymous Pro', monospace;
-}
+
+
 
