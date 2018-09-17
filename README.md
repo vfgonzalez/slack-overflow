@@ -3,15 +3,15 @@
 
 ## Developers
 
-> Thomas Seaman - Front End Developer
+* Thomas Seaman - Front End Developer
 [https://github.com/ThomasSeaman](https://github.com/ThomasSeaman)
-> Christain Lopes - Front End Developer
+* Christain Lopes - Front End Developer
 [https://github.com/CLopes1](https://github.com/CLopes1)
-> Vicente Gonzalez - Version Control, API Intergration, Front/Back End Developer
+* Vicente Gonzalez - Version Control, API Intergration, Front/Back End Developer
 [https://github.com/vfgonzalez](https://github.com/vfgonzalez)
-> Gavin Quirk - Front/Back End Developer
+* Gavin Quirk - Front/Back End Developer
 [https://github.com/gavinquirk](https://github.com/gavinquirk)
-> Jeremy Knappe - Front End Developer
+* Jeremy Knappe - Front End Developer
 [https://github.com/jdknappe](https://github.com/jdknappe)
 
 [![NPM Version][npm-image]][npm-url]
