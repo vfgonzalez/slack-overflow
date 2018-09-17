@@ -1,6 +1,19 @@
 # Slack Overflow 2.0
 > The Slack Overflow app is a center for resources shared for students by students via slack app or created right in the app. 
 
+## Developers
+
+> Thomas Seaman - Front End Developer
+[https://github.com/ThomasSeaman](https://github.com/ThomasSeaman)
+> Christain Lopes - Front End Developer
+[https://github.com/CLopes1](https://github.com/CLopes1)
+> Vicente Gonzalez - Version Control, API Intergration, Front/Back End Developer
+[https://github.com/vfgonzalez](https://github.com/vfgonzalez)
+> Gavin Quirk - Front/Back End Developer
+[https://github.com/gavinquirk](https://github.com/gavinquirk)
+> Jeremy Knappe - Front End Developer
+[https://github.com/jdknappe](https://github.com/jdknappe)
+
 [![NPM Version][npm-image]][npm-url]
 
 > Check out the functionality live Heroku: http://slackoverflow2.herokuapp.com/main
@@ -77,18 +90,6 @@
 
 > safe-browse 1.0.1
 
-## Meta
-
-> Thomas Seaman
-[https://github.com/ThomasSeaman](https://github.com/ThomasSeaman)
-> Christain Lopes
-[https://github.com/CLopes1](https://github.com/CLopes1)
-> Vicente Gonzalez
-[https://github.com/vfgonzalez](https://github.com/vfgonzalez)
-> Gavin Quirk
-[https://github.com/gavinquirk](https://github.com/gavinquirk)
-> Jeremy Knappe
-[https://github.com/jdknappe](https://github.com/jdknappe)
 
 <!-- Markdown link & img dfn's -->
 [npm-image]: https://img.shields.io/npm/v/datadog-metrics.svg?style=flat-square
